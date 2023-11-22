@@ -23,6 +23,6 @@ public class Terrain extends Tile {
 
     @Override
     public void stepInEffect() {
-        System.out.println(getInfo());
+        System.out.println(info());
     }
 }

@@ -17,6 +17,6 @@ public class Unit extends Tile {
     }
 
     void move(HexVector vector){
-        setCoordinate(getCoordinate().add(vector));
+        setCoordinate(this.add(vector));
     }
 }

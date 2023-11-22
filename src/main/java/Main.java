@@ -1,5 +1,3 @@
-package ru.geekbrains.cnc;
-
 import ru.geekbrains.cnc.tiles.Unit;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.Tile;
