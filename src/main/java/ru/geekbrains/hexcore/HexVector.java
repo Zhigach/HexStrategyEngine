@@ -6,6 +6,19 @@ package ru.geekbrains.hexcore;
 public class HexVector {
     private int s;
     private int q;
+
+    public void setS(int s) {
+        this.s = s;
+    }
+
+    public void setQ(int q) {
+        this.q = q;
+    }
+
+    public void setR(int r) {
+        this.r = r;
+    }
+
     private int r;
     public HexVector(int s, int q, int r) {
         if (s+q+r != 0)
@@ -29,7 +42,8 @@ public class HexVector {
 
     public HexVector add(HexVector delta) {
         HexVector result = new HexVector(s + delta.s,q + delta.q,r + delta.r);
-        if (result.isCorrectHex()) { return result; }
+        if (result.isCorrectHex())
+            return result;
         return null;
     }
 
