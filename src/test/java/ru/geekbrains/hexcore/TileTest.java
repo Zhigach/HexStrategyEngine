@@ -59,7 +59,7 @@ class TileTest {
 
     @org.junit.jupiter.api.Test
     void getSurroundingHexes() {
-        List<HexVector> area = testTile.getSurroundingHexes(1);
+        List<HexVector> area = testTile.getHexesInRange(1);
         for (HexVector hexVector : area) {
             System.out.println(hexVector.info());
         }

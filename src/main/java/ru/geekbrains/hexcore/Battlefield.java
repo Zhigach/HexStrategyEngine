@@ -1,19 +1,17 @@
 package ru.geekbrains.hexcore;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Battlefield { // Class Holder Singleton
     // Limits
-    private Map<HexVector, Tile> tiles;
+    private HashMap<HexVector, > tiles;
 
     public void putTile(Tile newTile) {
-        tiles.put((HexVector) newTile, newTile);
+        tiles.add(newTile);
     }
 
     public Tile getTileByCoordinate(HexVector coordinate) {
+        tiles.
         return tiles.get(coordinate);
     }
 
