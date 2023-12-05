@@ -13,15 +13,17 @@ import static java.lang.Math.max;
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
  */
 public class Tile extends HexVector{
+    static Battlefield battlefield = Battlefield.getInstance();
     boolean passable;
     boolean blockLOS;
     protected Tile(int s, int q, int r) {
         super(s,q,r);
+        battlefield.putTile(this);
     }
     protected Tile(HexVector hexVector) {
         super(hexVector.getS(), hexVector.getQ(), hexVector.getR());
+        battlefield.putTile(this);
     }
-
     public void stepInEffect() {
         System.out.println(info());
     }
