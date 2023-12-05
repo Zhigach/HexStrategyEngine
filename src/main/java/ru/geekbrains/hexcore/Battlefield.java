@@ -7,8 +7,15 @@ import java.util.Map;
 
 public class Battlefield { // Class Holder Singleton
     // Limits
-    List<Tile> list = new ArrayList<>();
-    Map<HexVector, Tile> tiles;
+    private Map<HexVector, Tile> tiles;
+
+    public void putTile(Tile newTile) {
+        tiles.put((HexVector) newTile, newTile);
+    }
+
+    public Tile getTileByCoordinate(HexVector coordinate) {
+        return tiles.get(coordinate);
+    }
 
     private Battlefield() {
         tiles = new HashMap<>();
