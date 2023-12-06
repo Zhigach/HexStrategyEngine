@@ -8,6 +8,6 @@ public class Forest extends Terrain {
     }
 
     public Forest(int s, int q, int r) {
-        super();
+        super(s, q, r);
     }
 }
