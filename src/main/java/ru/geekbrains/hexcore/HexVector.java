@@ -9,26 +9,31 @@ import static java.lang.Math.*;
  * Basic cube coordinate class, contains coordinate validation
  */
 public class HexVector {
-    private int s;
-    private int q;
-
+    private Hex hex;
     public void setS(int s) {
-        this.s = s;
+        this.hex.setS(s);
     }
-
     public void setQ(int q) {
-        this.q = q;
+        this.hex.setQ(q);
     }
-
     public void setR(int r) {
-        this.r = r;
+        this.hex.setR(r);
+    }
+    public int getS() {
+        return hex.getS();
+    }
+    public int getQ() {
+        return hex.getQ();
+    }
+    public int getR() {
+        return hex.getR();
     }
 
-    private int r;
+    //region CONSTRUCTORS
     public HexVector(int s, int q, int r) {
         if (s+q+r != 0)
             throw new IllegalArgumentException("Incorrect hex coordinates");
-        this.s = s; this.q = q; this.r = r;
+        this.setS(s); this.setQ(q); this.setR(r);
     }
 
     public HexVector(double s, double q, double r) {
@@ -38,15 +43,16 @@ public class HexVector {
     public HexVector(HexVector hexVector) {
         if (!isCorrectHex())
             throw new IllegalArgumentException("Incorrect hex coordinates");
-        this.s = hexVector.getS();
-        this.q = hexVector.getQ();
-        this.r = hexVector.getR();
+        this.setS(hexVector.getS());
+        this.setQ(hexVector.getQ());
+        this.setR(hexVector.getR());
     }
+    //endregion
 
-    boolean isCorrectHex() { return s  + q + r == 0; }
+    boolean isCorrectHex() { return getS()  + getQ() + getR() == 0; }
 
     public HexVector add(HexVector delta) {
-        HexVector result = new HexVector(s + delta.s,q + delta.q,r + delta.r);
+        HexVector result = new HexVector(getS() + delta.getS(),getQ() + delta.getQ(),getR() + delta.getR());
         if (result.isCorrectHex())
             return result;
         return null;
@@ -58,18 +64,6 @@ public class HexVector {
      */
     public String info() {
         return String.format("Has coordinates (%d, %d, %d)", this.s, this.q, this.r);
-    }
-
-    public int getS() {
-        return s;
-    }
-
-    public int getQ() {
-        return q;
-    }
-
-    public int getR() {
-        return r;
     }
 
     @Override

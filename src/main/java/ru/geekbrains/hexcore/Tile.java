@@ -6,10 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.min;
-import static java.lang.Math.max;
-
 
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
@@ -20,11 +16,11 @@ public class Tile extends HexVector{
     protected boolean blockLOS;
     protected Tile(int s, int q, int r) {
         super(s,q,r);
-        battlefield.putTile(this);
+        battlefield.putTile((HexVector) this, this);
     }
     protected Tile(HexVector hexVector) {
         super(hexVector.getS(), hexVector.getQ(), hexVector.getR());
-        battlefield.putTile(this);
+        battlefield.putTile((HexVector) this, this);
     }
     public boolean isPassable() {
         return passable;
@@ -70,7 +66,7 @@ public class Tile extends HexVector{
                 List<HexVector> neighbours = hexVector.getContactingHexes();
                 for (HexVector neighbour : neighbours) {
                     if (!visited.contains(neighbour) &&
-                            battlefield.getTileByCoordinate(hexVector).isPassable()) {
+                            battlefield.getTileByCoordinate(hexVector).get(0).isPassable()) {
                         visited.add(neighbour);
                         fringes.get(step).add(neighbour);
                     }
@@ -98,7 +94,7 @@ public class Tile extends HexVector{
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
         for (HexVector hexVector : path.hexList) {
-            if (battlefield.getTileByCoordinate(hexVector).blockLOS)
+            if (battlefield.getTileByCoordinate(hexVector).get(0).blockLOS)
                 return false;
         }
         return true;

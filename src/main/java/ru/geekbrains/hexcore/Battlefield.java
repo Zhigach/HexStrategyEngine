@@ -1,17 +1,39 @@
 package ru.geekbrains.hexcore;
 
+import ru.geekbrains.hexcore.TileTypes.Terrain;
+import ru.geekbrains.hexcore.TileTypes.Unit;
+
 import java.util.*;
 
 public class Battlefield { // Class Holder Singleton
-    // Limits
-    private HashMap<HexVector, > tiles;
+    // TODO: Add limits
+    private final Map<HexVector, List<Tile>> tiles;
 
-    public void putTile(Tile newTile) {
-        tiles.add(newTile);
+    public void putTile(HexVector hexVector, Tile newTile) {
+        if (tiles.containsKey(newTile)) {
+            List<Tile> content = tiles.get(hexVector);
+            Tile firstElement = content.get(0);
+            if (firstElement instanceof Terrain && newTile instanceof Terrain) {
+                throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
+            } else if (firstElement instanceof Terrain && newTile instanceof Unit) {
+                if (!firstElement.isPassable()){
+                    throw new IllegalArgumentException("Unit can't be placed at impassable Terrain");
+                } else {
+                    content.add(newTile);
+                }
+            } else if (firstElement instanceof Unit && newTile instanceof Terrain) {
+                content.add(newTile);
+                Collections.swap(content, 0, content.size() - 1);
+            }
+        } else {
+            tiles.put(hexVector, List.of(newTile));
+        }
     }
 
-    public Tile getTileByCoordinate(HexVector coordinate) {
-        tiles.
+    public Tile getTerrainByCoordinate(HexVector hexVector) {
+        return tiles.get(hexVector).get(0);
+    }
+    public List<Tile> getTileByCoordinate(HexVector coordinate) {
         return tiles.get(coordinate);
     }
 
