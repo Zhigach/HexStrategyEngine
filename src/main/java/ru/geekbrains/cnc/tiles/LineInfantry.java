@@ -1,10 +1,10 @@
 package ru.geekbrains.cnc.tiles;
 
-public class LineInfantry extends Unit{
+import ru.geekbrains.hexcore.TileTypes.Unit;
 
-    LineInfantry(int s, int q, int r) {
-        super(s, q, r);
+public class LineInfantry extends Unit {
+    public LineInfantry(int s, int q, int r) {
+        super(s,q,r);
     }
-
 
 }

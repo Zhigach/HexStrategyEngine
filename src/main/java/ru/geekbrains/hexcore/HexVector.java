@@ -9,7 +9,12 @@ import static java.lang.Math.*;
  * Basic cube coordinate class, contains coordinate validation
  */
 public class HexVector {
-    private Hex hex;
+    private Hex hex = new Hex();
+
+    public Hex getHex() {
+        return hex;
+    }
+
     public void setS(int s) {
         this.hex.setS(s);
     }
@@ -63,21 +68,21 @@ public class HexVector {
      * @return String
      */
     public String info() {
-        return String.format("Has coordinates (%d, %d, %d)", this.s, this.q, this.r);
+        return String.format("Has coordinates (%d, %d, %d)", this.getS(), this.getQ(), this.getR());
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof HexVector)
-            return (r == ((HexVector) obj).r &&
-                    q == ((HexVector) obj).q &&
-                    s == ((HexVector) obj).q);
+            return (getR() == ((HexVector) obj).getR() &&
+                    getQ() == ((HexVector) obj).getQ() &&
+                    getS() == ((HexVector) obj).getS());
         return false;
     }
 
     @Override
     public int hashCode() {
-        return 1000*r + 100*q + s;
+        return 1000*getR() + 100*getQ() + getS();
     }
 
     /**

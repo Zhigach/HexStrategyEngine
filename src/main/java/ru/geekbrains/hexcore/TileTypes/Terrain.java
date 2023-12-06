@@ -4,7 +4,7 @@ import ru.geekbrains.hexcore.HexVector;
 import ru.geekbrains.hexcore.Tile;
 public class Terrain  extends Tile{
 
-    private Terrain(int s, int q, int r) {
+    protected Terrain(int s, int q, int r) {
         super(s, q, r);
     }
 

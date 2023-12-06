@@ -1,6 +1,6 @@
 package ru.geekbrains;
 
-import ru.geekbrains.cnc.tiles.Unit;
+import ru.geekbrains.hexcore.TileTypes.Unit;
 
 import java.util.List;
 

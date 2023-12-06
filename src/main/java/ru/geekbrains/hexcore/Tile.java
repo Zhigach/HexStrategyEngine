@@ -16,11 +16,11 @@ public class Tile extends HexVector{
     protected boolean blockLOS;
     protected Tile(int s, int q, int r) {
         super(s,q,r);
-        battlefield.putTile((HexVector) this, this);
+        battlefield.putTile(this.getHex(), this);
     }
     protected Tile(HexVector hexVector) {
         super(hexVector.getS(), hexVector.getQ(), hexVector.getR());
-        battlefield.putTile((HexVector) this, this);
+        battlefield.putTile(this.getHex(), this);
     }
     public boolean isPassable() {
         return passable;

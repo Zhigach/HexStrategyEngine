@@ -7,11 +7,11 @@ import java.util.*;
 
 public class Battlefield { // Class Holder Singleton
     // TODO: Add limits
-    private final Map<HexVector, List<Tile>> tiles;
+    private final Map<Hex, List<Tile>> tiles;
 
-    public void putTile(HexVector hexVector, Tile newTile) {
+    public void putTile(Hex hex, Tile newTile) {
         if (tiles.containsKey(newTile)) {
-            List<Tile> content = tiles.get(hexVector);
+            List<Tile> content = tiles.get(hex);
             Tile firstElement = content.get(0);
             if (firstElement instanceof Terrain && newTile instanceof Terrain) {
                 throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
@@ -26,7 +26,8 @@ public class Battlefield { // Class Holder Singleton
                 Collections.swap(content, 0, content.size() - 1);
             }
         } else {
-            tiles.put(hexVector, List.of(newTile));
+            tiles.put(hex, new ArrayList<>());
+            tiles.get(hex).add(newTile);
         }
     }
 

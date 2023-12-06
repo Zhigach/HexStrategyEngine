@@ -28,4 +28,18 @@ public class Hex {
     public void setR(int r) {
         this.r = r;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Hex)
+            return (getR() == ((Hex) obj).getR() &&
+                    getQ() == ((Hex) obj).getQ() &&
+                    getS() == ((Hex) obj).getS());
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 1000*getR() + 100*getQ() + getS();
+    }
 }
