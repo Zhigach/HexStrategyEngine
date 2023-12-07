@@ -12,7 +12,10 @@ public class Battlefield {
     // TODO: Add limits
     private final Map<Hex, List<Tile>> tiles;
 
+
     public void putTile(Hex hex, Tile newTile) {
+        if (hex == null)
+            throw new IllegalArgumentException("coordniate can't be null");
         if (tiles.containsKey(hex)) {
             List<Tile> content = tiles.get(hex);
             Tile firstElement = content.get(0);

@@ -1,6 +1,7 @@
 package ru.geekbrains.hexcore;
 
 
+import javax.management.ConstructorParameters;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,21 +12,21 @@ import java.util.Set;
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
  */
 public class Tile {
-    private Hex hex;
+    private Hex hex = null;
     static Battlefield battlefield = Battlefield.getInstance();
     protected boolean passable;
     protected boolean blockLOS;
 
     //region CONSTRUCTORS
-    {
+    private void init(){
         battlefield.putTile(this.getHex(), this);
     }
     protected Tile(int s, int q, int r) {
-        this.hex = new Hex(s,q,r);
+        this.hex = new Hex(s, q, r);
+        init();
     }
-
     protected Tile(Hex hex) {
-        this.hex = hex;
+        this(hex.getS(), hex.getQ(), hex.getR());
     }
     //endregion
 

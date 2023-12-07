@@ -2,6 +2,7 @@ import ru.geekbrains.cnc.tiles.Forest;
 import ru.geekbrains.cnc.tiles.LineInfantry;
 import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
+import ru.geekbrains.hexcore.Hex;
 import ru.geekbrains.hexcore.Tile;
 
 import java.util.Set;
@@ -19,7 +20,7 @@ public class Main {
         Tile river3 = new River(1,0,-1);
         Tile river4 = new River(-1,1,0);
 
-        Set<HexVector> reachable = tile2.getReachableTiles(2);
+        Set<Hex> reachable = tile2.getReachableHexes(2);
 
         Battlefield battlefield = Battlefield.getInstance();
         System.out.println("get");
