@@ -6,7 +6,7 @@ import static java.lang.Math.round;
 public class Core {
     // Must contain filed limits
 
-    public static HexVector roundHexVector(double sD, double qD, double rD) {
+    public static Hex roundHex(double sD, double qD, double rD) {
         int s = round((float) sD);
         int q = round((float) qD);
         int r = round((float) rD);
@@ -20,14 +20,14 @@ public class Core {
         } else {
             s = - q - r;
         }
-        return new HexVector(s, q, r);
+        return new Hex(s, q, r);
     }
 
     public static double linearInterpolation(int a, int b, double t) {
         return a + (b - a)*t;
     }
-    public static HexVector hexLinearInterpolation(HexVector a, HexVector b, double t) {
-        return new HexVector(linearInterpolation(a.getQ(), b.getQ(), t),
+    public static Hex hexLinearInterpolation(Hex a, Hex b, double t) {
+        return new Hex(linearInterpolation(a.getQ(), b.getQ(), t),
                 linearInterpolation(a.getR(), b.getR(), t),
                 linearInterpolation(a.getS(), b.getS(), t));
     }
