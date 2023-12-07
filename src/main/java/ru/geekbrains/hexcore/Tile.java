@@ -88,13 +88,15 @@ public class Tile {
         visited.add(this.getHex());
         List<List<Hex>> rounds = new ArrayList<>();
         int step = 0;
+        rounds.add(new ArrayList<>());
+        rounds.get(0).add(this.hex);
         while (step <= movement) {
             step++;
             rounds.add(new ArrayList<>());
             for (Hex hex : rounds.get(step - 1)) {
                 List<Hex> neighbours = hex.getContactingHexes();
                 for (Hex neighbour : neighbours) {
-                    if (!visited.contains(neighbour) && battlefield.isPassable(hex)) {
+                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) {
                         visited.add(neighbour);
                         rounds.get(step).add(neighbour);
                     }
