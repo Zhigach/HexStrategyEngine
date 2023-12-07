@@ -1,6 +1,6 @@
 package ru.geekbrains.hexcore.TileTypes;
 
-import ru.geekbrains.hexcore.HexVector;
+import ru.geekbrains.hexcore.Hex;
 import ru.geekbrains.hexcore.Tile;
 public class Terrain  extends Tile{
 
@@ -8,8 +8,8 @@ public class Terrain  extends Tile{
         super(s, q, r);
     }
 
-    protected Terrain(HexVector hexVector) {
-        super(hexVector);
+    protected Terrain(Hex hex) {
+        super(hex);
     }
 
     public Terrain() {

@@ -2,7 +2,6 @@ import ru.geekbrains.cnc.tiles.Forest;
 import ru.geekbrains.cnc.tiles.LineInfantry;
 import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.HexVector;
 import ru.geekbrains.hexcore.Tile;
 
 import java.util.Set;

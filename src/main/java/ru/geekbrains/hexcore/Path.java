@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Path {
-    List<HexVector> hexList;
+    List<Hex> hexList;
 
-    public Path(List<HexVector> hexList) {
-        if (!isValidateDeltaList(hexList))
+    public Path(List<Hex> hexList) {
+        if (!isValidDeltaList(hexList))
             throw new IllegalArgumentException("Provided path is invalid. Only deltas can be used");
         this.hexList = hexList;
     }
@@ -16,14 +16,14 @@ public class Path {
         this.hexList = new ArrayList<>();
     }
 
-    public Path addDelta(HexVector hexVector) {
-        this.hexList.add(hexVector);
+    public Path addDelta(Hex hex) {
+        this.hexList.add(hex);
         return this;
     }
-    private static boolean isValidateDeltaList(List<HexVector> hexList) {
-        for (HexVector hexVector : hexList) {
-            for (HexVector valid : HexDeltas.HEX_DELTAS) {
-                if (hexVector.equals(valid))
+    private static boolean isValidDeltaList(List<Hex> hexList) {
+        for (Hex hex : hexList) {
+            for (Hex valid : HexDeltas.HEX_DELTAS) {
+                if (hex.equals(valid))
                     return true;
             }
         }

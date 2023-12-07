@@ -1,6 +1,5 @@
 package ru.geekbrains.cnc.tiles;
 
-import ru.geekbrains.hexcore.HexVector;
 import ru.geekbrains.hexcore.TileTypes.Terrain;
 
 
