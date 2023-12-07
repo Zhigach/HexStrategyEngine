@@ -48,11 +48,13 @@ public class Battlefield {
         }
     }
 
-    public Tile getTerrainByCoordinate(Hex hex) {
-        if (getTileByCoordinate(hex) == null) {
+    public Terrain getTerrainByCoordinate(Hex hex) {
+        List<Tile> hexTiles = getTileByCoordinate(hex);
+        if (hexTiles == null || hexTiles.get(0) instanceof Unit) {
             return new PlainTerrain(hex);
+        } else {
+            return (Terrain) hexTiles.get(0);
         }
-        return tiles.get(hex).get(0);
     }
     public boolean isPassable(Hex hex) {
         return getTerrainByCoordinate(hex).isPassable();
