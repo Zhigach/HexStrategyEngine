@@ -90,7 +90,7 @@ public class Tile {
         int step = 0;
         rounds.add(new ArrayList<>());
         rounds.get(0).add(this.hex);
-        while (step <= movement) {
+        while (step < movement) {
             step++;
             rounds.add(new ArrayList<>());
             for (Hex hex : rounds.get(step - 1)) {
