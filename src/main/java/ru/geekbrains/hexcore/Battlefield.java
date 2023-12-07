@@ -5,7 +5,10 @@ import ru.geekbrains.hexcore.TileTypes.Unit;
 
 import java.util.*;
 
-public class Battlefield { // Class Holder Singleton
+/**
+ * Class Holder Singleton containing tiles Map
+ */
+public class Battlefield {
     // TODO: Add limits
     private final Map<Hex, List<Tile>> tiles;
 
@@ -22,7 +25,7 @@ public class Battlefield { // Class Holder Singleton
             }
             if (firstElement instanceof Terrain && newTile instanceof Terrain) {
                 throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
-            } else if (firstElement instanceof Unit && newTile instanceof Unit) {
+            } else if (hasUnit && newTile instanceof Unit) {
                 throw new IllegalArgumentException("Several units can't be placed at single Hex");
             } else if (firstElement instanceof Terrain && newTile instanceof Unit) {
                 if (!firstElement.isPassable()){
@@ -42,11 +45,14 @@ public class Battlefield { // Class Holder Singleton
         }
     }
 
-    public Tile getTerrainByCoordinate(HexVector hexVector) {
-        return tiles.get(hexVector).get(0);
+    public Tile getTerrainByCoordinate(Hex hex) {
+        return tiles.get(hex).get(0);
     }
-    public List<Tile> getTileByCoordinate(HexVector coordinate) {
-        return tiles.get(coordinate);
+    public boolean isPassable(Hex hex) {
+        return getTerrainByCoordinate(hex).isPassable();
+    }
+    public List<Tile> getTileByCoordinate(Hex hex) {
+        return tiles.get(hex);
     }
 
     private Battlefield() {

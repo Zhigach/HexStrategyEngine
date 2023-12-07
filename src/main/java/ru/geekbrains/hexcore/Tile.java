@@ -66,7 +66,7 @@ public class Tile extends HexVector{
                 List<HexVector> neighbours = hexVector.getContactingHexes();
                 for (HexVector neighbour : neighbours) {
                     if (!visited.contains(neighbour) &&
-                            battlefield.getTileByCoordinate(hexVector).get(0).isPassable()) {
+                            battlefield.isPassable(hexVector.getHex())) {
                         visited.add(neighbour);
                         fringes.get(step).add(neighbour);
                     }
@@ -94,7 +94,7 @@ public class Tile extends HexVector{
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
         for (HexVector hexVector : path.hexList) {
-            if (battlefield.getTileByCoordinate(hexVector).get(0).blockLOS)
+            if (battlefield.getTerrainByCoordinate(hexVector.getHex()).blockLOS)
                 return false;
         }
         return true;
