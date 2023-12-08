@@ -3,7 +3,6 @@ package ru.geekbrains.hexcore;
 
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
-import javax.management.ConstructorParameters;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -20,6 +19,11 @@ public abstract class Tile {
     protected boolean blockLOS;
 
     //region CONSTRUCTORS
+
+    /**
+     * Method adding ANY new Tile onto the Battlefield.
+     * Multiple Battlefields not supported by this core.
+     */
     private void init(){
         battlefield.putTile(this.getHex(), this);
     }
@@ -32,20 +36,19 @@ public abstract class Tile {
     }
     //endregion
 
+    /**
+     * get Tile hex coordinate
+     * @return Hex coordinate
+     */
     public Hex getHex() {
         return hex;
     }
+    /**
+     * Get Battlefield this Tile is assigned to
+     * @return Battlefield
+     */
     public Battlefield getBattlefield() {
         return battlefield;
-    }
-    public void setS(int s) {
-        this.hex.setS(s);
-    }
-    public void setQ(int q) {
-        this.hex.setQ(q);
-    }
-    public void setR(int r) {
-        this.hex.setR(r);
     }
     public int getS() {
         return hex.getS();
@@ -57,23 +60,50 @@ public abstract class Tile {
         return hex.getR();
     }
 
+    /**
+     * Abstract method to implement at siblings.
+     * @param unit Unit that steps at this Tile
+     */
+    public abstract void stepInEffect(Unit unit);
+
+    /**
+     * Arbitrary effect to be implemented at siblings
+     */
+    public abstract void stepInEffect();
+
+    /**
+     * Abstract method to implement at siblings.
+     * @param unit Unit that steps out of this Tile
+     */
+    public abstract void stepOutEffect(Unit unit);
+    /**
+     * Arbitrary effect to be implemented at siblings
+     */
+    public abstract void stepOutEffect();
+
+    /**
+     * Tells us if this Tile is passable.
+     * @return bool value
+     */
     public boolean isPassable() {
         return passable;
     }
-    public abstract void stepInEffect(Unit unit);
-    public abstract void stepInEffect();
 
-    public abstract void stepOutEffect(Unit unit);
-    public abstract void stepOutEffect();
-
+    /**
+     * Set Tile coordinate explicitly
+     * @param hex new coordinate
+     */
     protected void setCoordinate(Hex hex){
-        setS(hex.getS());
-        setQ(hex.getQ());
-        setR(hex.getR());
+        this.hex.setS(hex.getS());
+        this.hex.setQ(hex.getQ());
+        this.hex.setR(hex.getR());
     }
 
-
-
+    /**
+     * Check if the provided path is available for this specific Unit (Tile in general).
+     * @param path path to be checked
+     * @return bool
+     */
     public boolean validatePath(Path path) {
         return true;
     }
@@ -105,6 +135,12 @@ public abstract class Tile {
         }
         return visited;
     }
+
+    /**
+     * Get all Terrains that can be reached from this Tile using provided movement range.
+     * @param movement integer movement
+     * @return Set of Tiles
+     */
     public Set<Tile> getReachableTerrains(int movement) {
         Set<Hex> hexes = getReachableHexes(movement);
         Set<Tile> tiles = new HashSet<>();
@@ -129,6 +165,11 @@ public abstract class Tile {
         return new Path(results);
     }
 
+    /**
+     * Check does this Tile has line of sight to the destination Tile.
+     * @param to destination Tile
+     * @return bool
+     */
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
         for (Hex hex : path.hexList) {
@@ -145,5 +186,4 @@ public abstract class Tile {
     public String info() {
         return String.format("%s has coordinates (%d, %d, %d)", this.getClass().getName(), this.getS(), this.getQ(), this.getR());
     }
-
 }

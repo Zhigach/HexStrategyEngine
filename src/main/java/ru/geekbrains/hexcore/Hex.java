@@ -110,12 +110,12 @@ public class Hex {
     }
 
     /**
-     * Method returns hex delta that must be added to this in order to get to the to
-     * @param to destination hes
-     * @return delta that must be added to this in order to get to the to
+     * Method returns hex delta that must be added to this in order to get to the destination
+     * @param destination destination hes
+     * @return delta that must be added to this in order to get to the destination
      */
-    private Hex getDelta(Hex to) {
-        return new Hex(to.getS() - s, to.getQ() - q, to.getR() - r);
+    private Hex getDelta(Hex destination) {
+        return new Hex(destination.getS() - s, destination.getQ() - q, destination.getR() - r);
     }
 
     @Override
@@ -130,5 +130,9 @@ public class Hex {
     @Override
     public int hashCode() {
         return 1000*getR() + 100*getQ() + getS();
+    }
+
+    public String info() {
+        return String.format("%s: %s, %s, %s", hashCode(), s, q, r);
     }
 }
