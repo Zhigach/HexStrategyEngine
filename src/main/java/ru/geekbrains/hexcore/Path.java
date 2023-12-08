@@ -3,6 +3,9 @@ package ru.geekbrains.hexcore;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * List of Hex delta vectors with additional methods and validators.
+ */
 public class Path {
     List<Hex> hexList;
 
@@ -20,17 +23,12 @@ public class Path {
         this.hexList = new ArrayList<>();
     }
 
-    public Path addDelta(Hex hex) {
+    public Path addStep(Hex hex) {
         this.hexList.add(hex);
         return this;
     }
+
     private static boolean isValidDeltaList(List<Hex> hexList) {
-        for (Hex hex : hexList) {
-            for (Hex valid : HexDeltas.HEX_DELTAS) {
-                if (hex.equals(valid))
-                    return true;
-            }
-        }
-        return false;
+        return HexDeltas.isValidDeltaList(hexList);
     }
 }

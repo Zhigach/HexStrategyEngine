@@ -1,10 +1,11 @@
 package ru.geekbrains.hexcore.TileTypes;
 
 import ru.geekbrains.hexcore.Hex;
+import ru.geekbrains.hexcore.Movable;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.Tile;
 
-public abstract class Unit extends Tile {
+public abstract class Unit extends Tile implements Movable {
     protected Unit(int s, int q, int r) {
         super(s, q, r);
     }
@@ -12,7 +13,13 @@ public abstract class Unit extends Tile {
         super(hex);
     }
 
-    public boolean move(Path path) {
+    /**
+     * Method to move Unit. Touched Terrains effects triggered automatically.
+     * Unit attaches and detaches from Terrains while moving.
+     * @param path list of hexes
+     * @return
+     */
+    public void move(Path path) {
         if (validatePath(path)) {
             for (Hex delta : path.getHexList()) {
                 getBattlefield().getTerrainByCoordinate(hex).stepOutEffect(this);
@@ -20,7 +27,6 @@ public abstract class Unit extends Tile {
                 getBattlefield().getTerrainByCoordinate(hex).stepInEffect(this);
             }
         }
-        return  false;
     }
 
 }
