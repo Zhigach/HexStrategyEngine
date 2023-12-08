@@ -6,6 +6,10 @@ import java.util.List;
 public class Path {
     List<Hex> hexList;
 
+    public List<Hex> getHexList() {
+        return hexList;
+    }
+
     public Path(List<Hex> hexList) {
         if (!isValidDeltaList(hexList))
             throw new IllegalArgumentException("Provided path is invalid. Only deltas can be used");

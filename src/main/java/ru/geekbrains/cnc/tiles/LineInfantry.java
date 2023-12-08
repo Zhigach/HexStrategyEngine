@@ -7,4 +7,23 @@ public class LineInfantry extends Unit {
         super(s,q,r);
     }
 
+    @Override
+    public void stepInEffect(Unit unit) {
+        //Dummy
+    }
+
+    @Override
+    public void stepInEffect() {
+        //Dummy
+    }
+
+    @Override
+    public void stepOutEffect(Unit unit) {
+        //dummy
+    }
+
+    @Override
+    public void stepOutEffect() {
+        //dummy
+    }
 }

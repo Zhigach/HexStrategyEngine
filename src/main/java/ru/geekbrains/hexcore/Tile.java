@@ -1,6 +1,8 @@
 package ru.geekbrains.hexcore;
 
 
+import ru.geekbrains.hexcore.TileTypes.Unit;
+
 import javax.management.ConstructorParameters;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,8 +13,8 @@ import java.util.Set;
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
  */
-public class Tile {
-    private Hex hex = null;
+public abstract class Tile {
+    protected Hex hex;
     static Battlefield battlefield = Battlefield.getInstance();
     protected boolean passable;
     protected boolean blockLOS;
@@ -32,6 +34,9 @@ public class Tile {
 
     public Hex getHex() {
         return hex;
+    }
+    public Battlefield getBattlefield() {
+        return battlefield;
     }
     public void setS(int s) {
         this.hex.setS(s);
@@ -55,9 +60,11 @@ public class Tile {
     public boolean isPassable() {
         return passable;
     }
-    public void stepInEffect() {
-        System.out.println(info());
-    }
+    public abstract void stepInEffect(Unit unit);
+    public abstract void stepInEffect();
+
+    public abstract void stepOutEffect(Unit unit);
+    public abstract void stepOutEffect();
 
     protected void setCoordinate(Hex hex){
         setS(hex.getS());
@@ -65,14 +72,7 @@ public class Tile {
         setR(hex.getR());
     }
 
-    public boolean move(Path path) {
-        if (validatePath(path)) {
-            for (Hex delta : path.hexList) {
-                hex.add(delta);
-            }
-        }
-        return  false;
-    }
+
 
     public boolean validatePath(Path path) {
         return true;
@@ -143,7 +143,7 @@ public class Tile {
      * @return String
      */
     public String info() {
-        return String.format("Has coordinates (%d, %d, %d)", this.getS(), this.getQ(), this.getR());
+        return String.format("%s has coordinates (%d, %d, %d)", this.getClass().getName(), this.getS(), this.getQ(), this.getR());
     }
 
 }
