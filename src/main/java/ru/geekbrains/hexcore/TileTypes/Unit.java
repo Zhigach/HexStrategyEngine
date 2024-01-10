@@ -6,6 +6,9 @@ import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.Tile;
 
 public abstract class Unit extends Tile implements Movable {
+
+    final int movementRange = 0;
+
     protected Unit(int s, int q, int r) {
         super(s, q, r);
     }

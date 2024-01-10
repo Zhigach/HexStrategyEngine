@@ -3,10 +3,8 @@ package ru.geekbrains.hexcore;
 
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.management.Query;
+import java.util.*;
 
 
 /**
@@ -126,7 +124,7 @@ public abstract class Tile {
             for (Hex hex : rounds.get(step - 1)) {
                 List<Hex> neighbours = hex.getContactingHexes();
                 for (Hex neighbour : neighbours) {
-                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) {
+                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) { // TODO: take into account that tiles can be passable but forcing stepping in Unit to stop
                         visited.add(neighbour);
                         rounds.get(step).add(neighbour);
                     }
@@ -134,6 +132,25 @@ public abstract class Tile {
             }
         }
         return visited;
+    }
+
+    /**
+     * Basic method to get Path to destination hex
+     * @param destination Tile of interest - final point of the way
+     * @return deltas that should be added to current coordinate in order to get to destination
+     */
+    public Path getPathTo(Tile destination) {
+        Path result = new Path();
+        LinkedList<Hex> frontier = new LinkedList<>();
+        HashMap<Hex, Hex> cameFrom = new HashMap<>();
+        frontier.add(this.getHex());
+        
+        while (!frontier.isEmpty()) {
+            Hex current =  frontier.poll();
+            List<Hex> neighbours = current.getContactingHexes();
+        }
+
+        return result;
     }
 
     /**

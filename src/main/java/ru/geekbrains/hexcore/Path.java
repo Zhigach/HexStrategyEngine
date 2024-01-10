@@ -13,19 +13,27 @@ public class Path {
         return hexList;
     }
 
+    public Path() {
+        this.hexList = new ArrayList<>();
+    }
+
     public Path(List<Hex> hexList) {
         if (!isValidDeltaList(hexList))
             throw new IllegalArgumentException("Provided path is invalid. Only deltas can be used");
         this.hexList = hexList;
     }
 
-    public Path() {
-        this.hexList = new ArrayList<>();
-    }
-
-    public Path addStep(Hex hex) {
-        this.hexList.add(hex);
-        return this;
+    /**
+     * Method to add hex delta
+     * @param hexDelta single step delta in hexcoordinates
+     * @return modified Path
+     */
+    public Path addStep(Hex hexDelta) {
+        if (HexDeltas.isValidDelta(hexDelta)){
+            this.hexList.add(hexDelta);
+            return this;
+        }
+        throw new IllegalArgumentException("Invalid hex delta");
     }
 
     private static boolean isValidDeltaList(List<Hex> hexList) {
