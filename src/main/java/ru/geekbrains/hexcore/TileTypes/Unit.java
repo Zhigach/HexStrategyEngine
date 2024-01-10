@@ -20,7 +20,6 @@ public abstract class Unit extends Tile implements Movable {
      * Method to move Unit. Touched Terrains effects triggered automatically.
      * Unit attaches and detaches from Terrains while moving.
      * @param path list of hexes
-     * @return
      */
     public void move(Path path) {
         if (validatePath(path)) {

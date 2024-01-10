@@ -13,8 +13,9 @@ import java.util.*;
 public abstract class Tile {
     protected Hex hex;
     static Battlefield battlefield = Battlefield.getInstance();
-    protected boolean passable;
+    protected boolean passable = true;
     protected boolean blockLOS;
+    protected boolean enteringUnitMustStop = false;
 
     //region CONSTRUCTORS
 
@@ -80,11 +81,11 @@ public abstract class Tile {
     public abstract void stepOutEffect();
 
     /**
-     * Tells us if this Tile is passable.
+     * Tells us if this Tile is passable in single turn.
      * @return bool value
      */
     public boolean isPassable() {
-        return passable;
+        return passable && !enteringUnitMustStop;
     }
 
     /**
@@ -124,7 +125,7 @@ public abstract class Tile {
             for (Hex hex : rounds.get(step - 1)) {
                 List<Hex> neighbours = hex.getContactingHexes();
                 for (Hex neighbour : neighbours) {
-                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) { // TODO: take into account that tiles can be passable but forcing stepping in Unit to stop
+                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) {
                         visited.add(neighbour);
                         rounds.get(step).add(neighbour);
                     }

@@ -56,6 +56,12 @@ public class Battlefield {
             return (Terrain) hexTiles.get(0);
         }
     }
+
+    /**
+     * Method returns true if tile is passable AND not forcing entering unit to stop
+     * @param hex coordinate of interest
+     * @return bool
+     */
     public boolean isPassable(Hex hex) {
         return getTerrainByCoordinate(hex).isPassable();
     }
