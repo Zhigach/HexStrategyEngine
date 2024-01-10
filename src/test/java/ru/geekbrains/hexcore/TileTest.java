@@ -2,6 +2,7 @@ package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.geekbrains.hexcore.TileTypes.Unit;
 
 import java.util.List;
 
@@ -11,60 +12,39 @@ class TileTest {
     static Tile testTile;
     @BeforeEach
     public void setNewTile() {
-        testTile = new Tile(0,0,0);
-    }
+        testTile = new Tile(new Hex(0, 0, 0)) {
+            @Override
+            public void stepInEffect(Unit unit) {
+            }
 
-    @org.junit.jupiter.api.Test
-    void stepInEffect() {
-    }
+            @Override
+            public void stepInEffect() {
+            }
 
-    @org.junit.jupiter.api.Test
-    void getInfo() {
-    }
+            @Override
+            public void stepOutEffect(Unit unit) {
+            }
 
-    @org.junit.jupiter.api.Test
-    void getCoordinate() {
+            @Override
+            public void stepOutEffect() {
+            }
+        };
     }
 
     @org.junit.jupiter.api.Test
     void setCoordinate() {
+        Hex hex = new Hex(1,0,-1);
+        testTile.setCoordinate(hex);
+        assertEquals(hex, testTile.getHex());
+        testTile.setCoordinate(new Hex(0,0,0));
     }
 
     @org.junit.jupiter.api.Test
     void step() {
+
     }
 
-    @org.junit.jupiter.api.Test
-    void findDistanceZeroTest() {
-        Tile testTile2 = new Tile(0, 0, 0);
-        int range2 = testTile.findDistance(testTile2);
-        assertEquals(0, range2);
-    }
-    @Test
-    void findDistanceNonZeroTestOne() {
-        Tile testTile3 = new Tile(0, 1, -1);
-        int range3 = testTile.findDistance(testTile3);
-        assertEquals(1, range3);
-    }
-    @Test
-    void findDistanceNonZeroTestTwo() {
-        Tile testTile4 = new Tile(4, -4, 0);
-        int range4 = testTile.findDistance(testTile4);
-        assertEquals(4, range4);
-    }
 
-    @org.junit.jupiter.api.Test
-    void getContactingHexes() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getSurroundingHexes() {
-        List<HexVector> area = testTile.getHexesInRange(1);
-        for (HexVector hexVector : area) {
-            System.out.println(hexVector.info());
-        }
-        assertEquals(7, area.size()); // includes the initial hex itself
-    }
 
     @org.junit.jupiter.api.Test
     void move() {

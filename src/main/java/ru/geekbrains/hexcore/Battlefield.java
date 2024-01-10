@@ -1,5 +1,6 @@
 package ru.geekbrains.hexcore;
 
+import ru.geekbrains.hexcore.TileTypes.PlainTerrain;
 import ru.geekbrains.hexcore.TileTypes.Terrain;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
@@ -12,10 +13,9 @@ public class Battlefield {
     // TODO: Add limits
     private final Map<Hex, List<Tile>> tiles;
 
-
     public void putTile(Hex hex, Tile newTile) {
         if (hex == null)
-            throw new IllegalArgumentException("coordniate can't be null");
+            throw new IllegalArgumentException("Coordinate can't be null");
         if (tiles.containsKey(hex)) {
             List<Tile> content = tiles.get(hex);
             Tile firstElement = content.get(0);
@@ -48,9 +48,20 @@ public class Battlefield {
         }
     }
 
-    public Tile getTerrainByCoordinate(Hex hex) {
-        return tiles.get(hex).get(0);
+    public Terrain getTerrainByCoordinate(Hex hex) {
+        List<Tile> hexTiles = getTileByCoordinate(hex);
+        if (hexTiles == null || hexTiles.get(0) instanceof Unit) {
+            return new PlainTerrain(hex);
+        } else {
+            return (Terrain) hexTiles.get(0);
+        }
     }
+
+    /**
+     * Method returns true if tile is passable AND not forcing entering unit to stop
+     * @param hex coordinate of interest
+     * @return bool
+     */
     public boolean isPassable(Hex hex) {
         return getTerrainByCoordinate(hex).isPassable();
     }

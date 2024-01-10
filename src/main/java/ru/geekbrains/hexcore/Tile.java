@@ -1,23 +1,28 @@
 package ru.geekbrains.hexcore;
 
 
-import javax.management.ConstructorParameters;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import ru.geekbrains.hexcore.TileTypes.Unit;
+
+import javax.management.Query;
+import java.util.*;
 
 
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
  */
-public class Tile {
-    private Hex hex = null;
+public abstract class Tile {
+    protected Hex hex;
     static Battlefield battlefield = Battlefield.getInstance();
-    protected boolean passable;
+    protected boolean passable = true;
     protected boolean blockLOS;
+    protected boolean enteringUnitMustStop = false;
 
     //region CONSTRUCTORS
+
+    /**
+     * Method adding ANY new Tile onto the Battlefield.
+     * Multiple Battlefields not supported by this core.
+     */
     private void init(){
         battlefield.putTile(this.getHex(), this);
     }
@@ -30,17 +35,19 @@ public class Tile {
     }
     //endregion
 
+    /**
+     * get Tile hex coordinate
+     * @return Hex coordinate
+     */
     public Hex getHex() {
         return hex;
     }
-    public void setS(int s) {
-        this.hex.setS(s);
-    }
-    public void setQ(int q) {
-        this.hex.setQ(q);
-    }
-    public void setR(int r) {
-        this.hex.setR(r);
+    /**
+     * Get Battlefield this Tile is assigned to
+     * @return Battlefield
+     */
+    public Battlefield getBattlefield() {
+        return battlefield;
     }
     public int getS() {
         return hex.getS();
@@ -52,28 +59,50 @@ public class Tile {
         return hex.getR();
     }
 
+    /**
+     * Abstract method to implement at siblings.
+     * @param unit Unit that steps at this Tile
+     */
+    public abstract void stepInEffect(Unit unit);
+
+    /**
+     * Arbitrary effect to be implemented at siblings
+     */
+    public abstract void stepInEffect();
+
+    /**
+     * Abstract method to implement at siblings.
+     * @param unit Unit that steps out of this Tile
+     */
+    public abstract void stepOutEffect(Unit unit);
+    /**
+     * Arbitrary effect to be implemented at siblings
+     */
+    public abstract void stepOutEffect();
+
+    /**
+     * Tells us if this Tile is passable in single turn.
+     * @return bool value
+     */
     public boolean isPassable() {
-        return passable;
-    }
-    public void stepInEffect() {
-        System.out.println(info());
+        return passable && !enteringUnitMustStop;
     }
 
+    /**
+     * Set Tile coordinate explicitly
+     * @param hex new coordinate
+     */
     protected void setCoordinate(Hex hex){
-        setS(hex.getS());
-        setQ(hex.getQ());
-        setR(hex.getR());
+        this.hex.setS(hex.getS());
+        this.hex.setQ(hex.getQ());
+        this.hex.setR(hex.getR());
     }
 
-    public boolean move(Path path) {
-        if (validatePath(path)) {
-            for (Hex delta : path.hexList) {
-                hex.add(delta);
-            }
-        }
-        return  false;
-    }
-
+    /**
+     * Check if the provided path is available for this specific Unit (Tile in general).
+     * @param path path to be checked
+     * @return bool
+     */
     public boolean validatePath(Path path) {
         return true;
     }
@@ -88,13 +117,15 @@ public class Tile {
         visited.add(this.getHex());
         List<List<Hex>> rounds = new ArrayList<>();
         int step = 0;
-        while (step <= movement) {
+        rounds.add(new ArrayList<>());
+        rounds.get(0).add(this.hex);
+        while (step < movement) {
             step++;
             rounds.add(new ArrayList<>());
             for (Hex hex : rounds.get(step - 1)) {
                 List<Hex> neighbours = hex.getContactingHexes();
                 for (Hex neighbour : neighbours) {
-                    if (!visited.contains(neighbour) && battlefield.isPassable(hex)) {
+                    if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) {
                         visited.add(neighbour);
                         rounds.get(step).add(neighbour);
                     }
@@ -103,6 +134,31 @@ public class Tile {
         }
         return visited;
     }
+
+    /**
+     * Basic method to get Path to destination hex
+     * @param destination Tile of interest - final point of the way
+     * @return deltas that should be added to current coordinate in order to get to destination
+     */
+    public Path getPathTo(Tile destination) {
+        Path result = new Path();
+        LinkedList<Hex> frontier = new LinkedList<>();
+        HashMap<Hex, Hex> cameFrom = new HashMap<>();
+        frontier.add(this.getHex());
+        
+        while (!frontier.isEmpty()) {
+            Hex current =  frontier.poll();
+            List<Hex> neighbours = current.getContactingHexes();
+        }
+
+        return result;
+    }
+
+    /**
+     * Get all Terrains that can be reached from this Tile using provided movement range.
+     * @param movement integer movement
+     * @return Set of Tiles
+     */
     public Set<Tile> getReachableTerrains(int movement) {
         Set<Hex> hexes = getReachableHexes(movement);
         Set<Tile> tiles = new HashSet<>();
@@ -127,6 +183,11 @@ public class Tile {
         return new Path(results);
     }
 
+    /**
+     * Check does this Tile has line of sight to the destination Tile.
+     * @param to destination Tile
+     * @return bool
+     */
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
         for (Hex hex : path.hexList) {
@@ -141,7 +202,6 @@ public class Tile {
      * @return String
      */
     public String info() {
-        return String.format("Has coordinates (%d, %d, %d)", this.getS(), this.getQ(), this.getR());
+        return String.format("%s has coordinates (%d, %d, %d)", this.getClass().getName(), this.getS(), this.getQ(), this.getR());
     }
-
 }

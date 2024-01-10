@@ -6,7 +6,6 @@ public class Forest extends Terrain {
     {
         passable = true;
     }
-
     public Forest(int s, int q, int r) {
         super(s, q, r);
     }

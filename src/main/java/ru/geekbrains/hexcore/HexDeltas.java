@@ -1,6 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -17,4 +18,13 @@ public class HexDeltas {
         HEX_DELTAS.add(new Hex(-1, +1, 0));
         HEX_DELTAS.add(new Hex(0, +1, -1));
     }
+
+    public static boolean isValidDelta(Hex hex) {
+        return HEX_DELTAS.contains(hex);
+    }
+    public static boolean isValidDeltaList(List<Hex> hexList) {
+        return new HashSet<>(HEX_DELTAS).containsAll(hexList);
+    }
+
+
 }
