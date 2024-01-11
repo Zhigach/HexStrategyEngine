@@ -1,6 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,15 +26,21 @@ public class Path {
 
     /**
      * Method to add hex delta
-     * @param hexDelta single step delta in hexcoordinates
-     * @return modified Path
+     * @param hexDelta single step delta in hex coordinates
      */
-    public Path addStep(Hex hexDelta) {
+    public void addStep(Hex hexDelta) {
         if (HexDeltas.isValidDelta(hexDelta)){
             this.hexList.add(hexDelta);
-            return this;
+        } else {
+            throw new IllegalArgumentException("Invalid hex delta");
         }
-        throw new IllegalArgumentException("Invalid hex delta");
+    }
+
+    /**
+     * Reverse the deltas list (hexList)
+     */
+    public void revert() {
+        Collections.reverse(hexList);
     }
 
     private static boolean isValidDeltaList(List<Hex> hexList) {

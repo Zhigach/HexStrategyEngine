@@ -3,12 +3,12 @@ package ru.geekbrains.hexcore;
 
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
-import javax.management.Query;
+import javax.xml.stream.events.StartDocument;
 import java.util.*;
 
 
 /**
- * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points
+ * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points. All Tiles when instantiated are automatically added to the Battlefield (singleton)
  */
 public abstract class Tile {
     protected Hex hex;
@@ -84,8 +84,11 @@ public abstract class Tile {
      * Tells us if this Tile is passable in single turn.
      * @return bool value
      */
+    public boolean isPassable(boolean passableOnly) {
+        return passable && passableOnly || passable && !enteringUnitMustStop;
+    }
     public boolean isPassable() {
-        return passable && !enteringUnitMustStop;
+        return isPassable(false);
     }
 
     /**
@@ -143,14 +146,41 @@ public abstract class Tile {
     public Path getPathTo(Tile destination) {
         Path result = new Path();
         LinkedList<Hex> frontier = new LinkedList<>();
-        HashMap<Hex, Hex> cameFrom = new HashMap<>();
+        HashMap<Hex, Hex> cameFrom = new HashMap<>(); // key is where, value is from
         frontier.add(this.getHex());
-        
+
+        boolean targetReached = false;
+        Set<Hex> reached = new HashSet<>();
+        reached.add(this.getHex());
         while (!frontier.isEmpty()) {
             Hex current =  frontier.poll();
             List<Hex> neighbours = current.getContactingHexes();
+            for (Hex neighbour : neighbours) {
+                if (battlefield.isPassable(neighbour) && !reached.contains(neighbour)) {
+                    frontier.add(neighbour);
+                    reached.add(neighbour);
+                    if (!cameFrom.containsKey(neighbour)) {
+                        cameFrom.put(neighbour, current);
+                        reached.add(neighbour);
+                    }
+                    if (neighbour.equals(destination.getHex())) {
+                        targetReached = true;
+                        break;
+                    }
+                }
+            }
+            if (targetReached) {
+                break;
+            }
         }
 
+        Hex current = destination.getHex();
+        while (current != this.getHex()) {
+            Hex previous = cameFrom.get(current);
+            result.addStep(current.getDelta(previous));
+            current = previous;
+        }
+        result.revert();
         return result;
     }
 
