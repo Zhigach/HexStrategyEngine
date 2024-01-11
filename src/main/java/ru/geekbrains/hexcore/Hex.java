@@ -5,6 +5,9 @@ import java.util.List;
 
 import static java.lang.Math.*;
 
+/**
+ * Class representing hex coordinate.
+ */
 public class Hex {
     private int s;
     private int q;
@@ -114,7 +117,7 @@ public class Hex {
      * @param destination destination hes
      * @return delta that must be added to this in order to get to the destination
      */
-    private Hex getDelta(Hex destination) {
+    public Hex getDelta(Hex destination) {
         return new Hex(destination.getS() - s, destination.getQ() - q, destination.getR() - r);
     }
 

@@ -26,4 +26,8 @@ public class LineInfantry extends Unit {
     public void stepOutEffect() {
         //dummy
     }
+    @Override
+    public void stop() {
+
+    }
 }

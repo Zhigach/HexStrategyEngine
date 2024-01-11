@@ -62,8 +62,11 @@ public class Battlefield {
      * @param hex coordinate of interest
      * @return bool
      */
+    public boolean isPassable(Hex hex, boolean passableOnly) {
+        return getTerrainByCoordinate(hex).isPassable(passableOnly);
+    }
     public boolean isPassable(Hex hex) {
-        return getTerrainByCoordinate(hex).isPassable();
+        return isPassable(hex, false);
     }
     public List<Tile> getTileByCoordinate(Hex hex) {
         return tiles.get(hex);
