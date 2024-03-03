@@ -3,8 +3,11 @@ package ru.geekbrains.hexcore;
 import static java.lang.Math.abs;
 import static java.lang.Math.round;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Core {
-    // Must contain filed limits
+    // Must contain field limits
 
     public static Hex roundHex(double sD, double qD, double rD) {
         int s = round((float) sD);
@@ -18,7 +21,7 @@ public class Core {
         } else if (r_diff > s_diff) {
             r = -q - s;
         } else {
-            s = - q - r;
+            s = -q - r;
         }
         return new Hex(s, q, r);
     }

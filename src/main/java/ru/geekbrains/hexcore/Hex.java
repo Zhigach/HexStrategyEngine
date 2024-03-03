@@ -1,5 +1,7 @@
 package ru.geekbrains.hexcore;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,8 @@ import static java.lang.Math.*;
 /**
  * Class representing hex coordinate.
  */
+@Slf4j
+@Data
 public class Hex {
     private int s;
     private int q;
@@ -25,6 +29,7 @@ public class Hex {
 
     public Hex(double s, double q, double r) {
         this(Core.roundHex(s, q, r));
+        log.debug("Rounding called in order to get Hex");
     }
 
     public Hex(Hex hex) {
@@ -32,32 +37,6 @@ public class Hex {
     }
 
     //endregion
-
-
-    public int getS() {
-        return s;
-    }
-
-    public int getQ() {
-        return q;
-    }
-
-    public int getR() {
-        return r;
-    }
-
-    public void setS(int s) {
-        this.s = s;
-    }
-
-    public void setQ(int q) {
-        this.q = q;
-    }
-
-    public void setR(int r) {
-        this.r = r;
-    }
-
 
     boolean isCorrectHex() {
         return getS()  + getQ() + getR() == 0;
@@ -79,6 +58,7 @@ public class Hex {
         for (int i = 0; i < 6; i++) {
             result.add(this.add(HexDeltas.HEX_DELTAS.get(i)));
         }
+        log.debug(String.format("Contacting hexes requested for %s. Returning %s", this, result));
         return result;
     }
 
@@ -135,7 +115,7 @@ public class Hex {
         return 1000*getR() + 100*getQ() + getS();
     }
 
-    public String info() {
-        return String.format("%s: %s, %s, %s", hashCode(), s, q, r);
+    public String toString() {
+        return String.format("Hex<%s,%s,%s>", s, q, r);
     }
 }

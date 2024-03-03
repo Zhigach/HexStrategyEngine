@@ -1,18 +1,22 @@
 package ru.geekbrains.hexcore;
 
-
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
-import javax.xml.stream.events.StartDocument;
 import java.util.*;
 
 
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points. All Tiles when instantiated are automatically added to the Battlefield (singleton)
  */
+@Slf4j
 public abstract class Tile {
+    @Getter
+    @Setter
     protected Hex hex;
-    static Battlefield battlefield = Battlefield.getInstance();
+    final static Battlefield battlefield = Battlefield.getInstance();
     protected boolean passable = true;
     protected boolean blockLOS;
     protected boolean enteringUnitMustStop = false;
@@ -24,39 +28,24 @@ public abstract class Tile {
      * Multiple Battlefields not supported by this core.
      */
     private void init(){
+        log.info(String.format("New Tile %s created. Putting it onto the Battlefield", this.getClass().getSimpleName()));
         battlefield.putTile(this.getHex(), this);
     }
     protected Tile(int s, int q, int r) {
         this.hex = new Hex(s, q, r);
         init();
     }
-    protected Tile(Hex hex) {
+    protected Tile(@org.jetbrains.annotations.NotNull Hex hex) {
         this(hex.getS(), hex.getQ(), hex.getR());
     }
     //endregion
 
-    /**
-     * get Tile hex coordinate
-     * @return Hex coordinate
-     */
-    public Hex getHex() {
-        return hex;
-    }
     /**
      * Get Battlefield this Tile is assigned to
      * @return Battlefield
      */
     public Battlefield getBattlefield() {
         return battlefield;
-    }
-    public int getS() {
-        return hex.getS();
-    }
-    public int getQ() {
-        return hex.getQ();
-    }
-    public int getR() {
-        return hex.getR();
     }
 
     /**
@@ -89,16 +78,6 @@ public abstract class Tile {
     }
     public boolean isPassable() {
         return isPassable(false);
-    }
-
-    /**
-     * Set Tile coordinate explicitly
-     * @param hex new coordinate
-     */
-    protected void setCoordinate(Hex hex){
-        this.hex.setS(hex.getS());
-        this.hex.setQ(hex.getQ());
-        this.hex.setR(hex.getR());
     }
 
     /**
@@ -135,6 +114,7 @@ public abstract class Tile {
                 }
             }
         }
+        log.debug(String.format("Requested reachable hexes for %s. Returning %s", this, visited));
         return visited;
     }
 
@@ -181,6 +161,7 @@ public abstract class Tile {
             current = previous;
         }
         result.revert();
+        log.debug(String.format("Path requested from %s -> %s. Returning %s", this, destination, result));
         return result;
     }
 
@@ -195,6 +176,7 @@ public abstract class Tile {
         for (Hex hex1 : hexes) {
             tiles.add(battlefield.getTerrainByCoordinate(hex1));
         }
+        log.debug(String.format("Reachable Terrains requested for %s. Returning %s", this, tiles));
         return tiles;
     }
 
@@ -210,7 +192,9 @@ public abstract class Tile {
             Hex interpolatedHex =  Core.hexLinearInterpolation(hex, to.hex, 1.0/dist*i);
             results.add(new Hex(Core.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR())));
         }
-        return new Path(results);
+        Path path = new Path(results);
+        log.debug(String.format("Line of sight from %s -> %s requested. Returning %s", this, to, path));
+        return path;
     }
 
     /**
@@ -221,9 +205,12 @@ public abstract class Tile {
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
         for (Hex hex : path.hexList) {
-            if (battlefield.getTerrainByCoordinate(hex).blockLOS)
+            if (battlefield.getTerrainByCoordinate(hex).blockLOS) {
+                log.debug(String.format("%s has LOS to %s: false", this, to));
                 return false;
+            }
         }
+        log.debug(String.format("%s has LOS to %s: true", this, to));
         return true;
     }
 
@@ -231,7 +218,8 @@ public abstract class Tile {
      * Returns string with coordinates information
      * @return String
      */
-    public String info() {
-        return String.format("%s has coordinates (%d, %d, %d)", this.getClass().getName(), this.getS(), this.getQ(), this.getR());
+    @Override
+    public String toString() {
+        return String.format("%s has coordinates %s", this.getClass().getName(), hex);
     }
 }

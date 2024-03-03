@@ -29,7 +29,7 @@ public class Terrain  extends Tile {
         setAttachedUnit(unit);
     }
     public void stepInEffect() {
-        System.out.println(info());
+        System.out.println(toString());
     }
 
     @Override

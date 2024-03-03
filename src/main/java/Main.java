@@ -1,13 +1,11 @@
 import ru.geekbrains.cnc.tiles.Forest;
 import ru.geekbrains.cnc.tiles.LineInfantry;
 import ru.geekbrains.cnc.tiles.River;
-import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Hex;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.Tile;
 
 import java.util.Set;
-
 
 public class Main {
 
@@ -21,10 +19,11 @@ public class Main {
         Tile river3 = new River(1,0,-1);
         Tile river4 = new River(-1,1,0);
 
+        lineInfantry.getHex().getContactingHexes();
+
         Set<Hex> reachable = lineInfantry.getReachableHexes(2);
 
         Tile dummyTarget = new LineInfantry(0, -2, 2);
         Path path = lineInfantry.getPathTo(dummyTarget);
-        System.out.println("get");
     }
 }

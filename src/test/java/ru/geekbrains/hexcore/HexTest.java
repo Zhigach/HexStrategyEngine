@@ -64,7 +64,7 @@ class HexTest {
     void getContactingHexes() {
         List<Hex> area = testHex.getContactingHexes();
         for (Hex hex : area) {
-            System.out.println(hex.info());
+            System.out.println(hex.toString());
         }
         assertEquals(6, area.size());
     }
@@ -73,7 +73,7 @@ class HexTest {
     void getSurroundingHexes() {
         List<Hex> area = testHex.getHexesInRange(1);
         for (Hex hex : area) {
-            System.out.println(hex.info());
+            System.out.println(hex.toString());
         }
         assertEquals(7, area.size()); // includes the initial hex itself
     }
@@ -81,7 +81,7 @@ class HexTest {
     void getSurroundingHexesTwo() {
         List<Hex> area = testHex.getHexesInRange(2);
         for (Hex hex : area) {
-            System.out.println(hex.info());
+            System.out.println(hex.toString());
         }
         assertEquals(19, area.size()); // includes the initial hex itself
     }

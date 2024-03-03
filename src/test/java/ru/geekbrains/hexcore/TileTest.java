@@ -1,10 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import ru.geekbrains.hexcore.TileTypes.Unit;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,9 +31,9 @@ class TileTest {
     @org.junit.jupiter.api.Test
     void setCoordinate() {
         Hex hex = new Hex(1,0,-1);
-        testTile.setCoordinate(hex);
+        testTile.setHex(hex);
         assertEquals(hex, testTile.getHex());
-        testTile.setCoordinate(new Hex(0,0,0));
+        testTile.setHex(new Hex(0,0,0));
     }
 
     @org.junit.jupiter.api.Test
