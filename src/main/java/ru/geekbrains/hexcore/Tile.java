@@ -220,6 +220,6 @@ public abstract class Tile {
      */
     @Override
     public String toString() {
-        return String.format("%s has coordinates %s", this.getClass().getName(), hex);
+        return String.format("%s@%s", this.getClass().getSimpleName(), hex);
     }
 }

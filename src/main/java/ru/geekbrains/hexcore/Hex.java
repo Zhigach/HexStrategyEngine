@@ -116,6 +116,6 @@ public class Hex {
     }
 
     public String toString() {
-        return String.format("Hex<%s,%s,%s>", s, q, r);
+        return String.format("<%s,%s,%s>", s, q, r);
     }
 }

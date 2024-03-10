@@ -1,5 +1,7 @@
 package ru.geekbrains.hexcore;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,12 +9,9 @@ import java.util.List;
 /**
  * List of Hex delta vectors with additional methods and validators.
  */
+@Getter
 public class Path {
     List<Hex> hexList;
-
-    public List<Hex> getHexList() {
-        return hexList;
-    }
 
     public Path() {
         this.hexList = new ArrayList<>();
@@ -45,5 +44,14 @@ public class Path {
 
     private static boolean isValidDeltaList(List<Hex> hexList) {
         return HexDeltas.isValidDeltaList(hexList);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Path: {");
+        hexList.forEach(hexDelta -> sb.append(String.format("[%s,%s,%s],",hexDelta.getS(), hexDelta.getQ(), hexDelta.getR())));
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString() + "}";
     }
 }

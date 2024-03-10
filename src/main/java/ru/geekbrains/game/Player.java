@@ -1,4 +1,4 @@
-package ru.geekbrains;
+package ru.geekbrains.game;
 
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
