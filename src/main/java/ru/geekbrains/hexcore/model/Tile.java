@@ -1,8 +1,11 @@
-package ru.geekbrains.hexcore;
+package ru.geekbrains.hexcore.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.Battlefield;
+import ru.geekbrains.hexcore.utils.Core;
+import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
 import java.util.*;
@@ -204,7 +207,7 @@ public abstract class Tile {
      */
     public boolean hasLOS(Tile to) {
         Path path = getLineOfSight(to);
-        for (Hex hex : path.hexList) {
+        for (Hex hex : path.getHexList()) {
             if (battlefield.getTerrainByCoordinate(hex).blockLOS) {
                 log.debug(String.format("%s has LOS to %s: false", this, to));
                 return false;

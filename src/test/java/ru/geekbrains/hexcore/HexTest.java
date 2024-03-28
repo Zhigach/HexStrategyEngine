@@ -1,6 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.Test;
+import ru.geekbrains.hexcore.model.Hex;
 
 import java.util.List;
 

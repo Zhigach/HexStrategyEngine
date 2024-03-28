@@ -1,9 +1,13 @@
 package ru.geekbrains.hexcore;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.TileTypes.PlainTerrain;
 import ru.geekbrains.hexcore.TileTypes.Terrain;
 import ru.geekbrains.hexcore.TileTypes.Unit;
+import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.model.MapInitializer;
+import ru.geekbrains.hexcore.model.Tile;
 
 import java.util.*;
 
@@ -13,7 +17,9 @@ import java.util.*;
 @Slf4j
 public class Battlefield {
     // TODO: Add limits
-    private final Map<Hex, List<Tile>> tiles;
+    private Map<Hex, List<Tile>> tiles = new HashMap<>();
+    @Setter
+    static MapInitializer mapInitializer;
 
     public void putTile(Hex hex, Tile newTile) {
         if (hex == null) {
@@ -26,15 +32,16 @@ public class Battlefield {
             Tile firstElement = content.get(0);
             boolean hasUnit = false;
             hasUnit = content.stream().anyMatch(tile -> tile instanceof Unit);
-//            for (Tile tile : content) { //TODO use stream API
-//                if (tile instanceof Unit) {
-//                    hasUnit = true;
-//                    break;
-//                }
-//            }
+
             if (firstElement instanceof Terrain && newTile instanceof Terrain) {
-                log.error(String.format("%s is already taken by Terrain (%s).", hex, firstElement));
-                throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
+                if (firstElement instanceof PlainTerrain) {
+                    log.trace(String.format("Replacing placeholder Plain Terrain at %s with %s", hex, newTile));
+
+                    firstElement = newTile;
+                } else {
+                    log.error(String.format("%s is already taken by Terrain (%s).", hex, firstElement));
+                    throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
+                }
             } else if (hasUnit && newTile instanceof Unit) {
                 log.error(String.format("%s is already taken by Unit.", hex));
                 throw new IllegalArgumentException("Several units can't be placed at single Hex");
@@ -78,15 +85,28 @@ public class Battlefield {
     public boolean isPassable(Hex hex, boolean passableOnly) {
         return getTerrainByCoordinate(hex).isPassable(passableOnly);
     }
+
     public boolean isPassable(Hex hex) {
         return isPassable(hex, false);
     }
+
     public List<Tile> getTileByCoordinate(Hex hex) {
         return tiles.get(hex);
     }
 
     private Battlefield() {
-        tiles = new HashMap<>();
+    }
+
+    public void initializeMap() {
+        final Map<Hex, List<Tile>> tiles;
+        if (mapInitializer == null) {
+            log.error("Map initializer must be set before battlefield is used.");
+            throw new RuntimeException("Battlefield is not set up correctly.");
+        } else {
+            tiles = mapInitializer.initializeMap();
+        }
+        this.tiles = tiles;
+        log.info("Map initialization completed successfully.");
     }
 
     private static class BattlefieldHolder {

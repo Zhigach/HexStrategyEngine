@@ -1,7 +1,7 @@
 package ru.geekbrains.hexcore.TileTypes;
 
-import ru.geekbrains.hexcore.Hex;
-import ru.geekbrains.hexcore.Tile;
+import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.model.Tile;
 public class Terrain  extends Tile {
     Unit unit;
 

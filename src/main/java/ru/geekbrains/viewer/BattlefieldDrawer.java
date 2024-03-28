@@ -16,10 +16,17 @@ public class BattlefieldDrawer implements BattlefieldPresenter {
 
 
     public BattlefieldDrawer(Battlefield battlefield) {
-        jFrame = new JFrame(WINDOW_TITLE);
-        jFrame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        {
+            jFrame = new JFrame(WINDOW_TITLE);
+            jFrame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+            jFrame.setVisible(true);
+            jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        }
+        {
+            JPanel drawPanel = new JPanel();
+            jFrame.add(drawPanel);
+        }
+
     }
 
     void createView() {

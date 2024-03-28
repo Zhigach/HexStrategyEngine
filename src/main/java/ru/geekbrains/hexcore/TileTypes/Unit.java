@@ -1,9 +1,9 @@
 package ru.geekbrains.hexcore.TileTypes;
 
-import ru.geekbrains.hexcore.Hex;
-import ru.geekbrains.hexcore.Movable;
+import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.model.Movable;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.Tile;
+import ru.geekbrains.hexcore.model.Tile;
 
 public abstract class Unit extends Tile implements Movable {
 

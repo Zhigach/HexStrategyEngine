@@ -2,6 +2,8 @@ package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.BeforeEach;
 import ru.geekbrains.hexcore.TileTypes.Unit;
+import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.model.Tile;
 
 import static org.junit.jupiter.api.Assertions.*;
 

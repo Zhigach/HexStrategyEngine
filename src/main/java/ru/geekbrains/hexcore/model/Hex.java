@@ -1,7 +1,9 @@
-package ru.geekbrains.hexcore;
+package ru.geekbrains.hexcore.model;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.utils.Core;
+
 import java.util.ArrayList;
 import java.util.List;
 

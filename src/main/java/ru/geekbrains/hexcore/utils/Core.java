@@ -1,9 +1,10 @@
-package ru.geekbrains.hexcore;
+package ru.geekbrains.hexcore.utils;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.round;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.model.Hex;
 
 @Slf4j
 public class Core {

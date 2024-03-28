@@ -2,19 +2,32 @@ import ru.geekbrains.cnc.tiles.Forest;
 import ru.geekbrains.cnc.tiles.LineInfantry;
 import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.Hex;
+import ru.geekbrains.hexcore.RectangleMapInitializer;
+import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.Tile;
+import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.viewer.BattlefieldDrawer;
-import ru.geekbrains.viewer.BattlefieldPresenter;
+import ru.geekbrains.viewer.HexPresenter;
 
+import javax.swing.*;
 import java.util.Set;
 
 public class Main {
 
+    /*private hexgame() {
+        initGame();
+        createAndShowGUI();
+    }*/
+
     public static void main(String[] args) {
 
+        //SwingUtilities.invokeLater(() -> new HexPresenter());
+
+
+        Battlefield.setMapInitializer(new RectangleMapInitializer(0, 4, 1, 5));
+
         BattlefieldDrawer battlefieldDrawer = new BattlefieldDrawer(Battlefield.getInstance());
+        Battlefield.getInstance().initializeMap();
 
         Tile lineInfantry = new LineInfantry(0, 0, 0);
         Tile tile3 = new Forest(0, 0, 0);
