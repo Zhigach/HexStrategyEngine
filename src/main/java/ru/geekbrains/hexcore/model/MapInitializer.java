@@ -5,5 +5,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface MapInitializer {
-    HashMap<Hex, List<Tile>> initializeMap();
+    HashMap<Hex, List<Tile>> initializeMap(int top, int bottom, int left, int right);
 }

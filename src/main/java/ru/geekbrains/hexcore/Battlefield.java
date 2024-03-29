@@ -1,5 +1,6 @@
 package ru.geekbrains.hexcore;
 
+import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.TileTypes.PlainTerrain;
@@ -11,15 +12,25 @@ import ru.geekbrains.hexcore.model.Tile;
 
 import java.util.*;
 
+import static java.lang.Math.abs;
+
 /**
  * Class Holder Singleton containing tiles Map
  */
+@Getter
 @Slf4j
 public class Battlefield {
-    // TODO: Add limits
+    static int top;
+    static int bottom;
+    static int left;
+    static int right;
+
     private Map<Hex, List<Tile>> tiles = new HashMap<>();
     @Setter
     static MapInitializer mapInitializer;
+
+    public int getHorizontalSize() {return abs(left-right);}
+    public int getVerticalSize() {return abs(bottom-top);}
 
     public void putTile(Hex hex, Tile newTile) {
         if (hex == null) {
@@ -94,7 +105,11 @@ public class Battlefield {
         return tiles.get(hex);
     }
 
-    private Battlefield() {
+    public static void setDimensions(int top, int bottom, int left, int right) {
+        Battlefield.top = top;
+        Battlefield.bottom = bottom;
+        Battlefield.left = left;
+        Battlefield.right = right;
     }
 
     public void initializeMap() {
@@ -103,7 +118,7 @@ public class Battlefield {
             log.error("Map initializer must be set before battlefield is used.");
             throw new RuntimeException("Battlefield is not set up correctly.");
         } else {
-            tiles = mapInitializer.initializeMap();
+            tiles = mapInitializer.initializeMap(top, bottom, left, right);
         }
         this.tiles = tiles;
         log.info("Map initialization completed successfully.");
@@ -111,6 +126,9 @@ public class Battlefield {
 
     private static class BattlefieldHolder {
         protected static final Battlefield HOLDER_INSTANCE = new Battlefield();
+    }
+
+    private Battlefield() {
     }
 
     public static Battlefield getInstance() {

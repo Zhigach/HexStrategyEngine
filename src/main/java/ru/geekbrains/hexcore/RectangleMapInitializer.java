@@ -13,27 +13,24 @@ import static java.lang.Math.floor;
 
 @Slf4j
 public class RectangleMapInitializer implements MapInitializer {
-    final int top, bottom, left, right;
 
-    public RectangleMapInitializer(int top, int bottom, int left, int right) {
-        this.top = top;
-        this.bottom = bottom;
-        this.left = left;
-        this.right = right;
+    public RectangleMapInitializer() {
     }
 
-    /** https://www.redblobgames.com/grids/hexagons/implementation.html#map
-     * @return 
+    /** <a href="https://www.redblobgames.com/grids/hexagons/implementation.html#map">...</a>
+     * @return
      */
     @Override
-    public HashMap<Hex, List<Tile>> initializeMap() {
+    public HashMap<Hex, List<Tile>> initializeMap(int top, int bottom, int left, int right) {
         HashMap<Hex, List<Tile>> tiles = new HashMap<>();
+        int rowNumber = 0;
         for (int r = top; r <= bottom; r++) { // pointy top
-            int r_offset = (int) floor(r/2.0); // or r>>1
-            for (int q = left - r_offset; q <= right - r_offset; q++) {
-                Hex hex = new Hex(q, r, -q-r);
+            int r_offset = (int) floor(r/2.0); // offset for each row
+            for (int q = left - r_offset; q <= right - r_offset - rowNumber%2; q++) { // q <= right - r_offset
+                Hex hex = new Hex(-q-r, q, r);
                 tiles.put(hex, List.of(new PlainTerrain(hex)));
             }
+            rowNumber++;
         }
         return tiles;
     }

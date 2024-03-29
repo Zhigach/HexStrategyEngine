@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.utils.Core;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

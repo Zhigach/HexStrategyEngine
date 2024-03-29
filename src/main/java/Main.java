@@ -6,28 +6,21 @@ import ru.geekbrains.hexcore.RectangleMapInitializer;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.Tile;
-import ru.geekbrains.viewer.BattlefieldDrawer;
-import ru.geekbrains.viewer.HexPresenter;
+import ru.geekbrains.viewer.SwingBattlefieldPresenter;
 
-import javax.swing.*;
 import java.util.Set;
 
 public class Main {
 
-    /*private hexgame() {
-        initGame();
-        createAndShowGUI();
-    }*/
-
     public static void main(String[] args) {
 
-        //SwingUtilities.invokeLater(() -> new HexPresenter());
+        //SwingUtilities.invokeLater(() -> new NotMyPresenter());
 
-
-        Battlefield.setMapInitializer(new RectangleMapInitializer(0, 4, 1, 5));
-
-        BattlefieldDrawer battlefieldDrawer = new BattlefieldDrawer(Battlefield.getInstance());
+        Battlefield.setDimensions(-4, 4, -6, 6); // C&C field
+        Battlefield.setMapInitializer(new RectangleMapInitializer());
         Battlefield.getInstance().initializeMap();
+
+        SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(Battlefield.getInstance());
 
         Tile lineInfantry = new LineInfantry(0, 0, 0);
         Tile tile3 = new Forest(0, 0, 0);
