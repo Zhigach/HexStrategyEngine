@@ -2,6 +2,11 @@ package ru.geekbrains.hexcore.TileTypes;
 
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+
+import java.awt.*;
+
+import static java.lang.Math.*;
+
 public class Terrain  extends Tile {
     Unit unit;
 
@@ -42,4 +47,13 @@ public class Terrain  extends Tile {
 
     }
 
+    @Override
+    public void draw(Graphics2D g2, int size, Point centerPoint) {
+        Polygon polygon = new Polygon();
+        for (double angle = Math.PI/6; angle <= 2*Math.PI; angle += Math.PI/3) {
+            polygon.addPoint((int) (centerPoint.x + size*cos(angle)), (int) (centerPoint.y + size*sin(angle)));
+        }
+        g2.setColor(FILL_COLOR);
+        g2.fillPolygon(polygon);
+    }
 }

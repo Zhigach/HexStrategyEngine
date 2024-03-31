@@ -10,21 +10,25 @@ import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.MapInitializer;
 import ru.geekbrains.hexcore.model.Tile;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
-import static java.lang.Math.abs;
+import static java.lang.Math.*;
+import static java.lang.Math.sqrt;
 
 /**
  * Class Holder Singleton containing tiles Map
  */
 @Getter
 @Slf4j
-public class Battlefield {
+public class Battlefield implements DrawableHexField{
     static int top;
     static int bottom;
     static int left;
     static int right;
 
+    //TODO create record (interface?) class HexContent that will store one terrain and one unit object
     private Map<Hex, List<Tile>> tiles = new HashMap<>();
     @Setter
     static MapInitializer mapInitializer;
@@ -80,11 +84,12 @@ public class Battlefield {
     }
 
     public Terrain getTerrainByCoordinate(Hex hex) {
-        List<Tile> hexTiles = getTileByCoordinate(hex);
-        if (hexTiles == null || hexTiles.get(0) instanceof Unit) {
-            return new Plain(hex);
+        Tile terrain = tiles.get(hex).get(0);
+        if (terrain instanceof Terrain) {
+            return (Terrain) terrain;
         } else {
-            return (Terrain) hexTiles.get(0);
+            log.error(String.format("Default terrain was not set at %s.", hex));
+            return new Plain(hex);
         }
     }
 
@@ -101,8 +106,8 @@ public class Battlefield {
         return isPassable(hex, false);
     }
 
-    public List<Tile> getTileByCoordinate(Hex hex) {
-        return tiles.get(hex);
+    public List<Tile> getUnitsByCoordinate(Hex hex) {
+        return tiles.get(hex).subList(0, tiles.get(hex).size());
     }
 
     public static void setDimensions(int top, int bottom, int left, int right) {
@@ -124,6 +129,32 @@ public class Battlefield {
         log.info("Map initialization completed successfully.");
     }
 
+    /**
+     * @param g2
+     * @param hex
+     * @param size
+     * @param centerPoint
+     */
+    @Override
+    public void draw(Graphics2D g2, Hex hex, int size, Point centerPoint) {
+        Polygon polygon = new Polygon();
+        for (double angle = Math.PI/6; angle <= 2*Math.PI; angle += Math.PI/3) {
+            polygon.addPoint((int) (centerPoint.x + size*cos(angle)), (int) (centerPoint.y + size*sin(angle)));
+        }
+        //TODO call all tile at the point of interest
+        //TODO draw terrain
+        getTerrainByCoordinate(hex).draw(g2, size, centerPoint);
+        //TODO draw all other
+        for (Tile tile : getUnitsByCoordinate(hex)) {
+            tile.draw(g2, size/3, new Point(centerPoint.x - size/2, centerPoint.y + size/4));
+        }
+        g2.setColor(Color.BLACK);
+        g2.drawPolygon(polygon);
+
+        g2.drawString(hex.toString(), centerPoint.x - size/2, centerPoint.y - size/3);
+    }
+
+
     private static class BattlefieldHolder {
         protected static final Battlefield HOLDER_INSTANCE = new Battlefield();
     }
@@ -134,4 +165,6 @@ public class Battlefield {
     public static Battlefield getInstance() {
         return BattlefieldHolder.HOLDER_INSTANCE;
     }
+
+
 }

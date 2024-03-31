@@ -1,11 +1,18 @@
 package ru.geekbrains.hexcore.TileTypes;
 
+import ru.geekbrains.hexcore.model.DrawableTile;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Movable;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.Tile;
 
-public abstract class Unit extends Tile implements Movable {
+import java.awt.*;
+import java.util.Arrays;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public abstract class Unit extends Tile implements Movable, DrawableTile {
 
     final int movementRange = 0;
 
@@ -31,4 +38,12 @@ public abstract class Unit extends Tile implements Movable {
         }
     }
 
+    @Override
+    public void draw(Graphics2D g2, int size, Point centerPoint) {
+        g2.setColor(Color.BLACK);
+        String shortName = getClass().getSimpleName().chars().filter(Character::isUpperCase).map(c -> ((char) c))
+                .collect(StringBuilder::new,StringBuilder::appendCodePoint, StringBuilder::append)
+                        .toString();
+        g2.drawString(shortName, centerPoint.x, centerPoint.y);
+    }
 }

@@ -92,10 +92,14 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
             System.out.printf("Battlefield contains %s hexes to draw\n", hexes.size());
             for (List<Tile> tiles : hexes) {
                 Point hexCenter = pointyHexToPixel(tiles.get(0).getHex());
-                tiles.get(0).draw(g2, HEX_SIZE, new Point(hexCenter.x, hexCenter.y - getFont().getSize()));
-                tiles.forEach(t ->
-                        g2.drawString(t.getClass().getSimpleName(),
-                                hexCenter.x - HEX_SIZE/2, hexCenter.y + tiles.indexOf(t)*getFont().getSize()));
+                //tiles.get(0).draw(g2, HEX_SIZE, new Point(hexCenter.x, hexCenter.y - getFont().getSize()));
+                //tiles.forEach(t ->
+                  //      g2.drawString(t.getClass().getSimpleName(),
+                    //            hexCenter.x - HEX_SIZE/2, hexCenter.y + tiles.indexOf(t)*getFont().getSize()));
+            }
+            for (Hex hex : battlefield.getTiles().keySet()) {
+                Point hexCenter = pointyHexToPixel(hex);
+                battlefield.draw(g2, hex, HEX_SIZE, new Point(hexCenter.x, hexCenter.y));
             }
         }
 
