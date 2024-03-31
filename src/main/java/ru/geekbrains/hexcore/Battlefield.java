@@ -3,7 +3,7 @@ package ru.geekbrains.hexcore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.TileTypes.PlainTerrain;
+import ru.geekbrains.hexcore.TileTypes.Plain;
 import ru.geekbrains.hexcore.TileTypes.Terrain;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
@@ -38,17 +38,17 @@ public class Battlefield {
             throw new IllegalArgumentException("Coordinate can't be null");
         }
         if (tiles.containsKey(hex)) {
-            log.debug(String.format("Battlefield already contains %s hex.", hex));
+            log.trace(String.format("Battlefield already contains %s hex.", hex));
             List<Tile> content = tiles.get(hex);
             Tile firstElement = content.get(0);
             boolean hasUnit = false;
             hasUnit = content.stream().anyMatch(tile -> tile instanceof Unit);
 
             if (firstElement instanceof Terrain && newTile instanceof Terrain) {
-                if (firstElement instanceof PlainTerrain) {
-                    log.trace(String.format("Replacing placeholder Plain Terrain at %s with %s", hex, newTile));
-
-                    firstElement = newTile;
+                if (firstElement instanceof Plain) {
+                    log.info(String.format("Replacing placeholder Plain Terrain at %s with %s", hex, newTile));
+                    content.set(0, newTile);
+                    //firstElement = newTile;
                 } else {
                     log.error(String.format("%s is already taken by Terrain (%s).", hex, firstElement));
                     throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
@@ -82,7 +82,7 @@ public class Battlefield {
     public Terrain getTerrainByCoordinate(Hex hex) {
         List<Tile> hexTiles = getTileByCoordinate(hex);
         if (hexTiles == null || hexTiles.get(0) instanceof Unit) {
-            return new PlainTerrain(hex);
+            return new Plain(hex);
         } else {
             return (Terrain) hexTiles.get(0);
         }

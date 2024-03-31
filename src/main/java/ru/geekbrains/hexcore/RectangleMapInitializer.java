@@ -1,11 +1,12 @@
 package ru.geekbrains.hexcore;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.TileTypes.PlainTerrain;
+import ru.geekbrains.hexcore.TileTypes.Plain;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.MapInitializer;
 import ru.geekbrains.hexcore.model.Tile;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,7 +29,9 @@ public class RectangleMapInitializer implements MapInitializer {
             int r_offset = (int) floor(r/2.0); // offset for each row
             for (int q = left - r_offset; q <= right - r_offset - rowNumber%2; q++) { // q <= right - r_offset
                 Hex hex = new Hex(-q-r, q, r);
-                tiles.put(hex, List.of(new PlainTerrain(hex)));
+                List<Tile> basicTileSet = new ArrayList<>();
+                basicTileSet.add(new Plain(hex));
+                tiles.put(hex, basicTileSet);
             }
             rowNumber++;
         }

@@ -8,14 +8,19 @@ import ru.geekbrains.hexcore.utils.Core;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
+
+import static java.lang.Math.*;
 
 
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points. All Tiles when instantiated are automatically added to the Battlefield (singleton)
  */
 @Slf4j
-public abstract class Tile {
+public abstract class Tile implements Drawable {
+
     @Getter
     @Setter
     protected Hex hex;
@@ -23,7 +28,7 @@ public abstract class Tile {
     protected boolean passable = true;
     protected boolean blockLOS;
     protected boolean enteringUnitMustStop = false;
-
+    protected Color FILL_COLOR = Color.WHITE;
     //region CONSTRUCTORS
 
     /**
@@ -224,5 +229,22 @@ public abstract class Tile {
     @Override
     public String toString() {
         return String.format("%s@%s", this.getClass().getSimpleName(), hex);
+    }
+
+    /**
+     * @param g2
+     */
+    @Override
+    public void draw(Graphics2D g2, int size, Point centerPoint) {
+        Polygon polygon = new Polygon();
+        for (double angle = Math.PI/6; angle <= 2*Math.PI; angle += Math.PI/3) {
+            polygon.addPoint((int) (centerPoint.x + size*cos(angle)), (int) (centerPoint.y + size*sin(angle)));
+        }
+        g2.setColor(FILL_COLOR);
+        g2.fillPolygon(polygon);
+        g2.setColor(Color.black);
+        g2.drawPolygon(polygon);
+
+        g2.drawString(String.format(String.valueOf(this.getHex())), (int) (centerPoint.x - sqrt(3)*size/2), centerPoint.y);
     }
 }

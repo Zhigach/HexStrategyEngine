@@ -26,7 +26,7 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
     Color COLOURONETXT = Color.BLUE;
     Color COLOURTWO = new Color(0, 0, 0, 200);
     Color COLOURTWOTXT = new Color(255, 0, 255);
-    final int HEX_SIZE = 60;    //hex size in pixels
+    final int HEX_SIZE = 50;    //hex size in pixels
     final int BORDERS = 15;
     final int SCR_HEIGHT;
     final int SCR_WIDTH;
@@ -35,8 +35,8 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
 
     public SwingBattlefieldPresenter(Battlefield battlefield) {
         this.battlefield = battlefield;
-        SCR_HEIGHT = 2*( HEX_SIZE * battlefield.getVerticalSize() ) + BORDERS * 2;
-        SCR_WIDTH = 2*( HEX_SIZE * battlefield.getHorizontalSize() ) + BORDERS * 2;
+        SCR_HEIGHT = 2*( HEX_SIZE * battlefield.getVerticalSize()-1  + BORDERS * 2);
+        SCR_WIDTH = 2*( HEX_SIZE * battlefield.getHorizontalSize()  + BORDERS * 2);
         {
             jFrame = new JFrame(WINDOW_TITLE);
             jFrame.setSize(SCR_WIDTH, SCR_HEIGHT);
@@ -83,7 +83,8 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
         public void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+            Font f = new Font(Font.SERIF, Font.ITALIC, 15);
+            g2.setFont(f);
             super.paintComponent(g2);
 
             //draw grid
@@ -91,8 +92,10 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
             System.out.printf("Battlefield contains %s hexes to draw\n", hexes.size());
             for (List<Tile> tiles : hexes) {
                 Point hexCenter = pointyHexToPixel(tiles.get(0).getHex());
-                Hexmech.drawHex(hexCenter, HEX_SIZE, g2);
-                //fill hexes if needed Hexmech.fillHex(i, j, board[i][j], g2);
+                tiles.get(0).draw(g2, HEX_SIZE, new Point(hexCenter.x, hexCenter.y - getFont().getSize()));
+                tiles.forEach(t ->
+                        g2.drawString(t.getClass().getSimpleName(),
+                                hexCenter.x - HEX_SIZE/2, hexCenter.y + tiles.indexOf(t)*getFont().getSize()));
             }
         }
 
@@ -101,7 +104,7 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
             public void mouseClicked(MouseEvent e) {
                 int x = e.getX();
                 int y = e.getY();
-                Hexmech.drawHex(e.getPoint(), 10, (Graphics2D) DrawingPanel.super.getGraphics());
+                //Hexmech.drawHex(e.getPoint(), 10, (Graphics2D) DrawingPanel.super.getGraphics());
                 repaint();
             }
         };

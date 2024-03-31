@@ -35,6 +35,8 @@ public class Hexmech {
         g2.fillPolygon(poly);
         g2.setColor(Color.black);
         g2.drawPolygon(poly);
+
+        g2.drawString("<%s,%s,%s>", hexCenter.x, hexCenter.y);
     }
 
 }
