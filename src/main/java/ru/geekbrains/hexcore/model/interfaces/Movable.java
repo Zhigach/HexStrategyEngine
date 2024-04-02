@@ -1,4 +1,4 @@
-package ru.geekbrains.hexcore.model;
+package ru.geekbrains.hexcore.model.interfaces;
 
 import ru.geekbrains.hexcore.Path;
 

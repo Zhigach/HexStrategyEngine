@@ -7,34 +7,37 @@ import ru.geekbrains.hexcore.TileTypes.Plain;
 import ru.geekbrains.hexcore.TileTypes.Terrain;
 import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
-import ru.geekbrains.hexcore.model.MapInitializer;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 import static java.lang.Math.*;
-import static java.lang.Math.sqrt;
 
 /**
  * Class Holder Singleton containing tiles Map
  */
 @Getter
 @Slf4j
-public class Battlefield implements DrawableHexField{
+public class Battlefield implements DrawableHexField {
     static int top;
     static int bottom;
     static int left;
     static int right;
 
-    //TODO create record (interface?) class HexContent that will store one terrain and one unit object
     private Map<Hex, List<Tile>> tiles = new HashMap<>();
     @Setter
     static MapInitializer mapInitializer;
 
-    public int getHorizontalSize() {return abs(left-right);}
-    public int getVerticalSize() {return abs(bottom-top);}
+    public int getHorizontalSize() {
+        return abs(left - right);
+    }
+
+    public int getVerticalSize() {
+        return abs(bottom - top);
+    }
 
     public void putTile(Hex hex, Tile newTile) {
         if (hex == null) {
@@ -52,7 +55,6 @@ public class Battlefield implements DrawableHexField{
                 if (firstElement instanceof Plain) {
                     log.info(String.format("Replacing placeholder Plain Terrain at %s with %s", hex, newTile));
                     content.set(0, newTile);
-                    //firstElement = newTile;
                 } else {
                     log.error(String.format("%s is already taken by Terrain (%s).", hex, firstElement));
                     throw new IllegalArgumentException("Terrain can't be added to existing Terrain Hex");
@@ -61,7 +63,7 @@ public class Battlefield implements DrawableHexField{
                 log.error(String.format("%s is already taken by Unit.", hex));
                 throw new IllegalArgumentException("Several units can't be placed at single Hex");
             } else if (firstElement instanceof Terrain && newTile instanceof Unit) {
-                if (!firstElement.isPassable()){
+                if (!firstElement.isPassable()) {
                     log.error(String.format("Trying to place Unit on impassable Terrain (%s) at %s.", firstElement, hex));
                     throw new IllegalArgumentException("Unit can't be placed at impassable Terrain");
                 } else {
@@ -95,6 +97,7 @@ public class Battlefield implements DrawableHexField{
 
     /**
      * Method returns true if tile is passable AND not forcing entering unit to stop
+     *
      * @param hex coordinate of interest
      * @return bool
      */
@@ -138,20 +141,17 @@ public class Battlefield implements DrawableHexField{
     @Override
     public void draw(Graphics2D g2, Hex hex, int size, Point centerPoint) {
         Polygon polygon = new Polygon();
-        for (double angle = Math.PI/6; angle <= 2*Math.PI; angle += Math.PI/3) {
-            polygon.addPoint((int) (centerPoint.x + size*cos(angle)), (int) (centerPoint.y + size*sin(angle)));
+        for (double angle = Math.PI / 6; angle <= 2 * Math.PI; angle += Math.PI / 3) {
+            polygon.addPoint((int) (centerPoint.x + size * cos(angle)), (int) (centerPoint.y + size * sin(angle)));
         }
-        //TODO call all tile at the point of interest
-        //TODO draw terrain
         getTerrainByCoordinate(hex).draw(g2, size, centerPoint);
-        //TODO draw all other
         for (Tile tile : getUnitsByCoordinate(hex)) {
-            tile.draw(g2, size/3, new Point(centerPoint.x - size/2, centerPoint.y + size/4));
+            tile.draw(g2, size / 3, new Point(centerPoint.x - size / 2, centerPoint.y + size / 4));
         }
         g2.setColor(Color.BLACK);
         g2.drawPolygon(polygon);
 
-        g2.drawString(hex.toString(), centerPoint.x - size/2, centerPoint.y - size/3);
+        g2.drawString(hex.toString(), centerPoint.x - size / 2, centerPoint.y - size / 3);
     }
 
 

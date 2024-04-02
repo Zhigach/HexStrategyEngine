@@ -2,13 +2,15 @@ package ru.geekbrains.hexcore.TileTypes;
 
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.model.interfaces.Container;
 
 import java.awt.*;
 
-import static java.lang.Math.*;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
-public class Terrain  extends Tile {
-    Unit unit;
+public class Terrain extends Tile implements Container {
+    Unit attachedUnit = null;
 
     protected Terrain(int s, int q, int r) {
         super(s, q, r);
@@ -19,41 +21,36 @@ public class Terrain  extends Tile {
     }
 
     public Terrain() {
-        super(0,0,0);
-    }
-
-    public void setAttachedUnit(Unit unit) {
-        this.unit = unit;
-    }
-    public void unsetAttachedUnit() {
-        this.unit = null;
-    }
-
-    @Override
-    public void stepInEffect(Unit unit) {
-        setAttachedUnit(unit);
-    }
-    public void stepInEffect() {
-        System.out.println(toString());
-    }
-
-    @Override
-    public void stepOutEffect(Unit unit) {
-        unsetAttachedUnit();
-    }
-
-    @Override
-    public void stepOutEffect() {
-
+        super(0, 0, 0);
     }
 
     @Override
     public void draw(Graphics2D g2, int size, Point centerPoint) {
         Polygon polygon = new Polygon();
-        for (double angle = Math.PI/6; angle <= 2*Math.PI; angle += Math.PI/3) {
-            polygon.addPoint((int) (centerPoint.x + size*cos(angle)), (int) (centerPoint.y + size*sin(angle)));
+        for (double angle = Math.PI / 6; angle <= 2 * Math.PI; angle += Math.PI / 3) {
+            polygon.addPoint((int) (centerPoint.x + size * cos(angle)), (int) (centerPoint.y + size * sin(angle)));
         }
         g2.setColor(FILL_COLOR);
         g2.fillPolygon(polygon);
+    }
+
+    /**
+     * @param tile
+     */
+    @Override
+    public void setAttachedTile(Tile tile) {
+        if (tile instanceof Unit) {
+            this.attachedUnit = (Unit) tile;
+        } else {
+            throw new UnsupportedOperationException("Terrain can contain only Unit.");
+        }
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void unsetAttachedTile() {
+        this.attachedUnit = null;
     }
 }

@@ -4,15 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.utils.Core;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.TileTypes.Unit;
+import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
+import ru.geekbrains.hexcore.utils.Core;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
-import static java.lang.Math.*;
+import static java.lang.Math.sqrt;
 
 
 /**
@@ -29,27 +29,35 @@ public abstract class Tile implements DrawableTile {
     protected boolean blockLOS;
     protected boolean enteringUnitMustStop = false;
     protected Color FILL_COLOR = Color.WHITE;
+
+
     //region CONSTRUCTORS
 
     /**
      * Method adding ANY new Tile onto the Battlefield.
      * Multiple Battlefields not supported by this core.
      */
-    private void init(){
+    private void init() {
         log.info(String.format("New Tile %s created. Putting it onto the Battlefield", this.getClass().getSimpleName()));
         battlefield.putTile(this.getHex(), this);
     }
+
     protected Tile(int s, int q, int r) {
         this.hex = new Hex(s, q, r);
         init();
     }
+
     protected Tile(@org.jetbrains.annotations.NotNull Hex hex) {
         this(hex.getS(), hex.getQ(), hex.getR());
     }
+
     //endregion
+    public Tile() {
+    }
 
     /**
      * Get Battlefield this Tile is assigned to
+     *
      * @return Battlefield
      */
     public Battlefield getBattlefield() {
@@ -57,39 +65,21 @@ public abstract class Tile implements DrawableTile {
     }
 
     /**
-     * Abstract method to implement at siblings.
-     * @param unit Unit that steps at this Tile
-     */
-    public abstract void stepInEffect(Unit unit);
-
-    /**
-     * Arbitrary effect to be implemented at siblings
-     */
-    public abstract void stepInEffect();
-
-    /**
-     * Abstract method to implement at siblings.
-     * @param unit Unit that steps out of this Tile
-     */
-    public abstract void stepOutEffect(Unit unit);
-    /**
-     * Arbitrary effect to be implemented at siblings
-     */
-    public abstract void stepOutEffect();
-
-    /**
      * Tells us if this Tile is passable in single turn.
+     *
      * @return bool value
      */
     public boolean isPassable(boolean passableOnly) {
         return passable && passableOnly || passable && !enteringUnitMustStop;
     }
+
     public boolean isPassable() {
         return isPassable(false);
     }
 
     /**
      * Check if the provided path is available for this specific Unit (Tile in general).
+     *
      * @param path path to be checked
      * @return bool
      */
@@ -99,10 +89,11 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Get Set of Tiles that can be reached from this in range of movement
+     *
      * @param movement range
      * @return Set of Tiles that can be reached within specified distance
      */
-    public Set<Hex> getReachableHexes(int movement){
+    public Set<Hex> getReachableHexes(int movement) {
         Set<Hex> visited = new HashSet<>();
         visited.add(this.getHex());
         List<List<Hex>> rounds = new ArrayList<>();
@@ -128,6 +119,7 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Basic method to get Path to destination hex
+     *
      * @param destination Tile of interest - final point of the way
      * @return deltas that should be added to current coordinate in order to get to destination
      */
@@ -141,7 +133,7 @@ public abstract class Tile implements DrawableTile {
         Set<Hex> reached = new HashSet<>();
         reached.add(this.getHex());
         while (!frontier.isEmpty()) {
-            Hex current =  frontier.poll();
+            Hex current = frontier.poll();
             List<Hex> neighbours = current.getContactingHexes();
             for (Hex neighbour : neighbours) {
                 if (battlefield.isPassable(neighbour) && !reached.contains(neighbour)) {
@@ -175,6 +167,7 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Get all Terrains that can be reached from this Tile using provided movement range.
+     *
      * @param movement integer movement
      * @return Set of Tiles
      */
@@ -190,6 +183,7 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Get Path to target tile. Obtained by linear interpolation
+     *
      * @param to target Tile
      * @return Path to target Tile
      */
@@ -197,7 +191,7 @@ public abstract class Tile implements DrawableTile {
         int dist = hex.findDistance(to.getHex());
         List<Hex> results = new ArrayList<>();
         for (int i = 0; i <= dist; i++) {
-            Hex interpolatedHex =  Core.hexLinearInterpolation(hex, to.hex, 1.0/dist*i);
+            Hex interpolatedHex = Core.hexLinearInterpolation(hex, to.hex, 1.0 / dist * i);
             results.add(new Hex(Core.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR())));
         }
         Path path = new Path(results);
@@ -207,6 +201,7 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Check does this Tile has line of sight to the destination Tile.
+     *
      * @param to destination Tile
      * @return bool
      */
@@ -224,6 +219,7 @@ public abstract class Tile implements DrawableTile {
 
     /**
      * Returns string with coordinates information
+     *
      * @return String
      */
     @Override
@@ -238,6 +234,6 @@ public abstract class Tile implements DrawableTile {
     public void draw(Graphics2D g2, int size, Point centerPoint) {
         g2.drawString(
                 String.format(String.valueOf(
-                        this.getHex())), (int) (centerPoint.x - sqrt(3)*size/2), centerPoint.y);
+                        this.getHex())), (int) (centerPoint.x - sqrt(3) * size / 2), centerPoint.y);
     }
 }

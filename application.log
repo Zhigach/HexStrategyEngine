@@ -19009,3 +19009,529 @@
 2024-03-31 23:28:22,961 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
 2024-03-31 23:28:22,962 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
 2024-03-31 23:28:22,963 DEBUG [main] r.g.h.m.Tile [Tile.java:172] -- Path requested from LineInfantry@<0,0,0> -> LineInfantry@<0,-2,2>. Returning Path: {[0,1,-1],[0,1,-1]}
+2024-04-02 19:29:37,983 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,986 DEBUG [main] r.g.h.Battlefield [Battlefield.java:82] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-02 19:29:37,988 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,989 DEBUG [main] r.g.h.Battlefield [Battlefield.java:77] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:29:37,991 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,991 DEBUG [main] r.g.h.Battlefield [Battlefield.java:77] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:29:37,992 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,993 DEBUG [main] r.g.h.Battlefield [Battlefield.java:77] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:29:37,994 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,994 DEBUG [main] r.g.h.Battlefield [Battlefield.java:77] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:29:37,996 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile  created. Putting it onto the Battlefield
+2024-04-02 19:29:37,996 DEBUG [main] r.g.h.Battlefield [Battlefield.java:77] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:29:38,003 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 19:33:41,108 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,112 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<8,-4,-4>) is added to the battlefield at empty hex <8,-4,-4>.
+2024-04-02 19:33:41,112 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,113 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<7,-3,-4>) is added to the battlefield at empty hex <7,-3,-4>.
+2024-04-02 19:33:41,113 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,113 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<6,-2,-4>) is added to the battlefield at empty hex <6,-2,-4>.
+2024-04-02 19:33:41,113 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,114 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-1,-4>) is added to the battlefield at empty hex <5,-1,-4>.
+2024-04-02 19:33:41,115 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,115 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,0,-4>) is added to the battlefield at empty hex <4,0,-4>.
+2024-04-02 19:33:41,115 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,115 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,1,-4>) is added to the battlefield at empty hex <3,1,-4>.
+2024-04-02 19:33:41,115 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,116 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,2,-4>) is added to the battlefield at empty hex <2,2,-4>.
+2024-04-02 19:33:41,116 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,116 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,3,-4>) is added to the battlefield at empty hex <1,3,-4>.
+2024-04-02 19:33:41,116 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,116 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,4,-4>) is added to the battlefield at empty hex <0,4,-4>.
+2024-04-02 19:33:41,116 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,117 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,5,-4>) is added to the battlefield at empty hex <-1,5,-4>.
+2024-04-02 19:33:41,117 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,117 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,6,-4>) is added to the battlefield at empty hex <-2,6,-4>.
+2024-04-02 19:33:41,117 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,117 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,7,-4>) is added to the battlefield at empty hex <-3,7,-4>.
+2024-04-02 19:33:41,117 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,118 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,8,-4>) is added to the battlefield at empty hex <-4,8,-4>.
+2024-04-02 19:33:41,118 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,118 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<7,-4,-3>) is added to the battlefield at empty hex <7,-4,-3>.
+2024-04-02 19:33:41,118 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,118 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<6,-3,-3>) is added to the battlefield at empty hex <6,-3,-3>.
+2024-04-02 19:33:41,118 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,119 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-2,-3>) is added to the battlefield at empty hex <5,-2,-3>.
+2024-04-02 19:33:41,119 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,119 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-1,-3>) is added to the battlefield at empty hex <4,-1,-3>.
+2024-04-02 19:33:41,119 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,119 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,0,-3>) is added to the battlefield at empty hex <3,0,-3>.
+2024-04-02 19:33:41,119 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,120 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,1,-3>) is added to the battlefield at empty hex <2,1,-3>.
+2024-04-02 19:33:41,120 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,120 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,2,-3>) is added to the battlefield at empty hex <1,2,-3>.
+2024-04-02 19:33:41,120 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,120 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,3,-3>) is added to the battlefield at empty hex <0,3,-3>.
+2024-04-02 19:33:41,120 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,120 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,4,-3>) is added to the battlefield at empty hex <-1,4,-3>.
+2024-04-02 19:33:41,121 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,121 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,5,-3>) is added to the battlefield at empty hex <-2,5,-3>.
+2024-04-02 19:33:41,121 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,121 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,6,-3>) is added to the battlefield at empty hex <-3,6,-3>.
+2024-04-02 19:33:41,121 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,121 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,7,-3>) is added to the battlefield at empty hex <-4,7,-3>.
+2024-04-02 19:33:41,121 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,122 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<7,-5,-2>) is added to the battlefield at empty hex <7,-5,-2>.
+2024-04-02 19:33:41,122 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,122 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<6,-4,-2>) is added to the battlefield at empty hex <6,-4,-2>.
+2024-04-02 19:33:41,122 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,122 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-3,-2>) is added to the battlefield at empty hex <5,-3,-2>.
+2024-04-02 19:33:41,123 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,123 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-2,-2>) is added to the battlefield at empty hex <4,-2,-2>.
+2024-04-02 19:33:41,123 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,123 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-1,-2>) is added to the battlefield at empty hex <3,-1,-2>.
+2024-04-02 19:33:41,123 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,123 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,0,-2>) is added to the battlefield at empty hex <2,0,-2>.
+2024-04-02 19:33:41,124 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,124 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,1,-2>) is added to the battlefield at empty hex <1,1,-2>.
+2024-04-02 19:33:41,124 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,124 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,2,-2>) is added to the battlefield at empty hex <0,2,-2>.
+2024-04-02 19:33:41,124 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,124 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,3,-2>) is added to the battlefield at empty hex <-1,3,-2>.
+2024-04-02 19:33:41,124 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,125 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,4,-2>) is added to the battlefield at empty hex <-2,4,-2>.
+2024-04-02 19:33:41,125 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,125 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,5,-2>) is added to the battlefield at empty hex <-3,5,-2>.
+2024-04-02 19:33:41,125 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,125 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,6,-2>) is added to the battlefield at empty hex <-4,6,-2>.
+2024-04-02 19:33:41,125 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,7,-2>) is added to the battlefield at empty hex <-5,7,-2>.
+2024-04-02 19:33:41,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<6,-5,-1>) is added to the battlefield at empty hex <6,-5,-1>.
+2024-04-02 19:33:41,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-4,-1>) is added to the battlefield at empty hex <5,-4,-1>.
+2024-04-02 19:33:41,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-3,-1>) is added to the battlefield at empty hex <4,-3,-1>.
+2024-04-02 19:33:41,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-2,-1>) is added to the battlefield at empty hex <3,-2,-1>.
+2024-04-02 19:33:41,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,126 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-1,-1>) is added to the battlefield at empty hex <2,-1,-1>.
+2024-04-02 19:33:41,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,127 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,0,-1>) is added to the battlefield at empty hex <1,0,-1>.
+2024-04-02 19:33:41,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,127 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,1,-1>) is added to the battlefield at empty hex <0,1,-1>.
+2024-04-02 19:33:41,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,127 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,2,-1>) is added to the battlefield at empty hex <-1,2,-1>.
+2024-04-02 19:33:41,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,127 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,3,-1>) is added to the battlefield at empty hex <-2,3,-1>.
+2024-04-02 19:33:41,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,127 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,4,-1>) is added to the battlefield at empty hex <-3,4,-1>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,5,-1>) is added to the battlefield at empty hex <-4,5,-1>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,6,-1>) is added to the battlefield at empty hex <-5,6,-1>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<6,-6,0>) is added to the battlefield at empty hex <6,-6,0>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-5,0>) is added to the battlefield at empty hex <5,-5,0>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-4,0>) is added to the battlefield at empty hex <4,-4,0>.
+2024-04-02 19:33:41,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-3,0>) is added to the battlefield at empty hex <3,-3,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,129 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-2,0>) is added to the battlefield at empty hex <2,-2,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,129 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,-1,0>) is added to the battlefield at empty hex <1,-1,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,129 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,129 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,1,0>) is added to the battlefield at empty hex <-1,1,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,129 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,2,0>) is added to the battlefield at empty hex <-2,2,0>.
+2024-04-02 19:33:41,129 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,130 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,3,0>) is added to the battlefield at empty hex <-3,3,0>.
+2024-04-02 19:33:41,130 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,130 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,4,0>) is added to the battlefield at empty hex <-4,4,0>.
+2024-04-02 19:33:41,130 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,130 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,5,0>) is added to the battlefield at empty hex <-5,5,0>.
+2024-04-02 19:33:41,130 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,130 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-6,6,0>) is added to the battlefield at empty hex <-6,6,0>.
+2024-04-02 19:33:41,130 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,130 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-6,1>) is added to the battlefield at empty hex <5,-6,1>.
+2024-04-02 19:33:41,130 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-5,1>) is added to the battlefield at empty hex <4,-5,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-4,1>) is added to the battlefield at empty hex <3,-4,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-3,1>) is added to the battlefield at empty hex <2,-3,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,-2,1>) is added to the battlefield at empty hex <1,-2,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,-1,1>) is added to the battlefield at empty hex <0,-1,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,131 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,0,1>) is added to the battlefield at empty hex <-1,0,1>.
+2024-04-02 19:33:41,131 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,1,1>) is added to the battlefield at empty hex <-2,1,1>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,2,1>) is added to the battlefield at empty hex <-3,2,1>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,3,1>) is added to the battlefield at empty hex <-4,3,1>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,4,1>) is added to the battlefield at empty hex <-5,4,1>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-6,5,1>) is added to the battlefield at empty hex <-6,5,1>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,132 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<5,-7,2>) is added to the battlefield at empty hex <5,-7,2>.
+2024-04-02 19:33:41,132 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-6,2>) is added to the battlefield at empty hex <4,-6,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-5,2>) is added to the battlefield at empty hex <3,-5,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-4,2>) is added to the battlefield at empty hex <2,-4,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,-3,2>) is added to the battlefield at empty hex <1,-3,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,-2,2>) is added to the battlefield at empty hex <0,-2,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,133 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,-1,2>) is added to the battlefield at empty hex <-1,-1,2>.
+2024-04-02 19:33:41,133 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,0,2>) is added to the battlefield at empty hex <-2,0,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,1,2>) is added to the battlefield at empty hex <-3,1,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,2,2>) is added to the battlefield at empty hex <-4,2,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,3,2>) is added to the battlefield at empty hex <-5,3,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-6,4,2>) is added to the battlefield at empty hex <-6,4,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-7,5,2>) is added to the battlefield at empty hex <-7,5,2>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,134 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-7,3>) is added to the battlefield at empty hex <4,-7,3>.
+2024-04-02 19:33:41,134 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-6,3>) is added to the battlefield at empty hex <3,-6,3>.
+2024-04-02 19:33:41,135 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-5,3>) is added to the battlefield at empty hex <2,-5,3>.
+2024-04-02 19:33:41,135 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,-4,3>) is added to the battlefield at empty hex <1,-4,3>.
+2024-04-02 19:33:41,135 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,-3,3>) is added to the battlefield at empty hex <0,-3,3>.
+2024-04-02 19:33:41,135 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,-2,3>) is added to the battlefield at empty hex <-1,-2,3>.
+2024-04-02 19:33:41,135 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,135 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,-1,3>) is added to the battlefield at empty hex <-2,-1,3>.
+2024-04-02 19:33:41,136 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,136 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,0,3>) is added to the battlefield at empty hex <-3,0,3>.
+2024-04-02 19:33:41,136 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,136 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,1,3>) is added to the battlefield at empty hex <-4,1,3>.
+2024-04-02 19:33:41,136 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,136 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,2,3>) is added to the battlefield at empty hex <-5,2,3>.
+2024-04-02 19:33:41,136 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,136 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-6,3,3>) is added to the battlefield at empty hex <-6,3,3>.
+2024-04-02 19:33:41,136 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,136 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-7,4,3>) is added to the battlefield at empty hex <-7,4,3>.
+2024-04-02 19:33:41,137 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,137 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<4,-8,4>) is added to the battlefield at empty hex <4,-8,4>.
+2024-04-02 19:33:41,137 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,137 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<3,-7,4>) is added to the battlefield at empty hex <3,-7,4>.
+2024-04-02 19:33:41,137 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,137 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<2,-6,4>) is added to the battlefield at empty hex <2,-6,4>.
+2024-04-02 19:33:41,137 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,137 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<1,-5,4>) is added to the battlefield at empty hex <1,-5,4>.
+2024-04-02 19:33:41,137 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,138 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<0,-4,4>) is added to the battlefield at empty hex <0,-4,4>.
+2024-04-02 19:33:41,138 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,138 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-1,-3,4>) is added to the battlefield at empty hex <-1,-3,4>.
+2024-04-02 19:33:41,138 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,138 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-2,-2,4>) is added to the battlefield at empty hex <-2,-2,4>.
+2024-04-02 19:33:41,138 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,138 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-3,-1,4>) is added to the battlefield at empty hex <-3,-1,4>.
+2024-04-02 19:33:41,138 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,139 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-4,0,4>) is added to the battlefield at empty hex <-4,0,4>.
+2024-04-02 19:33:41,139 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,139 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-5,1,4>) is added to the battlefield at empty hex <-5,1,4>.
+2024-04-02 19:33:41,139 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,139 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-6,2,4>) is added to the battlefield at empty hex <-6,2,4>.
+2024-04-02 19:33:41,139 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,139 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-7,3,4>) is added to the battlefield at empty hex <-7,3,4>.
+2024-04-02 19:33:41,139 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 19:33:41,139 DEBUG [main] r.g.h.Battlefield [Battlefield.java:81] -- New Tile (Plain@<-8,4,4>) is added to the battlefield at empty hex <-8,4,4>.
+2024-04-02 19:33:41,139 INFO [main] r.g.h.Battlefield [Battlefield.java:128] -- Map initialization completed successfully.
+2024-04-02 19:33:41,298 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile LineInfantry created. Putting it onto the Battlefield
+2024-04-02 19:33:41,299 DEBUG [main] r.g.h.Battlefield [Battlefield.java:68] -- New Tile (LineInfantry@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 19:33:41,300 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Forest created. Putting it onto the Battlefield
+2024-04-02 19:33:41,300 INFO [main] r.g.h.Battlefield [Battlefield.java:52] -- Replacing placeholder Plain Terrain at <0,0,0> with Forest@<0,0,0>
+2024-04-02 19:33:41,300 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 19:33:41,300 INFO [main] r.g.h.Battlefield [Battlefield.java:52] -- Replacing placeholder Plain Terrain at <0,1,-1> with River@<0,1,-1>
+2024-04-02 19:33:41,300 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 19:33:41,301 INFO [main] r.g.h.Battlefield [Battlefield.java:52] -- Replacing placeholder Plain Terrain at <1,-1,0> with River@<1,-1,0>
+2024-04-02 19:33:41,301 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 19:33:41,301 INFO [main] r.g.h.Battlefield [Battlefield.java:52] -- Replacing placeholder Plain Terrain at <1,0,-1> with River@<1,0,-1>
+2024-04-02 19:33:41,301 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 19:33:41,301 INFO [main] r.g.h.Battlefield [Battlefield.java:52] -- Replacing placeholder Plain Terrain at <-1,1,0> with River@<-1,1,0>
+2024-04-02 19:33:41,301 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 19:33:41,302 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 19:33:41,302 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 19:33:41,302 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <-1,0,1>. Returning [<0,0,0>, <0,-1,1>, <-1,-1,2>, <-2,0,2>, <-2,1,1>, <-1,1,0>]
+2024-04-02 19:33:41,302 DEBUG [main] r.g.h.m.Tile [Tile.java:125] -- Requested reachable hexes for LineInfantry@<0,0,0>. Returning [<0,0,0>, <1,-2,1>, <0,-1,1>, <-1,0,1>, <0,-2,2>, <-2,1,1>, <-1,-1,2>, <-2,0,2>]
+2024-04-02 19:33:41,302 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile LineInfantry created. Putting it onto the Battlefield
+2024-04-02 19:33:41,302 DEBUG [main] r.g.h.Battlefield [Battlefield.java:68] -- New Tile (LineInfantry@<0,-2,2>) is added to the battlefield at <0,-2,2>.
+2024-04-02 19:33:41,303 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 19:33:41,303 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 19:33:41,304 DEBUG [main] r.g.h.m.Tile [Tile.java:172] -- Path requested from LineInfantry@<0,0,0> -> LineInfantry@<0,-2,2>. Returning Path: {[0,1,-1],[0,1,-1]}
+2024-04-02 20:16:40,411 INFO [main] r.g.h.Battlefield [Battlefield.java:127] -- Map initialization completed successfully.
+2024-04-02 20:16:40,550 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:16:40,550 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:16:40,551 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <1,0,-1>. Returning [<2,0,-2>, <2,-1,-1>, <1,-1,0>, <0,0,0>, <0,1,-1>, <1,1,-2>]
+2024-04-02 20:16:40,551 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <1,-1,0>. Returning [<2,-1,-1>, <2,-2,0>, <1,-2,1>, <0,-1,1>, <0,0,0>, <1,0,-1>]
+2024-04-02 20:16:40,551 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 20:16:40,551 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <-1,0,1>. Returning [<0,0,0>, <0,-1,1>, <-1,-1,2>, <-2,0,2>, <-2,1,1>, <-1,1,0>]
+2024-04-02 20:16:40,551 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <-1,1,0>. Returning [<0,1,-1>, <0,0,0>, <-1,0,1>, <-2,1,1>, <-2,2,0>, <-1,2,-1>]
+2024-04-02 20:16:40,552 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,1,-1>. Returning [<1,1,-2>, <1,0,-1>, <0,0,0>, <-1,1,0>, <-1,2,-1>, <0,2,-2>]
+2024-04-02 20:16:40,552 DEBUG [main] r.g.h.m.Tile [Tile.java:111] -- Requested reachable hexes for LineInfantry@<0,0,0>. Returning [<0,0,0>, <-1,2,-1>, <1,-2,1>, <1,-1,0>, <-1,1,0>, <0,1,-1>, <0,-1,1>, <2,-2,0>, <1,0,-1>, <-2,2,0>, <-1,0,1>, <0,2,-2>, <0,-2,2>, <2,-1,-1>, <1,1,-2>, <-2,1,1>, <-1,-1,2>, <2,0,-2>, <-2,0,2>]
+2024-04-02 20:16:40,553 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:16:40,553 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <1,0,-1>. Returning [<2,0,-2>, <2,-1,-1>, <1,-1,0>, <0,0,0>, <0,1,-1>, <1,1,-2>]
+2024-04-02 20:16:40,553 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <1,-1,0>. Returning [<2,-1,-1>, <2,-2,0>, <1,-2,1>, <0,-1,1>, <0,0,0>, <1,0,-1>]
+2024-04-02 20:16:40,554 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 20:16:40,555 DEBUG [main] r.g.h.m.Tile [Tile.java:159] -- Path requested from LineInfantry@<0,0,0> -> LineInfantry@<0,-2,2>. Returning Path: {[0,1,-1],[0,1,-1]}
+2024-04-02 20:18:41,992 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,994 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<8,-4,-4>) is added to the battlefield at empty hex <8,-4,-4>.
+2024-04-02 20:18:41,994 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,994 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<7,-3,-4>) is added to the battlefield at empty hex <7,-3,-4>.
+2024-04-02 20:18:41,994 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,995 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<6,-2,-4>) is added to the battlefield at empty hex <6,-2,-4>.
+2024-04-02 20:18:41,995 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,995 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-1,-4>) is added to the battlefield at empty hex <5,-1,-4>.
+2024-04-02 20:18:41,995 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,995 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,0,-4>) is added to the battlefield at empty hex <4,0,-4>.
+2024-04-02 20:18:41,995 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,995 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,1,-4>) is added to the battlefield at empty hex <3,1,-4>.
+2024-04-02 20:18:41,995 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,996 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,2,-4>) is added to the battlefield at empty hex <2,2,-4>.
+2024-04-02 20:18:41,996 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,996 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,3,-4>) is added to the battlefield at empty hex <1,3,-4>.
+2024-04-02 20:18:41,996 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,996 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,4,-4>) is added to the battlefield at empty hex <0,4,-4>.
+2024-04-02 20:18:41,996 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,996 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,5,-4>) is added to the battlefield at empty hex <-1,5,-4>.
+2024-04-02 20:18:41,997 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,997 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,6,-4>) is added to the battlefield at empty hex <-2,6,-4>.
+2024-04-02 20:18:41,997 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,997 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,7,-4>) is added to the battlefield at empty hex <-3,7,-4>.
+2024-04-02 20:18:41,997 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,997 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,8,-4>) is added to the battlefield at empty hex <-4,8,-4>.
+2024-04-02 20:18:41,997 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,997 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<7,-4,-3>) is added to the battlefield at empty hex <7,-4,-3>.
+2024-04-02 20:18:41,997 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,998 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<6,-3,-3>) is added to the battlefield at empty hex <6,-3,-3>.
+2024-04-02 20:18:41,998 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,998 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-2,-3>) is added to the battlefield at empty hex <5,-2,-3>.
+2024-04-02 20:18:41,998 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,998 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-1,-3>) is added to the battlefield at empty hex <4,-1,-3>.
+2024-04-02 20:18:41,998 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,998 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,0,-3>) is added to the battlefield at empty hex <3,0,-3>.
+2024-04-02 20:18:41,998 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,998 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,1,-3>) is added to the battlefield at empty hex <2,1,-3>.
+2024-04-02 20:18:41,999 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,999 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,2,-3>) is added to the battlefield at empty hex <1,2,-3>.
+2024-04-02 20:18:41,999 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,999 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,3,-3>) is added to the battlefield at empty hex <0,3,-3>.
+2024-04-02 20:18:41,999 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,999 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,4,-3>) is added to the battlefield at empty hex <-1,4,-3>.
+2024-04-02 20:18:41,999 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,999 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,5,-3>) is added to the battlefield at empty hex <-2,5,-3>.
+2024-04-02 20:18:41,999 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:41,999 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,6,-3>) is added to the battlefield at empty hex <-3,6,-3>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,000 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,7,-3>) is added to the battlefield at empty hex <-4,7,-3>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,000 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<7,-5,-2>) is added to the battlefield at empty hex <7,-5,-2>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,000 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<6,-4,-2>) is added to the battlefield at empty hex <6,-4,-2>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,000 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-3,-2>) is added to the battlefield at empty hex <5,-3,-2>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,000 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-2,-2>) is added to the battlefield at empty hex <4,-2,-2>.
+2024-04-02 20:18:42,000 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-1,-2>) is added to the battlefield at empty hex <3,-1,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,0,-2>) is added to the battlefield at empty hex <2,0,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,1,-2>) is added to the battlefield at empty hex <1,1,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,2,-2>) is added to the battlefield at empty hex <0,2,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,3,-2>) is added to the battlefield at empty hex <-1,3,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,001 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,4,-2>) is added to the battlefield at empty hex <-2,4,-2>.
+2024-04-02 20:18:42,001 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,5,-2>) is added to the battlefield at empty hex <-3,5,-2>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,6,-2>) is added to the battlefield at empty hex <-4,6,-2>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,7,-2>) is added to the battlefield at empty hex <-5,7,-2>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<6,-5,-1>) is added to the battlefield at empty hex <6,-5,-1>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-4,-1>) is added to the battlefield at empty hex <5,-4,-1>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-3,-1>) is added to the battlefield at empty hex <4,-3,-1>.
+2024-04-02 20:18:42,002 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,002 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-2,-1>) is added to the battlefield at empty hex <3,-2,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-1,-1>) is added to the battlefield at empty hex <2,-1,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,0,-1>) is added to the battlefield at empty hex <1,0,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,1,-1>) is added to the battlefield at empty hex <0,1,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,2,-1>) is added to the battlefield at empty hex <-1,2,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,3,-1>) is added to the battlefield at empty hex <-2,3,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,4,-1>) is added to the battlefield at empty hex <-3,4,-1>.
+2024-04-02 20:18:42,003 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,003 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,5,-1>) is added to the battlefield at empty hex <-4,5,-1>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,6,-1>) is added to the battlefield at empty hex <-5,6,-1>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<6,-6,0>) is added to the battlefield at empty hex <6,-6,0>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-5,0>) is added to the battlefield at empty hex <5,-5,0>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-4,0>) is added to the battlefield at empty hex <4,-4,0>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-3,0>) is added to the battlefield at empty hex <3,-3,0>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-2,0>) is added to the battlefield at empty hex <2,-2,0>.
+2024-04-02 20:18:42,004 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,004 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,-1,0>) is added to the battlefield at empty hex <1,-1,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,1,0>) is added to the battlefield at empty hex <-1,1,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,2,0>) is added to the battlefield at empty hex <-2,2,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,3,0>) is added to the battlefield at empty hex <-3,3,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,4,0>) is added to the battlefield at empty hex <-4,4,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,5,0>) is added to the battlefield at empty hex <-5,5,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-6,6,0>) is added to the battlefield at empty hex <-6,6,0>.
+2024-04-02 20:18:42,005 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,005 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-6,1>) is added to the battlefield at empty hex <5,-6,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-5,1>) is added to the battlefield at empty hex <4,-5,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-4,1>) is added to the battlefield at empty hex <3,-4,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-3,1>) is added to the battlefield at empty hex <2,-3,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,-2,1>) is added to the battlefield at empty hex <1,-2,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,-1,1>) is added to the battlefield at empty hex <0,-1,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,006 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,0,1>) is added to the battlefield at empty hex <-1,0,1>.
+2024-04-02 20:18:42,006 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,1,1>) is added to the battlefield at empty hex <-2,1,1>.
+2024-04-02 20:18:42,007 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,2,1>) is added to the battlefield at empty hex <-3,2,1>.
+2024-04-02 20:18:42,007 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,3,1>) is added to the battlefield at empty hex <-4,3,1>.
+2024-04-02 20:18:42,007 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,4,1>) is added to the battlefield at empty hex <-5,4,1>.
+2024-04-02 20:18:42,007 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-6,5,1>) is added to the battlefield at empty hex <-6,5,1>.
+2024-04-02 20:18:42,007 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,007 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<5,-7,2>) is added to the battlefield at empty hex <5,-7,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-6,2>) is added to the battlefield at empty hex <4,-6,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-5,2>) is added to the battlefield at empty hex <3,-5,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-4,2>) is added to the battlefield at empty hex <2,-4,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,-3,2>) is added to the battlefield at empty hex <1,-3,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,-2,2>) is added to the battlefield at empty hex <0,-2,2>.
+2024-04-02 20:18:42,008 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,008 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,-1,2>) is added to the battlefield at empty hex <-1,-1,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,0,2>) is added to the battlefield at empty hex <-2,0,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,1,2>) is added to the battlefield at empty hex <-3,1,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,2,2>) is added to the battlefield at empty hex <-4,2,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,3,2>) is added to the battlefield at empty hex <-5,3,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-6,4,2>) is added to the battlefield at empty hex <-6,4,2>.
+2024-04-02 20:18:42,009 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,009 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-7,5,2>) is added to the battlefield at empty hex <-7,5,2>.
+2024-04-02 20:18:42,010 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,010 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-7,3>) is added to the battlefield at empty hex <4,-7,3>.
+2024-04-02 20:18:42,010 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,010 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-6,3>) is added to the battlefield at empty hex <3,-6,3>.
+2024-04-02 20:18:42,010 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,010 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-5,3>) is added to the battlefield at empty hex <2,-5,3>.
+2024-04-02 20:18:42,010 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,010 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,-4,3>) is added to the battlefield at empty hex <1,-4,3>.
+2024-04-02 20:18:42,010 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,-3,3>) is added to the battlefield at empty hex <0,-3,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,-2,3>) is added to the battlefield at empty hex <-1,-2,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,-1,3>) is added to the battlefield at empty hex <-2,-1,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,0,3>) is added to the battlefield at empty hex <-3,0,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,1,3>) is added to the battlefield at empty hex <-4,1,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,2,3>) is added to the battlefield at empty hex <-5,2,3>.
+2024-04-02 20:18:42,011 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,011 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-6,3,3>) is added to the battlefield at empty hex <-6,3,3>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-7,4,3>) is added to the battlefield at empty hex <-7,4,3>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<4,-8,4>) is added to the battlefield at empty hex <4,-8,4>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<3,-7,4>) is added to the battlefield at empty hex <3,-7,4>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<2,-6,4>) is added to the battlefield at empty hex <2,-6,4>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<1,-5,4>) is added to the battlefield at empty hex <1,-5,4>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,012 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<0,-4,4>) is added to the battlefield at empty hex <0,-4,4>.
+2024-04-02 20:18:42,012 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-1,-3,4>) is added to the battlefield at empty hex <-1,-3,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-2,-2,4>) is added to the battlefield at empty hex <-2,-2,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-3,-1,4>) is added to the battlefield at empty hex <-3,-1,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-4,0,4>) is added to the battlefield at empty hex <-4,0,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-5,1,4>) is added to the battlefield at empty hex <-5,1,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-6,2,4>) is added to the battlefield at empty hex <-6,2,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-7,3,4>) is added to the battlefield at empty hex <-7,3,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Plain created. Putting it onto the Battlefield
+2024-04-02 20:18:42,013 DEBUG [main] r.g.h.Battlefield [Battlefield.java:80] -- New Tile (Plain@<-8,4,4>) is added to the battlefield at empty hex <-8,4,4>.
+2024-04-02 20:18:42,013 INFO [main] r.g.h.Battlefield [Battlefield.java:127] -- Map initialization completed successfully.
+2024-04-02 20:18:42,125 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile LineInfantry created. Putting it onto the Battlefield
+2024-04-02 20:18:42,125 DEBUG [main] r.g.h.Battlefield [Battlefield.java:67] -- New Tile (LineInfantry@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-02 20:18:42,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile Forest created. Putting it onto the Battlefield
+2024-04-02 20:18:42,126 INFO [main] r.g.h.Battlefield [Battlefield.java:51] -- Replacing placeholder Plain Terrain at <0,0,0> with Forest@<0,0,0>
+2024-04-02 20:18:42,126 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 20:18:42,126 INFO [main] r.g.h.Battlefield [Battlefield.java:51] -- Replacing placeholder Plain Terrain at <0,1,-1> with River@<0,1,-1>
+2024-04-02 20:18:42,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 20:18:42,127 INFO [main] r.g.h.Battlefield [Battlefield.java:51] -- Replacing placeholder Plain Terrain at <1,-1,0> with River@<1,-1,0>
+2024-04-02 20:18:42,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 20:18:42,127 INFO [main] r.g.h.Battlefield [Battlefield.java:51] -- Replacing placeholder Plain Terrain at <1,0,-1> with River@<1,0,-1>
+2024-04-02 20:18:42,127 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile River created. Putting it onto the Battlefield
+2024-04-02 20:18:42,127 INFO [main] r.g.h.Battlefield [Battlefield.java:51] -- Replacing placeholder Plain Terrain at <-1,1,0> with River@<-1,1,0>
+2024-04-02 20:18:42,127 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:18:42,128 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:18:42,128 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 20:18:42,128 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <-1,0,1>. Returning [<0,0,0>, <0,-1,1>, <-1,-1,2>, <-2,0,2>, <-2,1,1>, <-1,1,0>]
+2024-04-02 20:18:42,128 DEBUG [main] r.g.h.m.Tile [Tile.java:111] -- Requested reachable hexes for LineInfantry@<0,0,0>. Returning [<0,0,0>, <1,-2,1>, <0,-1,1>, <-1,0,1>, <0,-2,2>, <-2,1,1>, <-1,-1,2>, <-2,0,2>]
+2024-04-02 20:18:42,128 INFO [main] r.g.h.m.Tile [Tile.java:39] -- New Tile LineInfantry created. Putting it onto the Battlefield
+2024-04-02 20:18:42,128 DEBUG [main] r.g.h.Battlefield [Battlefield.java:67] -- New Tile (LineInfantry@<0,-2,2>) is added to the battlefield at <0,-2,2>.
+2024-04-02 20:18:42,129 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,0,0>. Returning [<1,0,-1>, <1,-1,0>, <0,-1,1>, <-1,0,1>, <-1,1,0>, <0,1,-1>]
+2024-04-02 20:18:42,129 DEBUG [main] r.g.h.m.Hex [Hex.java:64] -- Contacting hexes requested for <0,-1,1>. Returning [<1,-1,0>, <1,-2,1>, <0,-2,2>, <-1,-1,2>, <-1,0,1>, <0,0,0>]
+2024-04-02 20:18:42,130 DEBUG [main] r.g.h.m.Tile [Tile.java:159] -- Path requested from LineInfantry@<0,0,0> -> LineInfantry@<0,-2,2>. Returning Path: {[0,1,-1],[0,1,-1]}
