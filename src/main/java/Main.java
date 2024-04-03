@@ -4,22 +4,26 @@ import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.RectangleMapInitializer;
-import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.tiles.Unit;
 import ru.geekbrains.viewer.SwingBattlefieldPresenter;
 
 import java.util.Set;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Battlefield.setDimensions(-4, 4, -6, 6); // C&C field
         Battlefield.setMapInitializer(new RectangleMapInitializer());
-        Battlefield.getInstance().initializeMap();
 
         SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(Battlefield.getInstance());
+        battlefieldDrawer.setGUI();
+        
+        Battlefield.getInstance().initializeMap();
+        //Thread.sleep(1000);
+        //battlefieldDrawer.setGUI();
 
         Unit lineInfantry = new LineInfantry(0, 0, 0);
         Tile forest1 = new Forest(0, 0, 0);

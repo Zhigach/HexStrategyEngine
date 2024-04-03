@@ -1,9 +1,9 @@
 package ru.geekbrains.cnc.tiles;
 
-import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Attack;
 import ru.geekbrains.hexcore.model.AttackDices;
 import ru.geekbrains.hexcore.model.AttackType;
+import ru.geekbrains.hexcore.tiles.Unit;
 
 public class LineInfantry extends Unit {
     {

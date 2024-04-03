@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
+import ru.geekbrains.viewer.utils.GraphUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,8 @@ import static java.lang.Math.sqrt;
 @Slf4j
 public class SwingBattlefieldPresenter implements BattlefieldPresenter {
     private Battlefield battlefield;
-    JFrame jFrame;
+    private JFrame jFrame;
+    private DrawingPanel drawingPanel;
 
     //constants and global variables
     Color COLOURBACK = Color.GREEN;
@@ -30,26 +33,29 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
     Color COLOURTWOTXT = new Color(255, 0, 255);
     final int HEX_SIZE = 50;    //hex size in pixels
     final int BORDERS = 15;
-    final int SCR_HEIGHT;
-    final int SCR_WIDTH;
+    int SCR_HEIGHT;
+    int SCR_WIDTH;
 
     private String WINDOW_TITLE = "Battlefield Presenter";
 
     public SwingBattlefieldPresenter(Battlefield battlefield) {
         this.battlefield = battlefield;
+        battlefield.setBattlefieldPresenter(this);
+    }
+
+    public void setGUI() {
         SCR_HEIGHT = 2 * (HEX_SIZE * battlefield.getVerticalSize() - 1 + BORDERS * 2);
         SCR_WIDTH = 2 * (HEX_SIZE * battlefield.getHorizontalSize() + BORDERS * 2);
         {
             jFrame = new JFrame(WINDOW_TITLE);
             jFrame.setSize(SCR_WIDTH, SCR_HEIGHT);
-            //jFrame.setSize((int) (SCRSIZE / 1.23), SCRSIZE);
             jFrame.setResizable(false);
             jFrame.setLocationRelativeTo(null);
             jFrame.setVisible(true);
             jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         }
         {
-            DrawingPanel drawingPanel = new DrawingPanel();
+            drawingPanel = new DrawingPanel();
             Container content = jFrame.getContentPane();
             content.add(drawingPanel);
         }
@@ -57,7 +63,27 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
 
     @Override
     public void draw() {
+        drawingPanel.repaint();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    @Override
+    public void draw(Hex hex, Graphics2D g2) {
+
+        Point centerPoint = pointyHexToPixel(hex);
+        Polygon polygon = GraphUtils.getHexagon(centerPoint, HEX_SIZE);
+        battlefield.getTerrainByCoordinate(hex).draw(g2, HEX_SIZE, centerPoint);
+        for (Tile tile : battlefield.getUnitsByCoordinate(hex)) {
+            tile.draw(g2, HEX_SIZE / 3, new Point(centerPoint.x - HEX_SIZE / 2, centerPoint.y + HEX_SIZE / 4));
+        }
+        g2.setColor(Color.BLACK);
+        g2.drawPolygon(polygon);
+
+        g2.drawString(hex.toString(), centerPoint.x - HEX_SIZE / 2, centerPoint.y - HEX_SIZE / 3);
     }
 
     /**
@@ -94,8 +120,9 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
             List<List<Tile>> hexes = battlefield.getTiles().values().stream().toList();
             log.info("Battlefield contains {} hexes to draw. Repainting...", hexes.size());
             for (Hex hex : battlefield.getTiles().keySet()) {
-                Point hexCenter = pointyHexToPixel(hex);
-                battlefield.draw(g2, hex, HEX_SIZE, new Point(hexCenter.x, hexCenter.y));
+                //Point hexCenter = pointyHexToPixel(hex);
+                //attlefield.draw(g2, hex, HEX_SIZE, new Point(hexCenter.x, hexCenter.y));
+                draw(hex, g2);
             }
         }
 

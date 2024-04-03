@@ -1,10 +1,10 @@
 package ru.geekbrains.hexcore;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.TileTypes.Plain;
 import ru.geekbrains.hexcore.model.Hex;
-import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
+import ru.geekbrains.hexcore.tiles.Plain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,9 @@ public class RectangleMapInitializer implements MapInitializer {
     public RectangleMapInitializer() {
     }
 
-    /** <a href="https://www.redblobgames.com/grids/hexagons/implementation.html#map">...</a>
+    /**
+     * <a href="https://www.redblobgames.com/grids/hexagons/implementation.html#map">...</a>
+     *
      * @return
      */
     @Override
@@ -26,9 +28,9 @@ public class RectangleMapInitializer implements MapInitializer {
         HashMap<Hex, List<Tile>> tiles = new HashMap<>();
         int rowNumber = 0;
         for (int r = top; r <= bottom; r++) { // pointy top
-            int r_offset = (int) floor(r/2.0); // offset for each row
-            for (int q = left - r_offset; q <= right - r_offset - rowNumber%2; q++) { // q <= right - r_offset
-                Hex hex = new Hex(-q-r, q, r);
+            int r_offset = (int) floor(r / 2.0); // offset for each row
+            for (int q = left - r_offset; q <= right - r_offset - rowNumber % 2; q++) { // q <= right - r_offset
+                Hex hex = new Hex(-q - r, q, r);
                 List<Tile> basicTileSet = new ArrayList<>();
                 basicTileSet.add(new Plain(hex));
                 tiles.put(hex, basicTileSet);

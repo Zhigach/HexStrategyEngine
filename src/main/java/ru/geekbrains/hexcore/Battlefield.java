@@ -3,32 +3,33 @@ package ru.geekbrains.hexcore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.TileTypes.Plain;
-import ru.geekbrains.hexcore.TileTypes.Terrain;
-import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
+import ru.geekbrains.hexcore.tiles.Plain;
+import ru.geekbrains.hexcore.tiles.Terrain;
+import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 
-import java.awt.*;
-import java.util.List;
 import java.util.*;
 
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
 
 /**
  * Class Holder Singleton containing tiles Map
  */
+@Setter
 @Getter
 @Slf4j
-public class Battlefield implements DrawableHexField {
+public class Battlefield {
+    private BattlefieldPresenter battlefieldPresenter;
     static int top;
     static int bottom;
     static int left;
     static int right;
 
-    private Map<Hex, List<Tile>> tiles = new HashMap<>();
+    private Map<Hex, List<Tile>> tiles = new HashMap<>(); //TODO make map of <Hex, Container>. Refactor logic
     @Setter
     static MapInitializer mapInitializer;
 
@@ -93,6 +94,7 @@ public class Battlefield implements DrawableHexField {
         tiles.get(hex).remove(tile);
         putTile(hex.add(delta), tile);
         log.info("Movable tile {} moved from {} to {}", tile, hex, hex.add(delta));
+        battlefieldPresenter.draw();
     }
 
     public Terrain getTerrainByCoordinate(Hex hex) {
@@ -140,28 +142,7 @@ public class Battlefield implements DrawableHexField {
         }
         this.tiles = tiles;
         log.info("Map initialization completed successfully.");
-    }
-
-    /**
-     * @param g2
-     * @param hex
-     * @param size
-     * @param centerPoint
-     */
-    @Override
-    public void draw(Graphics2D g2, Hex hex, int size, Point centerPoint) {
-        Polygon polygon = new Polygon();
-        for (double angle = Math.PI / 6; angle <= 2 * Math.PI; angle += Math.PI / 3) {
-            polygon.addPoint((int) (centerPoint.x + size * cos(angle)), (int) (centerPoint.y + size * sin(angle)));
-        }
-        getTerrainByCoordinate(hex).draw(g2, size, centerPoint);
-        for (Tile tile : getUnitsByCoordinate(hex)) {
-            tile.draw(g2, size / 3, new Point(centerPoint.x - size / 2, centerPoint.y + size / 4));
-        }
-        g2.setColor(Color.BLACK);
-        g2.drawPolygon(polygon);
-
-        g2.drawString(hex.toString(), centerPoint.x - size / 2, centerPoint.y - size / 3);
+        battlefieldPresenter.draw();
     }
 
 

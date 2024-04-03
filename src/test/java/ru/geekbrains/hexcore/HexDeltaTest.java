@@ -2,7 +2,7 @@ package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.hexcore.model.Hex;
-import ru.geekbrains.hexcore.model.HexDelta;
+import ru.geekbrains.hexcore.utils.HexDelta;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,7 @@ package ru.geekbrains.hexcore.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import ru.geekbrains.hexcore.utils.Dice;
 
 @Data
 @AllArgsConstructor
