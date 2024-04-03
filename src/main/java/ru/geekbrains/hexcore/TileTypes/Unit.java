@@ -1,7 +1,8 @@
 package ru.geekbrains.hexcore.TileTypes;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.Attack;
 import ru.geekbrains.hexcore.model.Damage;
@@ -14,11 +15,12 @@ import ru.geekbrains.hexcore.model.interfaces.Movable;
 
 import java.awt.*;
 
-@Data
+@Setter
 @AllArgsConstructor
+@Slf4j
 public abstract class Unit extends Tile implements Movable, DrawableTile, Attacking, Damageable {
 
-    final int maxHealth = 10;
+    final int maxHealth = 4;
 
     public int currentHealth = maxHealth;
 
@@ -47,11 +49,13 @@ public abstract class Unit extends Tile implements Movable, DrawableTile, Attack
      *
      * @param path list of hexes
      */
+    @Override
     public void move(Path path) {
         movementPoints = movementRange;
         if (validatePath(path)) {
             for (Hex delta : path.getHexList()) {
-                hex.add(delta);
+                getBattlefield().moveTile(this, delta);
+                hex = hex.add(delta);
                 movementPoints--;
                 if (movementPoints == 0) {
                     this.stop();
@@ -59,13 +63,15 @@ public abstract class Unit extends Tile implements Movable, DrawableTile, Attack
                 }
             }
         }
+        log.debug("{} moved using path: {}. New coordinate is {}", this, path, hex);
     }
 
     /**
-     * @param attack
+     * @param target
      */
     @Override
     public void attack(Damageable target) {
+        log.info("{} is attacking {} by {}", this, target, attack);
         target.getDamage(new Damage(attack.getType(), attack.getDamageAmount()));
     }
 
@@ -75,6 +81,7 @@ public abstract class Unit extends Tile implements Movable, DrawableTile, Attack
     @Override
     public void getDamage(Damage damage) {
         this.currentHealth -= damage.getDamage();
+        log.info("{} received {} damage", this, damage);
     }
 
     /**
@@ -92,7 +99,8 @@ public abstract class Unit extends Tile implements Movable, DrawableTile, Attack
         String shortName = getClass().getSimpleName().chars().filter(Character::isUpperCase).map(c -> ((char) c))
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-        g2.drawString(shortName, centerPoint.x, centerPoint.y);
+        g2.drawString(String.format(shortName + "(%s/%s)", currentHealth, maxHealth),
+                centerPoint.x, centerPoint.y);
     }
 
 }

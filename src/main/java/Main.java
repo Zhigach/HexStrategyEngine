@@ -4,6 +4,7 @@ import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.RectangleMapInitializer;
+import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.viewer.SwingBattlefieldPresenter;
@@ -14,16 +15,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //SwingUtilities.invokeLater(() -> new NotMyPresenter());
-
         Battlefield.setDimensions(-4, 4, -6, 6); // C&C field
         Battlefield.setMapInitializer(new RectangleMapInitializer());
         Battlefield.getInstance().initializeMap();
 
         SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(Battlefield.getInstance());
 
-        Tile lineInfantry = new LineInfantry(0, 0, 0);
-        Tile tile3 = new Forest(0, 0, 0);
+        Unit lineInfantry = new LineInfantry(0, 0, 0);
+        Tile forest1 = new Forest(0, 0, 0);
+        Tile forest2 = new Forest(-2, 0, 2);
 
         Tile river1 = new River(0, 1, -1);
         Tile river2 = new River(1, -1, 0);
@@ -34,7 +34,10 @@ public class Main {
 
         Set<Hex> reachable = lineInfantry.getReachableHexes(2);
 
-        Tile dummyTarget = new LineInfantry(0, -2, 2);
-        Path path = lineInfantry.getPathTo(dummyTarget);
+        Unit dummyTarget = new LineInfantry(0, -2, 2);
+        Path path = lineInfantry.getPathTo(forest2);
+
+        lineInfantry.move(path);
+        lineInfantry.attack(dummyTarget);
     }
 }

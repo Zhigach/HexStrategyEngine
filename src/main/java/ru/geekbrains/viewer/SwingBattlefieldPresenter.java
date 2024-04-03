@@ -1,19 +1,21 @@
 package ru.geekbrains.viewer;
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 
-import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import static java.lang.Math.sqrt;
 
 @Setter
+@Slf4j
 public class SwingBattlefieldPresenter implements BattlefieldPresenter {
     private Battlefield battlefield;
     JFrame jFrame;
@@ -35,8 +37,8 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
 
     public SwingBattlefieldPresenter(Battlefield battlefield) {
         this.battlefield = battlefield;
-        SCR_HEIGHT = 2*( HEX_SIZE * battlefield.getVerticalSize()-1  + BORDERS * 2);
-        SCR_WIDTH = 2*( HEX_SIZE * battlefield.getHorizontalSize()  + BORDERS * 2);
+        SCR_HEIGHT = 2 * (HEX_SIZE * battlefield.getVerticalSize() - 1 + BORDERS * 2);
+        SCR_WIDTH = 2 * (HEX_SIZE * battlefield.getHorizontalSize() + BORDERS * 2);
         {
             jFrame = new JFrame(WINDOW_TITLE);
             jFrame.setSize(SCR_WIDTH, SCR_HEIGHT);
@@ -60,14 +62,15 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
 
     /**
      * Get Hex coordinates on screen
+     *
      * @param hex hex coordinates to be converted to pixels
      * @return java Point
      */
     public Point pointyHexToPixel(Hex hex) {
-        int x = (int) ( HEX_SIZE * (sqrt(3) * hex.getQ() +  sqrt(3)/2 * hex.getR()) );
-        int y = (int) ( HEX_SIZE * (3./2 * hex.getR()) );
-        x += SCR_WIDTH/2;
-        y += SCR_HEIGHT/2;
+        int x = (int) (HEX_SIZE * (sqrt(3) * hex.getQ() + sqrt(3) / 2 * hex.getR()));
+        int y = (int) (HEX_SIZE * (3. / 2 * hex.getR()));
+        x += SCR_WIDTH / 2;
+        y += SCR_HEIGHT / 2;
         return new Point(x, y);
     }
 
@@ -89,14 +92,7 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
 
             //draw grid
             List<List<Tile>> hexes = battlefield.getTiles().values().stream().toList();
-            System.out.printf("Battlefield contains %s hexes to draw\n", hexes.size());
-            for (List<Tile> tiles : hexes) {
-                Point hexCenter = pointyHexToPixel(tiles.get(0).getHex());
-                //tiles.get(0).draw(g2, HEX_SIZE, new Point(hexCenter.x, hexCenter.y - getFont().getSize()));
-                //tiles.forEach(t ->
-                  //      g2.drawString(t.getClass().getSimpleName(),
-                    //            hexCenter.x - HEX_SIZE/2, hexCenter.y + tiles.indexOf(t)*getFont().getSize()));
-            }
+            log.info("Battlefield contains {} hexes to draw. Repainting...", hexes.size());
             for (Hex hex : battlefield.getTiles().keySet()) {
                 Point hexCenter = pointyHexToPixel(hex);
                 battlefield.draw(g2, hex, HEX_SIZE, new Point(hexCenter.x, hexCenter.y));

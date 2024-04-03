@@ -2,7 +2,7 @@ package ru.geekbrains.hexcore;
 
 import lombok.Getter;
 import ru.geekbrains.hexcore.model.Hex;
-import ru.geekbrains.hexcore.model.HexDeltas;
+import ru.geekbrains.hexcore.model.HexDelta;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,10 +27,11 @@ public class Path {
 
     /**
      * Method to add hex delta
+     *
      * @param hexDelta single step delta in hex coordinates
      */
     public void addStep(Hex hexDelta) {
-        if (HexDeltas.isValidDelta(hexDelta)){
+        if (HexDelta.isValidDelta(hexDelta)) {
             this.hexList.add(hexDelta);
         } else {
             throw new IllegalArgumentException("Invalid hex delta");
@@ -45,14 +46,14 @@ public class Path {
     }
 
     private static boolean isValidDeltaList(List<Hex> hexList) {
-        return HexDeltas.isValidDeltaList(hexList);
+        return HexDelta.isValidDeltaList(hexList);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Path: {");
-        hexList.forEach(hexDelta -> sb.append(String.format("[%s,%s,%s],",hexDelta.getS(), hexDelta.getQ(), hexDelta.getR())));
+        hexList.forEach(hexDelta -> sb.append(String.format("[%s,%s,%s],", hexDelta.getS(), hexDelta.getQ(), hexDelta.getR())));
         sb.deleteCharAt(sb.length() - 1);
         return sb.toString() + "}";
     }

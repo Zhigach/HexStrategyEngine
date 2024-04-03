@@ -1,7 +1,5 @@
 package ru.geekbrains.hexcore.model;
 
-import ru.geekbrains.hexcore.model.Hex;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -9,7 +7,7 @@ import java.util.List;
 /**
  * Class containing legal shortest hex vectors
  */
-public class HexDeltas {
+public class HexDelta {
     public static List<Hex> HEX_DELTAS = new ArrayList<>();
 
     static {
@@ -24,6 +22,7 @@ public class HexDeltas {
     public static boolean isValidDelta(Hex hex) {
         return HEX_DELTAS.contains(hex);
     }
+
     public static boolean isValidDeltaList(List<Hex> hexList) {
         return new HashSet<>(HEX_DELTAS).containsAll(hexList);
     }

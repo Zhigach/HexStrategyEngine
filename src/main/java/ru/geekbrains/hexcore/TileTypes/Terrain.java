@@ -38,7 +38,7 @@ public class Terrain extends Tile implements Container {
      * @param tile
      */
     @Override
-    public void setAttachedTile(Tile tile) {
+    public void setAttachedTile(Tile tile) { //TODO probably this must be used in battlefield case
         if (tile instanceof Unit) {
             this.attachedUnit = (Unit) tile;
         } else {

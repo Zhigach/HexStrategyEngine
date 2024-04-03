@@ -9,6 +9,7 @@ import ru.geekbrains.hexcore.TileTypes.Unit;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
+import ru.geekbrains.hexcore.model.interfaces.Movable;
 
 import java.awt.*;
 import java.util.List;
@@ -83,6 +84,15 @@ public class Battlefield implements DrawableHexField {
             tiles.get(hex).add(newTile);
             log.debug(String.format("New Tile (%s) is added to the battlefield at empty hex %s.", newTile, hex));
         }
+    }
+
+    public <T extends Tile & Movable> void moveTile(T tile, Hex delta) {
+        Hex hex = tile.getHex();
+        getTerrainByCoordinate(hex).unsetAttachedTile();
+        getTerrainByCoordinate(hex.add(delta)).setAttachedTile(tile);
+        tiles.get(hex).remove(tile);
+        putTile(hex.add(delta), tile);
+        log.info("Movable tile {} moved from {} to {}", tile, hex, hex.add(delta));
     }
 
     public Terrain getTerrainByCoordinate(Hex hex) {
