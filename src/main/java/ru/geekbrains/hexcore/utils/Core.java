@@ -1,10 +1,9 @@
 package ru.geekbrains.hexcore.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 import static java.lang.Math.abs;
 import static java.lang.Math.round;
-
-import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.model.Hex;
 
 @Slf4j
 public class Core {
@@ -18,7 +17,7 @@ public class Core {
         double q_diff = abs(q - qD);
         double r_diff = abs(r - rD);
         if (q_diff > r_diff && q_diff > s_diff) {
-            q = - r -s;
+            q = -r - s;
         } else if (r_diff > s_diff) {
             r = -q - s;
         } else {
@@ -28,8 +27,9 @@ public class Core {
     }
 
     public static double linearInterpolation(int a, int b, double t) {
-        return a + (b - a)*t;
+        return a + (b - a) * t;
     }
+
     public static Hex hexLinearInterpolation(Hex a, Hex b, double t) {
         return new Hex(linearInterpolation(a.getQ(), b.getQ(), t),
                 linearInterpolation(a.getR(), b.getR(), t),

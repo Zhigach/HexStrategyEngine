@@ -1,8 +1,8 @@
 package ru.geekbrains.hexcore.tiles;
 
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Container;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 

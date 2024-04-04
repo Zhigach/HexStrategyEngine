@@ -1,13 +1,18 @@
 package ru.geekbrains.hexcore.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
+@Setter
 @Getter
-@Data
 public class Damage {
     private AttackType attackType;
     private int damage;
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", damage, attackType);
+    }
 }

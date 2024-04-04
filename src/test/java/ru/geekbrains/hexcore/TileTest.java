@@ -1,8 +1,8 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.BeforeEach;
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -3,13 +3,13 @@ package ru.geekbrains.hexcore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
 import ru.geekbrains.hexcore.tiles.Plain;
 import ru.geekbrains.hexcore.tiles.Terrain;
 import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 
 import java.util.*;
@@ -91,11 +91,21 @@ public class Battlefield {
         Hex hex = tile.getHex();
         getTerrainByCoordinate(hex).unsetAttachedTile();
         getTerrainByCoordinate(hex.add(delta)).setAttachedTile(tile);
-        tiles.get(hex).remove(tile);
+        getTiles().get(hex).remove(tile);
         putTile(hex.add(delta), tile);
         log.info("Movable tile {} moved from {} to {}", tile, hex, hex.add(delta));
-        battlefieldPresenter.draw();
+        updateView();
     }
+
+    public void removeTile(Tile tile) {
+        if (tile instanceof Terrain) {
+            log.error("Terrain can't be removed in basic realization");
+            throw new IllegalArgumentException("Terrain can't be removed in basic realization");
+        } else {
+            tiles.get(tile.getHex()).remove(tile);
+        }
+    }
+
 
     public Terrain getTerrainByCoordinate(Hex hex) {
         Tile terrain = tiles.get(hex).get(0);
@@ -142,7 +152,7 @@ public class Battlefield {
         }
         this.tiles = tiles;
         log.info("Map initialization completed successfully.");
-        battlefieldPresenter.draw();
+        updateView();
     }
 
 
@@ -157,5 +167,8 @@ public class Battlefield {
         return BattlefieldHolder.HOLDER_INSTANCE;
     }
 
+    public void updateView() {
+        battlefieldPresenter.draw();
+    }
 
 }

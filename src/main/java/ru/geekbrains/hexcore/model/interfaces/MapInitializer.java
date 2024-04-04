@@ -1,7 +1,7 @@
 package ru.geekbrains.hexcore.model.interfaces;
 
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import java.util.HashMap;
 import java.util.List;

@@ -4,30 +4,35 @@ import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.RectangleMapInitializer;
-import ru.geekbrains.hexcore.game.Player;
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.core.GameEngine;
+import ru.geekbrains.hexcore.core.Player;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.SwingBattlefieldPresenter;
 
+import java.util.List;
 import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
+        Battlefield battlefield = Battlefield.getInstance();
+
         Battlefield.setDimensions(-4, 4, -6, 6); // C&C field
         Battlefield.setMapInitializer(new RectangleMapInitializer());
 
-        SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(Battlefield.getInstance());
+        SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(battlefield);
         battlefieldDrawer.setGUI();
 
-        Battlefield.getInstance().initializeMap();
+        battlefield.initializeMap();
 
-        Player p1 = new Player("FirstPlayer");
-        Player p2 = new Player("SecondPlayer");
+        GameEngine gameEngine = new GameEngine(
+                List.of(new Player("FirstPlayer"), new Player("SecondPlayer")), battlefield
+        );
 
-        Unit lineInfantry = new LineInfantry(p1, new Hex(0, 0, 0));
+        Unit lineInfantry = new LineInfantry(gameEngine.getPlayers().get(0), new Hex(0, 0, 0));
         Tile forest1 = new Forest(0, 0, 0);
         Tile forest2 = new Forest(-2, 0, 2);
 
@@ -40,7 +45,7 @@ public class Main {
 
         Set<Hex> reachable = lineInfantry.getReachableHexes(2);
 
-        Unit dummyTarget = new LineInfantry(p2, new Hex(0, -2, 2));
+        Unit dummyTarget = new LineInfantry(gameEngine.getPlayers().get(1), new Hex(0, -2, 2));
         Path path = lineInfantry.getPathTo(forest2);
 
         lineInfantry.move(path);

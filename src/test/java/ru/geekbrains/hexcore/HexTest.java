@@ -1,14 +1,15 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.Test;
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HexTest {
     static Hex testHex = new Hex(0, 0, 0);
+
     @Test
     void getS() {
     }
@@ -48,12 +49,14 @@ class HexTest {
         int range2 = testHex.findDistance(testHex2);
         assertEquals(0, range2);
     }
+
     @Test
     void findDistanceNonZeroTestOne() {
         Hex testHex3 = new Hex(0, 1, -1);
         int range3 = testHex.findDistance(testHex3);
         assertEquals(1, range3);
     }
+
     @Test
     void findDistanceNonZeroTestTwo() {
         Hex testHex4 = new Hex(4, -4, 0);
@@ -78,6 +81,7 @@ class HexTest {
         }
         assertEquals(7, area.size()); // includes the initial hex itself
     }
+
     @org.junit.jupiter.api.Test
     void getSurroundingHexesTwo() {
         List<Hex> area = testHex.getHexesInRange(2);

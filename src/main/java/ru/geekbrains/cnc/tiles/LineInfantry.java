@@ -1,14 +1,12 @@
 package ru.geekbrains.cnc.tiles;
 
-import lombok.Data;
-import ru.geekbrains.hexcore.game.Player;
+import ru.geekbrains.hexcore.core.Player;
 import ru.geekbrains.hexcore.model.Attack;
 import ru.geekbrains.hexcore.model.AttackDices;
 import ru.geekbrains.hexcore.model.AttackType;
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.utils.Hex;
 
-@Data
 public class LineInfantry extends Unit {
     private static final int HP = 5;
     private static final int MOVEMENT = 5;

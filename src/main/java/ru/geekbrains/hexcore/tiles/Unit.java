@@ -1,20 +1,22 @@
 package ru.geekbrains.hexcore.tiles;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.game.Player;
+import ru.geekbrains.hexcore.core.Player;
 import ru.geekbrains.hexcore.model.Attack;
 import ru.geekbrains.hexcore.model.Damage;
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Attacking;
 import ru.geekbrains.hexcore.model.interfaces.Damageable;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 
-@Data
+@Getter
+@Setter
 @Slf4j
 public abstract class Unit extends Tile implements Movable, Attacking, Damageable {
 
@@ -58,6 +60,14 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         log.debug("{} moved using path: {}. New coordinate is {}", this, path, hex);
     }
 
+    public void restoreMovementPoint() {
+        movementPoints = movementRange;
+    }
+
+    public void reduceMovementPoints(int value) {
+        movementPoints -= value;
+    }
+
     /**
      * @param target
      */
@@ -74,6 +84,16 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     public void getDamage(Damage damage) {
         this.currentHealth -= damage.getDamage();
         log.info("{} received {} damage", this, damage);
+        if (currentHealth <= 0) {
+            destroy();
+            log.info("{} was destroyed", this);
+        }
+        battlefield.updateView();
+    }
+
+    @Override
+    public void destroy() {
+        battlefield.removeTile(this);
     }
 
     /**
@@ -95,4 +115,9 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
                 centerPoint.x, centerPoint.y);
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s: {Owner:%s, HP: %s/%s, Movement: %s/%s, Attack: %s}", getClass().getSimpleName(),
+                owner, currentHealth, maxHealth, movementPoints, movementRange, attack);
+    }
 }

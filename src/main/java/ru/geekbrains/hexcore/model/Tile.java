@@ -8,6 +8,7 @@ import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
 import ru.geekbrains.hexcore.utils.Core;
+import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 import java.util.List;
@@ -42,7 +43,7 @@ public abstract class Tile implements DrawableTile {
         battlefield.putTile(this.getHex(), this);
     }
 
-    protected Tile(int s, int q, int r) {
+    public Tile(int s, int q, int r) {
         this.hex = new Hex(s, q, r);
         init();
     }

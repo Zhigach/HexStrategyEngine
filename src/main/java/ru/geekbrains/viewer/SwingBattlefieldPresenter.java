@@ -3,8 +3,8 @@ package ru.geekbrains.viewer;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 import ru.geekbrains.viewer.utils.GraphUtils;
 

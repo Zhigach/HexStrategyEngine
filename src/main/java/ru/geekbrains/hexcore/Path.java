@@ -1,7 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import lombok.Getter;
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.hexcore.utils.HexDelta;
 
 import java.util.ArrayList;
