@@ -6,6 +6,9 @@ import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.tiles.Unit;
 import ru.geekbrains.hexcore.utils.Hex;
 
+/**
+ * Supplementary Engine that manages Unit movements
+ */
 @Slf4j
 public class MovementEngine {
     Battlefield battlefield;
@@ -13,6 +16,13 @@ public class MovementEngine {
     public MovementEngine(Battlefield battlefield) {
         this.battlefield = battlefield;
     }
+
+    /**
+     * Processes Unit movement. Any checks/validations to be done in this method
+     *
+     * @param unit moving unit
+     * @param path path to be used for movement
+     */
 
     public void move(Unit unit, Path path) {
         for (Hex hexDelta : path.getHexList()) {

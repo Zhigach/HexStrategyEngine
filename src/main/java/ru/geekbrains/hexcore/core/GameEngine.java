@@ -7,45 +7,66 @@ import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.tiles.Unit;
 
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * Game engine. Class that is supposed to be a game judge. Makes players taking turns one by one.
+ * Includes MovementEngine and BattleEngine that implement any additional logic for moving and fighting correspondingly.
+ */
 @Data
 @Slf4j
 public class GameEngine {
     private final List<Player> players;
     private final Battlefield battlefield;
     private final MovementEngine movementEngine;
-    private final DamageEngine damageEngine;
+    private final BattleEngine battleEngine;
 
     public GameEngine(List<Player> players, Battlefield battlefield) {
         this.players = players;
         this.battlefield = battlefield;
         this.movementEngine = new MovementEngine(battlefield);
-        this.damageEngine = new DamageEngine(battlefield);
+        this.battleEngine = new BattleEngine(battlefield);
     }
 
-    protected boolean isFinished() {
-        for (Player player : players) {
-            if (player.getUnits().isEmpty()) {
-                return true;
-            }
+    /**
+     * Returns game winner if any. Basic implementation just checks whether there is a looser with no units alive
+     *
+     * @return Player that still has units while another one has not, or empty Optional if no such Player
+     */
+    protected Optional<Player> getWinner() {
+        if (players.stream().anyMatch(p -> p.getUnits().isEmpty())) {
+            return players.stream().filter(p -> !p.getUnits().isEmpty()).findFirst();
         }
-        return false;
+        return Optional.empty();
     }
 
+    /**
+     * Main method that starts and continues game till it's ended by getWinner method
+     */
     public void start() {
-        while (!isFinished()) {
+        while (getWinner().isEmpty()) {
             for (Player player : players) {
                 player.takeTurn();
             }
         }
+        log.info("Player {} wins! Congratulations!", getWinner());
     }
 
+    /**
+     * Proxies request to MovementEngine
+     *
+     * @param unit unit to be moved
+     * @param path path which must be used to move
+     */
     public void moveUnit(Unit unit, Path path) {
         movementEngine.move(unit, path);
     }
 
+    /**
+     * Proxies request to BattleEngine
+     */
     public void attack(Unit attacker, Unit target) {
-        damageEngine.attack(attacker, target);
+        battleEngine.attack(attacker, target);
     }
 
 }

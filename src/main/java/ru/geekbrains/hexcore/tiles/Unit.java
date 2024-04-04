@@ -9,6 +9,7 @@ import ru.geekbrains.hexcore.model.Damage;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Attacking;
 import ru.geekbrains.hexcore.model.interfaces.Damageable;
+import ru.geekbrains.hexcore.model.interfaces.Destroyable;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
 import ru.geekbrains.hexcore.utils.Hex;
 
@@ -17,7 +18,7 @@ import java.awt.*;
 @Getter
 @Setter
 @Slf4j
-public abstract class Unit extends Tile implements Movable, Attacking, Damageable {
+public abstract class Unit extends Tile implements Movable, Attacking, Damageable, Destroyable {
 
     Player owner;
     protected int maxHealth;
@@ -58,11 +59,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         movementPoints -= value;
     }
 
-    @Override
-    public int getDistanceTo(Hex target) {
-        return hex.findDistance(target);
-    }
-
     /**
      * @param target
      * @return
@@ -71,12 +67,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     public Damage attack(Damageable target) {
         log.info("{} is attacking {} by {}", this, target, attack);
         return new Damage(attack.getType(), attack.getDamageAmount());
-    }
-
-
-    @Override
-    public Hex getDamageableHex() {
-        return hex;
     }
 
     /**
