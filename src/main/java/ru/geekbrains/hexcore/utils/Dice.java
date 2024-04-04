@@ -1,6 +1,7 @@
 package ru.geekbrains.hexcore.utils;
 
 import lombok.AllArgsConstructor;
+import ru.geekbrains.hexcore.model.AttackDices;
 
 import java.util.Random;
 
@@ -8,8 +9,8 @@ import java.util.Random;
 public class Dice {
     static Random random = new Random(System.currentTimeMillis());
 
-    public static int getResult(int tthrows, int d) {
+    public static int getResult(AttackDices attackDices) {
         random = new Random(System.currentTimeMillis());
-        return tthrows * random.nextInt(1, d + 1);
+        return attackDices.number() * random.nextInt(1, attackDices.d() + 1);
     }
 }

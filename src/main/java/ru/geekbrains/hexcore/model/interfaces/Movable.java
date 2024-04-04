@@ -1,9 +1,9 @@
 package ru.geekbrains.hexcore.model.interfaces;
 
-import ru.geekbrains.hexcore.Path;
+import ru.geekbrains.hexcore.utils.Hex;
 
 public interface Movable {
-    void move(Path path);
+    void move(Hex delta);
 
     void stop();
 }

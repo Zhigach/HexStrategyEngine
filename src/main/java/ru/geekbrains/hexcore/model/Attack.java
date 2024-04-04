@@ -12,7 +12,7 @@ public class Attack {
     private int range;
 
     public int getDamageAmount() {
-        return Dice.getResult(attackDices.number(), attackDices.d());
+        return Dice.getResult(attackDices);
     }
 
     Attack() {

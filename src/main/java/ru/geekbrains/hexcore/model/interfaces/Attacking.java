@@ -1,6 +1,10 @@
 package ru.geekbrains.hexcore.model.interfaces;
 
-@FunctionalInterface
+import ru.geekbrains.hexcore.model.Damage;
+import ru.geekbrains.hexcore.utils.Hex;
+
 public interface Attacking {
-    void attack(Damageable target);
+    Damage attack(Damageable target);
+
+    int getDistanceTo(Hex target);
 }

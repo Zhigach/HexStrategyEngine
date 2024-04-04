@@ -12,7 +12,6 @@ import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.SwingBattlefieldPresenter;
 
 import java.util.List;
-import java.util.Set;
 
 public class Main {
 
@@ -32,7 +31,6 @@ public class Main {
                 List.of(new Player("FirstPlayer"), new Player("SecondPlayer")), battlefield
         );
 
-        Unit lineInfantry = new LineInfantry(gameEngine.getPlayers().get(0), new Hex(0, 0, 0));
         Tile forest1 = new Forest(0, 0, 0);
         Tile forest2 = new Forest(-2, 0, 2);
 
@@ -41,14 +39,12 @@ public class Main {
         Tile river3 = new River(1, 0, -1);
         Tile river4 = new River(-1, 1, 0);
 
-        lineInfantry.getHex().getContactingHexes();
-
-        Set<Hex> reachable = lineInfantry.getReachableHexes(2);
-
+        Unit lineInfantry = new LineInfantry(gameEngine.getPlayers().get(0), new Hex(0, 0, 0));
         Unit dummyTarget = new LineInfantry(gameEngine.getPlayers().get(1), new Hex(0, -2, 2));
+
         Path path = lineInfantry.getPathTo(forest2);
 
-        lineInfantry.move(path);
-        lineInfantry.attack(dummyTarget);
+        gameEngine.moveUnit(lineInfantry, path);
+        gameEngine.attack(lineInfantry, dummyTarget);
     }
 }

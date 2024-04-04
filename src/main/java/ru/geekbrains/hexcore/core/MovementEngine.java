@@ -15,15 +15,12 @@ public class MovementEngine {
     }
 
     public void move(Unit unit, Path path) {
-        if (unit.validatePath(path)) {
-            for (Hex delta : path.getHexList()) {
-                unit.getBattlefield().moveTile(unit, delta);
-                unit.setHex(unit.getHex().add(delta));
-                unit.reduceMovementPoints(1);
-                if (unit.getMovementPoints() <= 0) {
-                    unit.stop();
-                    break;
-                }
+        for (Hex hexDelta : path.getHexList()) {
+            unit.move(hexDelta);
+            battlefield.updateView();
+            if (unit.getMovementPoints() <= 0) {
+                unit.stop();
+                break;
             }
         }
         log.debug("{} moved using path: {}. New coordinate is {}", this, path, unit.getHex());

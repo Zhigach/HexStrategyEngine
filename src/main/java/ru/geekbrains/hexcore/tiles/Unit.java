@@ -3,7 +3,6 @@ package ru.geekbrains.hexcore.tiles;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.core.Player;
 import ru.geekbrains.hexcore.model.Attack;
 import ru.geekbrains.hexcore.model.Damage;
@@ -24,7 +23,7 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     protected int maxHealth;
     protected int currentHealth = maxHealth;
     protected int movementRange;
-    protected int movementPoints = 0;
+    protected int movementPoints;
     protected Attack attack;
 
     protected Unit(Player owner, int maxHealth, int movementRange, Attack attack, Hex hex) {
@@ -34,6 +33,7 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         currentHealth = maxHealth;
         this.movementRange = movementRange;
         this.attack = attack;
+        restoreMovementPoint();
     }
 
 
@@ -41,23 +41,13 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
      * Method to move Unit. Touched Terrains effects triggered automatically.
      * Unit attaches and detaches from Terrains while moving.
      *
-     * @param path list of hexes
+     * @param hexDelta list of hexes
      */
     @Override
-    public void move(Path path) {
-        movementPoints = movementRange;
-        if (validatePath(path)) {
-            for (Hex delta : path.getHexList()) {
-                getBattlefield().moveTile(this, delta);
-                hex = hex.add(delta);
-                movementPoints--;
-                if (movementPoints == 0) {
-                    this.stop();
-                    break;
-                }
-            }
-        }
-        log.debug("{} moved using path: {}. New coordinate is {}", this, path, hex);
+    public void move(Hex hexDelta) {
+        getBattlefield().moveTile(this, hexDelta);
+        hex = hex.add(hexDelta);
+        reduceMovementPoints(1);
     }
 
     public void restoreMovementPoint() {
@@ -68,13 +58,25 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         movementPoints -= value;
     }
 
+    @Override
+    public int getDistanceTo(Hex target) {
+        return hex.findDistance(target);
+    }
+
     /**
      * @param target
+     * @return
      */
     @Override
-    public void attack(Damageable target) {
+    public Damage attack(Damageable target) {
         log.info("{} is attacking {} by {}", this, target, attack);
-        target.getDamage(new Damage(attack.getType(), attack.getDamageAmount()));
+        return new Damage(attack.getType(), attack.getDamageAmount());
+    }
+
+
+    @Override
+    public Hex getDamageableHex() {
+        return hex;
     }
 
     /**
@@ -84,16 +86,13 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     public void getDamage(Damage damage) {
         this.currentHealth -= damage.getDamage();
         log.info("{} received {} damage", this, damage);
-        if (currentHealth <= 0) {
-            destroy();
-            log.info("{} was destroyed", this);
-        }
-        battlefield.updateView();
+
     }
 
     @Override
     public void destroy() {
-        battlefield.removeTile(this);
+        log.debug("{} dies", this);
+        //battlefield.removeTile(this);
     }
 
     /**
@@ -101,7 +100,7 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
      */
     @Override
     public void stop() {
-
+        reduceMovementPoints(getMovementPoints());
     }
 
 

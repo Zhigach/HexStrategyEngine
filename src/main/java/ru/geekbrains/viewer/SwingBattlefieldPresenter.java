@@ -65,7 +65,7 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
     public void draw() {
         drawingPanel.repaint();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
