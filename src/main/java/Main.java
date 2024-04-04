@@ -25,7 +25,7 @@ public class Main {
         Battlefield.getInstance().initializeMap();
 
         Player p1 = new Player("FirstPlayer");
-        Player p2 = new Player("FirstPlayer");
+        Player p2 = new Player("SecondPlayer");
 
         Unit lineInfantry = new LineInfantry(p1, new Hex(0, 0, 0));
         Tile forest1 = new Forest(0, 0, 0);

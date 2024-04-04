@@ -1,9 +1,9 @@
 package ru.geekbrains.hexcore.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
@@ -19,20 +19,19 @@ import static java.lang.Math.sqrt;
 /**
  * Basic ABSTRACT class for all hex based entities like Units and Terrain, Strategic points. All Tiles when instantiated are automatically added to the Battlefield (singleton)
  */
+@NoArgsConstructor
 @Slf4j
 public abstract class Tile implements DrawableTile {
 
     @Getter
     @Setter
     protected Hex hex;
-    final static Battlefield battlefield = Battlefield.getInstance();
+    final static protected Battlefield battlefield = Battlefield.getInstance();
     protected boolean passable = true;
     protected boolean blockLOS;
     protected boolean enteringUnitMustStop = false;
     protected Color FILL_COLOR = Color.WHITE;
 
-
-    //region CONSTRUCTORS
 
     /**
      * Method adding ANY new Tile onto the Battlefield.
@@ -48,12 +47,8 @@ public abstract class Tile implements DrawableTile {
         init();
     }
 
-    protected Tile(@NotNull Hex hex) {
+    public Tile(Hex hex) {
         this(hex.getS(), hex.getQ(), hex.getR());
-    }
-
-    //endregion
-    public Tile() {
     }
 
     /**
