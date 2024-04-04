@@ -1,6 +1,5 @@
 package ru.geekbrains.hexcore.tiles;
 
-import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Path;
@@ -11,25 +10,23 @@ import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Attacking;
 import ru.geekbrains.hexcore.model.interfaces.Damageable;
-import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
 
 import java.awt.*;
 
 @Setter
-@AllArgsConstructor
 @Slf4j
-public abstract class Unit extends Tile implements Movable, DrawableTile, Attacking, Damageable {
+public abstract class Unit extends Tile implements Movable, Attacking, Damageable {
 
     Player owner;
 
-    final int maxHealth = 4;
+    int maxHealth = 4;
 
     public int currentHealth = maxHealth;
 
     private Attack attack;
 
-    final private int movementRange = 0;
+    private int movementRange = 0;
 
     private int movementPoints = 0;
 
@@ -41,10 +38,13 @@ public abstract class Unit extends Tile implements Movable, DrawableTile, Attack
         super(hex);
     }
 
-    Unit() {
-        super();
+    protected Unit(Player owner, int maxHealth, Attack attack, int movementRange, Hex hex) {
+        super(hex);
+        this.owner = owner;
+        this.maxHealth = maxHealth;
+        this.attack = attack;
+        this.movementRange = movementRange;
     }
-
 
     /**
      * Method to move Unit. Touched Terrains effects triggered automatically.

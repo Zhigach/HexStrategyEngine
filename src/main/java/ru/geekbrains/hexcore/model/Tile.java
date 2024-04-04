@@ -3,6 +3,7 @@ package ru.geekbrains.hexcore.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
@@ -47,7 +48,7 @@ public abstract class Tile implements DrawableTile {
         init();
     }
 
-    protected Tile(@org.jetbrains.annotations.NotNull Hex hex) {
+    protected Tile(@NotNull Hex hex) {
         this(hex.getS(), hex.getQ(), hex.getR());
     }
 

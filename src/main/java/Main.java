@@ -4,6 +4,7 @@ import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.RectangleMapInitializer;
+import ru.geekbrains.hexcore.game.Player;
 import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.tiles.Unit;
@@ -20,12 +21,13 @@ public class Main {
 
         SwingBattlefieldPresenter battlefieldDrawer = new SwingBattlefieldPresenter(Battlefield.getInstance());
         battlefieldDrawer.setGUI();
-        
-        Battlefield.getInstance().initializeMap();
-        //Thread.sleep(1000);
-        //battlefieldDrawer.setGUI();
 
-        Unit lineInfantry = new LineInfantry(0, 0, 0);
+        Battlefield.getInstance().initializeMap();
+
+        Player p1 = new Player("FirstPlayer");
+        Player p2 = new Player("FirstPlayer");
+
+        Unit lineInfantry = new LineInfantry(p1, new Hex(0, 0, 0));
         Tile forest1 = new Forest(0, 0, 0);
         Tile forest2 = new Forest(-2, 0, 2);
 
@@ -38,7 +40,7 @@ public class Main {
 
         Set<Hex> reachable = lineInfantry.getReachableHexes(2);
 
-        Unit dummyTarget = new LineInfantry(0, -2, 2);
+        Unit dummyTarget = new LineInfantry(p2, new Hex(0, -2, 2));
         Path path = lineInfantry.getPathTo(forest2);
 
         lineInfantry.move(path);
