@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.model.Unit;
 
 import java.util.List;
 import java.util.Optional;

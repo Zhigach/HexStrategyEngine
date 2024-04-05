@@ -29,7 +29,7 @@ public class Hex {
     }
 
     public Hex(double s, double q, double r) {
-        this(Core.roundHex(s, q, r));
+        this(HexMath.roundHex(s, q, r));
         log.debug("Rounding called in order to get Hex");
     }
 

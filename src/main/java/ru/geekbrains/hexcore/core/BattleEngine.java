@@ -3,7 +3,7 @@ package ru.geekbrains.hexcore.core;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.model.Unit;
 
 /**
  * Supplementary Engine that manages attacks and defences
@@ -22,7 +22,7 @@ public class BattleEngine {
      */
     public void attack(@NotNull Unit attacker, @NotNull Unit target) {
         if (attacker.getHex().findDistance(target.getHex()) <= attacker.getAttack().getRange() &&
-                attacker.hasLOS(target)) {
+                attacker.hasLOS(target)) { //FIXME exception caught
             target.getDamage(attacker.attack(target));
             if (target.getCurrentHealth() <= 0) {
                 target.destroy();

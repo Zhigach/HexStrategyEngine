@@ -3,7 +3,7 @@ package ru.geekbrains.hexcore;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
-import ru.geekbrains.hexcore.tiles.Plain;
+import ru.geekbrains.hexcore.tiles.terrain.Plain;
 import ru.geekbrains.hexcore.utils.Hex;
 
 import java.util.ArrayList;

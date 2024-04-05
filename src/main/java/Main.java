@@ -1,13 +1,13 @@
-import ru.geekbrains.cnc.tiles.Forest;
-import ru.geekbrains.cnc.tiles.LineInfantry;
-import ru.geekbrains.cnc.tiles.River;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.RectangleMapInitializer;
 import ru.geekbrains.hexcore.core.GameEngine;
 import ru.geekbrains.hexcore.core.Player;
 import ru.geekbrains.hexcore.model.Tile;
-import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.model.Unit;
+import ru.geekbrains.hexcore.tiles.terrain.Forest;
+import ru.geekbrains.hexcore.tiles.terrain.River;
+import ru.geekbrains.hexcore.tiles.unit.LineInfantry;
 import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.SwingBattlefieldPresenter;
 

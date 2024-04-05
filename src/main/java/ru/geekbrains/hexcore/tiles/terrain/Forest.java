@@ -1,6 +1,6 @@
-package ru.geekbrains.cnc.tiles;
+package ru.geekbrains.hexcore.tiles.terrain;
 
-import ru.geekbrains.hexcore.tiles.Terrain;
+import ru.geekbrains.hexcore.model.Terrain;
 
 import java.awt.*;
 

@@ -1,12 +1,9 @@
-package ru.geekbrains.hexcore.tiles;
+package ru.geekbrains.hexcore.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.core.Player;
-import ru.geekbrains.hexcore.model.Attack;
-import ru.geekbrains.hexcore.model.Damage;
-import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Attacking;
 import ru.geekbrains.hexcore.model.interfaces.Damageable;
 import ru.geekbrains.hexcore.model.interfaces.Destroyable;
@@ -51,18 +48,22 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         reduceMovementPoints(1);
     }
 
+    /**
+     * Restore movement points up to its maximum
+     */
     public void restoreMovementPoint() {
         movementPoints = movementRange;
     }
 
+    /**
+     * Spend movement when Unit is moved
+     *
+     * @param value how mn=any movement points been used
+     */
     public void reduceMovementPoints(int value) {
         movementPoints -= value;
     }
 
-    /**
-     * @param target
-     * @return
-     */
     @Override
     public Damage attack(Damageable target) {
         log.info("{} is attacking {} by {}", this, target, attack);
@@ -82,7 +83,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     @Override
     public void destroy() {
         log.debug("{} dies", this);
-        //battlefield.removeTile(this);
     }
 
     /**

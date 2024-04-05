@@ -4,6 +4,9 @@ import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 
+/**
+ * Interface to be implemented on Presenters
+ */
 public interface BattlefieldPresenter {
     void draw();
 

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Data transfer object, lol
+ */
 @AllArgsConstructor
 @Setter
 @Getter

@@ -27,5 +27,4 @@ public class HexDelta {
         return new HashSet<>(HEX_DELTAS).containsAll(hexList);
     }
 
-
 }

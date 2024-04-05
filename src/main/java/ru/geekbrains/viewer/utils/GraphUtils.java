@@ -5,6 +5,9 @@ import java.awt.*;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
+/**
+ * Static utility methods class for graphics
+ */
 public class GraphUtils {
     public static Polygon getHexagon(Point centerPoint, int size) {
         Polygon polygon = new Polygon();

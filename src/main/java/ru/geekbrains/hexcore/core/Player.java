@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ru.geekbrains.hexcore.Battlefield;
-import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.model.Unit;
 
 import java.util.ArrayList;
 import java.util.List;

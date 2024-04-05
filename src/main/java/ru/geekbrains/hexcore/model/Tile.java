@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
-import ru.geekbrains.hexcore.utils.Core;
 import ru.geekbrains.hexcore.utils.Hex;
+import ru.geekbrains.hexcore.utils.HexMath;
 
 import java.awt.*;
 import java.util.List;
@@ -85,7 +85,7 @@ public abstract class Tile implements DrawableTile {
     }
 
     /**
-     * Get Set of Tiles that can be reached from this in range of movement
+     * Get Set of Tiles that can be reached from this in specified movement range
      *
      * @param movement range
      * @return Set of Tiles that can be reached within specified distance
@@ -115,10 +115,10 @@ public abstract class Tile implements DrawableTile {
     }
 
     /**
-     * Basic method to get Path to destination hex
+     * Basic method to get the shortest Path to destination hex
      *
      * @param destination Tile of interest - final point of the way
-     * @return deltas that should be added to current coordinate in order to get to destination
+     * @return Path containing deltas that should be added to current coordinate in order to get to destination
      */
     public Path getPathTo(Tile destination) {
         Path result = new Path();
@@ -188,8 +188,8 @@ public abstract class Tile implements DrawableTile {
         int dist = hex.findDistance(to.getHex());
         List<Hex> results = new ArrayList<>();
         for (int i = 0; i <= dist; i++) {
-            Hex interpolatedHex = Core.hexLinearInterpolation(hex, to.hex, 1.0 / dist * i);
-            results.add(new Hex(Core.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR())));
+            Hex interpolatedHex = HexMath.hexLinearInterpolation(hex, to.hex, 1.0 / dist * i);
+            results.add(new Hex(HexMath.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR())));
         }
         Path path = new Path(results);
         log.debug(String.format("Line of sight from %s -> %s requested. Returning %s", this, to, path));
@@ -225,7 +225,7 @@ public abstract class Tile implements DrawableTile {
     }
 
     /**
-     * @param g2
+     * Method to draw Tile
      */
     @Override
     public void draw(Graphics2D g2, int size, Point centerPoint) {

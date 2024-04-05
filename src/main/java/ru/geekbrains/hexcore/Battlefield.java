@@ -3,12 +3,12 @@ package ru.geekbrains.hexcore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.model.Terrain;
 import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.model.Unit;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
-import ru.geekbrains.hexcore.tiles.Plain;
-import ru.geekbrains.hexcore.tiles.Terrain;
-import ru.geekbrains.hexcore.tiles.Unit;
+import ru.geekbrains.hexcore.tiles.terrain.Plain;
 import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 

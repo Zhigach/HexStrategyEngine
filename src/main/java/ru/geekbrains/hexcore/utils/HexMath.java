@@ -5,10 +5,17 @@ import lombok.extern.slf4j.Slf4j;
 import static java.lang.Math.abs;
 import static java.lang.Math.round;
 
+/**
+ * Utility class for Hex mathematics
+ */
 @Slf4j
-public class Core {
-    // Must contain field limits
+public class HexMath {
 
+    /**
+     * Rounds floating point coordinates to integer Hex coordinate
+     *
+     * @return Hex object
+     */
     public static Hex roundHex(double sD, double qD, double rD) {
         int s = round((float) sD);
         int q = round((float) qD);
@@ -26,7 +33,7 @@ public class Core {
         return new Hex(s, q, r);
     }
 
-    public static double linearInterpolation(int a, int b, double t) {
+    private static double linearInterpolation(int a, int b, double t) {
         return a + (b - a) * t;
     }
 

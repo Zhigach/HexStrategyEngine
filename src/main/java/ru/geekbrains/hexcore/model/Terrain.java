@@ -1,6 +1,5 @@
-package ru.geekbrains.hexcore.tiles;
+package ru.geekbrains.hexcore.model;
 
-import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.interfaces.Container;
 import ru.geekbrains.hexcore.utils.Hex;
 
@@ -9,7 +8,10 @@ import java.awt.*;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
-public class Terrain extends Tile implements Container {
+/**
+ * Basic abstract Terrain that can contain attached unit
+ */
+public abstract class Terrain extends Tile implements Container {
     Unit attachedUnit = null;
 
     protected Terrain(int s, int q, int r) {
@@ -20,10 +22,11 @@ public class Terrain extends Tile implements Container {
         super(hex);
     }
 
-    public Terrain() {
-        super(0, 0, 0);
-    }
-
+    /**
+     * Draw the Terrain
+     *
+     * @param size hexagon encircling radius
+     */
     @Override
     public void draw(Graphics2D g2, int size, Point centerPoint) {
         Polygon polygon = new Polygon();
@@ -33,12 +36,9 @@ public class Terrain extends Tile implements Container {
         g2.setColor(FILL_COLOR);
         g2.fillPolygon(polygon);
     }
-
-    /**
-     * @param tile
-     */
+    
     @Override
-    public void setAttachedTile(Tile tile) { //TODO probably this must be used in battlefield case
+    public void setAttachedTile(Tile tile) {
         if (tile instanceof Unit) {
             this.attachedUnit = (Unit) tile;
         } else {
@@ -46,9 +46,6 @@ public class Terrain extends Tile implements Container {
         }
     }
 
-    /**
-     *
-     */
     @Override
     public void unsetAttachedTile() {
         this.attachedUnit = null;
