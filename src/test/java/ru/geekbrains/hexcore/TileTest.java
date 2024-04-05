@@ -1,49 +1,33 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import ru.geekbrains.hexcore.TileTypes.Unit;
+import ru.geekbrains.hexcore.model.Tile;
+import ru.geekbrains.hexcore.utils.Hex;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TileTest {
     static Tile testTile;
+
     @BeforeEach
     public void setNewTile() {
         testTile = new Tile(new Hex(0, 0, 0)) {
-            @Override
-            public void stepInEffect(Unit unit) {
-            }
 
-            @Override
-            public void stepInEffect() {
-            }
-
-            @Override
-            public void stepOutEffect(Unit unit) {
-            }
-
-            @Override
-            public void stepOutEffect() {
-            }
         };
     }
 
     @org.junit.jupiter.api.Test
     void setCoordinate() {
-        Hex hex = new Hex(1,0,-1);
-        testTile.setCoordinate(hex);
+        Hex hex = new Hex(1, 0, -1);
+        testTile.setHex(hex);
         assertEquals(hex, testTile.getHex());
-        testTile.setCoordinate(new Hex(0,0,0));
+        testTile.setHex(new Hex(0, 0, 0));
     }
 
     @org.junit.jupiter.api.Test
     void step() {
 
     }
-
 
 
     @org.junit.jupiter.api.Test

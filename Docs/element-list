@@ -1,5 +1,11 @@
 unnamed package
-ru.geekbrains
-ru.geekbrains.cnc.tiles
 ru.geekbrains.hexcore
-ru.geekbrains.hexcore.TileTypes
+ru.geekbrains.hexcore.core
+ru.geekbrains.hexcore.model
+ru.geekbrains.hexcore.model.interfaces
+ru.geekbrains.hexcore.tiles.terrain
+ru.geekbrains.hexcore.tiles.unit
+ru.geekbrains.hexcore.utils
+ru.geekbrains.viewer
+ru.geekbrains.viewer.interfaces
+ru.geekbrains.viewer.utils
