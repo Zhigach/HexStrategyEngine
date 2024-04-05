@@ -17,7 +17,7 @@ import java.util.*;
 import static java.lang.Math.abs;
 
 /**
- * Class Holder Singleton containing tiles Map
+ * Singleton paradigm class containing tiles Map and their processing
  */
 @Setter
 @Getter

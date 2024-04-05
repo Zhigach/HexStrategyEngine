@@ -154,7 +154,7 @@ public abstract class Tile implements DrawableTile {
         Hex current = destination.getHex();
         while (current != this.getHex()) {
             Hex previous = cameFrom.get(current);
-            result.addStep(current.getDelta(previous));
+            result.addStep(previous.getDelta(current));
             current = previous;
         }
         result.revert();
@@ -187,9 +187,12 @@ public abstract class Tile implements DrawableTile {
     public Path getLineOfSight(Tile to) {
         int dist = hex.findDistance(to.getHex());
         List<Hex> results = new ArrayList<>();
-        for (int i = 0; i <= dist; i++) {
+        Hex previousHex = this.getHex();
+        for (int i = 1; i <= dist; i++) {
             Hex interpolatedHex = HexMath.hexLinearInterpolation(hex, to.hex, 1.0 / dist * i);
-            results.add(new Hex(HexMath.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR())));
+            //Hex nextPoint = new Hex(HexMath.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR()));
+            results.add(previousHex.getDelta(interpolatedHex));
+            previousHex = interpolatedHex;
         }
         Path path = new Path(results);
         log.debug(String.format("Line of sight from %s -> %s requested. Returning %s", this, to, path));

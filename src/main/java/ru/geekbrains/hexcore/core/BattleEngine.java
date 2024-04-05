@@ -22,7 +22,7 @@ public class BattleEngine {
      */
     public void attack(@NotNull Unit attacker, @NotNull Unit target) {
         if (attacker.getHex().findDistance(target.getHex()) <= attacker.getAttack().getRange() &&
-                attacker.hasLOS(target)) { //FIXME exception caught
+                attacker.hasLOS(target)) {
             target.getDamage(attacker.attack(target));
             if (target.getCurrentHealth() <= 0) {
                 target.destroy();

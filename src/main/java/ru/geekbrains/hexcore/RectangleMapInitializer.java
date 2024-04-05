@@ -19,8 +19,6 @@ public class RectangleMapInitializer implements MapInitializer {
     }
 
     /**
-     * <a href="https://www.redblobgames.com/grids/hexagons/implementation.html#map">...</a>
-     *
      * @return
      */
     @Override

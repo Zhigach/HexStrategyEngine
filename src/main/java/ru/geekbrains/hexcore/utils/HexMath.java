@@ -38,9 +38,9 @@ public class HexMath {
     }
 
     public static Hex hexLinearInterpolation(Hex a, Hex b, double t) {
-        return new Hex(linearInterpolation(a.getQ(), b.getQ(), t),
-                linearInterpolation(a.getR(), b.getR(), t),
-                linearInterpolation(a.getS(), b.getS(), t));
+        return new Hex(linearInterpolation(a.getS(), b.getS(), t),
+                linearInterpolation(a.getQ(), b.getQ(), t),
+                linearInterpolation(a.getR(), b.getR(), t));
     }
 
 }

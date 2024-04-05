@@ -40,7 +40,9 @@ public class Main {
         Tile river4 = new River(-1, 1, 0);
 
         Unit lineInfantry = new LineInfantry(gameEngine.getPlayers().get(0), new Hex(0, 0, 0));
-        Unit dummyTarget = new LineInfantry(gameEngine.getPlayers().get(1), new Hex(0, -2, 2));
+        Unit dummyTarget = new LineInfantry(gameEngine.getPlayers().get(1), new Hex(1, -3, 2));
+
+        lineInfantry.hasLOS(dummyTarget);
 
         Path path = lineInfantry.getPathTo(forest2);
 

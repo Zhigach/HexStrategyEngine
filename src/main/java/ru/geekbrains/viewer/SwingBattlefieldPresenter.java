@@ -120,8 +120,6 @@ public class SwingBattlefieldPresenter implements BattlefieldPresenter {
             List<List<Tile>> hexes = battlefield.getTiles().values().stream().toList();
             log.info("Battlefield contains {} hexes to draw. Repainting...", hexes.size());
             for (Hex hex : battlefield.getTiles().keySet()) {
-                //Point hexCenter = pointyHexToPixel(hex);
-                //attlefield.draw(g2, hex, HEX_SIZE, new Point(hexCenter.x, hexCenter.y));
                 draw(hex, g2);
             }
         }

@@ -43,9 +43,9 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
      */
     @Override
     public void move(Hex hexDelta) {
+        reduceMovementPoints(1);
         getBattlefield().moveTile(this, hexDelta);
         hex = hex.add(hexDelta);
-        reduceMovementPoints(1);
     }
 
     /**

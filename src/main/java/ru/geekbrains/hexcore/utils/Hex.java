@@ -103,7 +103,7 @@ public class Hex {
      * @return delta that must be added to this in order to get to the destination
      */
     public Hex getDelta(Hex destination) {
-        return new Hex(s - destination.getS(), q - destination.getQ(), r - destination.getR());
+        return new Hex(destination.getS() - s, destination.getQ() - q, destination.getR() - r);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class Hex {
 
     @Override
     public int hashCode() {
-        return 1000 * getR() + 100 * getQ() + getS();
+        return 1000 * getS() + 100 * getQ() + getR();
     }
 
     public String toString() {
