@@ -13,6 +13,7 @@ import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.Math.abs;
 
@@ -131,8 +132,15 @@ public class Battlefield {
         return isPassable(hex, false);
     }
 
-    public List<Tile> getUnitsByCoordinate(Hex hex) {
-        return tiles.get(hex).subList(0, tiles.get(hex).size());
+    private List<Tile> getTilesByCoordinate(Hex hex) {
+        return tiles.get(hex);
+    }
+
+    public List<Unit> getUnitsByCoordinate(Hex hex) {
+        return getTilesByCoordinate(hex)
+                .stream().filter(t -> (t instanceof Unit))
+                .map(t -> ((Unit) t))
+                .collect(Collectors.toList());
     }
 
     public static void setDimensions(int top, int bottom, int left, int right) {

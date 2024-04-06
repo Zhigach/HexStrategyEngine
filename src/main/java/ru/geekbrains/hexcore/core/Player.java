@@ -12,14 +12,14 @@ import java.util.List;
 /**
  * Just a basic player class. Create your own in order to describe the way to take turn
  */
-@Deprecated
 @Data
 @RequiredArgsConstructor
-public class Player {
+public abstract class Player {
     @NonNull
-    String name;
-    List<Unit> units = new ArrayList<>();
-    Battlefield battlefield = Battlefield.getInstance();
+    public String name;
+    protected List<Unit> units = new ArrayList<>();
+    protected Battlefield battlefield = Battlefield.getInstance();
+    protected GameEngine gameEngine;
 
     /**
      * Override this in order to state how turns are taken
@@ -28,6 +28,10 @@ public class Player {
         for (Unit unit : units) {
             unit.restoreMovementPoint();
         }
+    }
+
+    public void addUnit(Unit unit) {
+        units.add(unit);
     }
 
     /**

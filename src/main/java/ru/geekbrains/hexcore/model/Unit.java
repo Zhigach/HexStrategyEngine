@@ -27,6 +27,7 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     protected Unit(Player owner, int maxHealth, int movementRange, Attack attack, Hex hex) {
         super(hex);
         this.owner = owner;
+        owner.addUnit(this);
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;
         this.movementRange = movementRange;

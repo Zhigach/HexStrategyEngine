@@ -6,6 +6,7 @@ import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.Unit;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,10 +23,19 @@ public class GameEngine {
     private final BattleEngine battleEngine;
 
     public GameEngine(List<Player> players, Battlefield battlefield) {
-        this.players = players;
+        this.players = new ArrayList<>();
+        players.forEach(this::addPlayer);
         this.battlefield = battlefield;
         this.movementEngine = new MovementEngine(battlefield);
         this.battleEngine = new BattleEngine(battlefield);
+    }
+
+    /**
+     * Add players to the engine
+     */
+    public void addPlayer(Player player) {
+        players.add(player);
+        player.setGameEngine(this);
     }
 
     /**
