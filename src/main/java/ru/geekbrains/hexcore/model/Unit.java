@@ -8,7 +8,6 @@ import ru.geekbrains.hexcore.model.interfaces.Attacking;
 import ru.geekbrains.hexcore.model.interfaces.Damageable;
 import ru.geekbrains.hexcore.model.interfaces.Destroyable;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
-import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 
@@ -16,7 +15,6 @@ import java.awt.*;
 @Setter
 @Slf4j
 public abstract class Unit extends Tile implements Movable, Attacking, Damageable, Destroyable {
-
     Player owner;
     protected int maxHealth;
     protected int currentHealth = maxHealth;
@@ -26,6 +24,7 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
 
     protected Unit(Player owner, int maxHealth, int movementRange, Attack attack, Hex hex) {
         super(hex);
+        passable = false;
         this.owner = owner;
         owner.addUnit(this);
         this.maxHealth = maxHealth;

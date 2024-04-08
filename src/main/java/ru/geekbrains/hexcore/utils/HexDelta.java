@@ -1,5 +1,7 @@
 package ru.geekbrains.hexcore.utils;
 
+import ru.geekbrains.hexcore.model.Hex;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

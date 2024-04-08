@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
 import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
-import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.hexcore.utils.HexMath;
 
 import java.awt.*;
@@ -121,6 +120,8 @@ public abstract class Tile implements DrawableTile {
      * @return Path containing deltas that should be added to current coordinate in order to get to destination
      */
     public Path getPathTo(Tile destination) {
+        log.debug("Path from {} to {} requested", this, destination);
+        Hex destinationHex = destination.getHex();
         Path result = new Path();
         LinkedList<Hex> frontier = new LinkedList<>();
         HashMap<Hex, Hex> cameFrom = new HashMap<>(); // key is where, value is from
@@ -140,10 +141,11 @@ public abstract class Tile implements DrawableTile {
                         cameFrom.put(neighbour, current);
                         reached.add(neighbour);
                     }
-                    if (neighbour.equals(destination.getHex())) {
-                        targetReached = true;
-                        break;
-                    }
+                }
+                if (neighbour.equals(destinationHex)) {
+                    targetReached = true;
+                    destinationHex = current;
+                    break;
                 }
             }
             if (targetReached) {
@@ -151,15 +153,20 @@ public abstract class Tile implements DrawableTile {
             }
         }
 
-        Hex current = destination.getHex();
-        while (current != this.getHex()) {
-            Hex previous = cameFrom.get(current);
-            result.addStep(previous.getDelta(current));
-            current = previous;
+        if (!targetReached) {
+            log.error("Target tile {} can't be reached from {}", destination, this);
+            throw new RuntimeException("Target tile can't be reached");
+        } else {
+            Hex current = destinationHex;
+            while (current != this.getHex()) {
+                Hex previous = cameFrom.get(current);
+                result.addStep(previous.getDelta(current));
+                current = previous;
+            }
+            result.revert();
+            log.debug("Path requested from {} -> {}. Returning {}", this, destination, result);
+            return result;
         }
-        result.revert();
-        log.debug(String.format("Path requested from %s -> %s. Returning %s", this, destination, result));
-        return result;
     }
 
     /**

@@ -1,10 +1,14 @@
-package ru.geekbrains.hexcore.utils;
+package ru.geekbrains.hexcore.model;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.utils.HexDelta;
+import ru.geekbrains.hexcore.utils.HexMath;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static java.lang.Math.*;
 
@@ -60,7 +64,7 @@ public class Hex {
         for (int i = 0; i < 6; i++) {
             result.add(this.add(HexDelta.HEX_DELTAS.get(i)));
         }
-        log.debug(String.format("Contacting hexes requested for %s. Returning %s", this, result));
+        log.trace(String.format("Contacting hexes requested for %s. Returning %s", this, result));
         return result;
     }
 
@@ -70,14 +74,14 @@ public class Hex {
      * @param range range within
      * @return List of hexes within range
      */
-    public List<Hex> getHexesInRange(int range) {
-        List<Hex> results = new ArrayList<>();
+    public Set<Hex> getHexesInRange(int range) {
+        Set<Hex> results = new HashSet<>();
         for (int q = -range; q <= range; q++) {
             int lowLimit = max(-range, -q - range);
             int upperLimit = min(range, -q + range);
             for (int r = lowLimit; r <= upperLimit; r++) {
                 int s = -q - r;
-                results.add(new Hex(s, q, r));
+                results.add(new Hex(this.s + s, this.q + q, this.r + r));
             }
         }
         return results;

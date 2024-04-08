@@ -1,7 +1,6 @@
 package ru.geekbrains.hexcore.model;
 
 import ru.geekbrains.hexcore.model.interfaces.Container;
-import ru.geekbrains.hexcore.utils.Hex;
 
 import java.awt.*;
 
@@ -36,7 +35,7 @@ public abstract class Terrain extends Tile implements Container {
         g2.setColor(FILL_COLOR);
         g2.fillPolygon(polygon);
     }
-    
+
     @Override
     public void setAttachedTile(Tile tile) {
         if (tile instanceof Unit) {

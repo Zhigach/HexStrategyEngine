@@ -3,8 +3,8 @@ package ru.geekbrains.hexcore.core;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
+import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Unit;
-import ru.geekbrains.hexcore.utils.Hex;
 
 /**
  * Supplementary Engine that manages Unit movements

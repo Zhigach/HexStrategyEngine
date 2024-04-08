@@ -3,13 +3,13 @@ package ru.geekbrains.hexcore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import ru.geekbrains.hexcore.model.Hex;
 import ru.geekbrains.hexcore.model.Terrain;
 import ru.geekbrains.hexcore.model.Tile;
 import ru.geekbrains.hexcore.model.Unit;
 import ru.geekbrains.hexcore.model.interfaces.MapInitializer;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
 import ru.geekbrains.hexcore.tiles.terrain.Plain;
-import ru.geekbrains.hexcore.utils.Hex;
 import ru.geekbrains.viewer.interfaces.BattlefieldPresenter;
 
 import java.util.*;
@@ -25,14 +25,14 @@ import static java.lang.Math.abs;
 @Slf4j
 public class Battlefield {
     private BattlefieldPresenter battlefieldPresenter;
-    static int top;
-    static int bottom;
-    static int left;
-    static int right;
-
     private Map<Hex, List<Tile>> tiles = new HashMap<>(); //TODO make map of <Hex, Container>. Refactor logic
     @Setter
     static MapInitializer mapInitializer;
+    public static int top;
+    public static int bottom;
+    public static int left;
+    public static int right;
+    private boolean isInitialized = false;
 
     public int getHorizontalSize() {
         return abs(left - right);
@@ -107,15 +107,38 @@ public class Battlefield {
         }
     }
 
+    private boolean isContainsHex(Hex hex) {
+        return tiles.containsKey(hex);
+    }
+
+    private List<Tile> getTilesByCoordinate(Hex hex) {
+        if (isContainsHex(hex)) {
+            return tiles.get(hex);
+        } else {
+            return Collections.emptyList();
+        }
+    }
 
     public Terrain getTerrainByCoordinate(Hex hex) {
-        Tile terrain = tiles.get(hex).get(0);
-        if (terrain instanceof Terrain) {
-            return (Terrain) terrain;
+        List<Tile> tiles1 = getTilesByCoordinate(hex);
+        if (tiles1.isEmpty()) {
+            return null;
         } else {
-            log.error(String.format("Default terrain was not set at %s.", hex));
-            return new Plain(hex);
+            Tile terrain = tiles1.get(0);
+            if (terrain instanceof Terrain) {
+                return (Terrain) terrain;
+            } else {
+                log.error(String.format("Default terrain was not set at %s.", hex));
+                return new Plain(hex);
+            }
         }
+    }
+
+    public List<Unit> getUnitsByCoordinate(Hex hex) {
+        return getTilesByCoordinate(hex)
+                .stream().filter(t -> (t instanceof Unit))
+                .map(t -> ((Unit) t))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -125,22 +148,15 @@ public class Battlefield {
      * @return bool
      */
     public boolean isPassable(Hex hex, boolean passableOnly) {
-        return getTerrainByCoordinate(hex).isPassable(passableOnly);
+        if (isContainsHex(hex)) {
+            return getTilesByCoordinate(hex).stream().allMatch(t -> t.isPassable(passableOnly));
+            //return getTerrainByCoordinate(hex).isPassable(passableOnly);
+        }
+        return false;
     }
 
     public boolean isPassable(Hex hex) {
         return isPassable(hex, false);
-    }
-
-    private List<Tile> getTilesByCoordinate(Hex hex) {
-        return tiles.get(hex);
-    }
-
-    public List<Unit> getUnitsByCoordinate(Hex hex) {
-        return getTilesByCoordinate(hex)
-                .stream().filter(t -> (t instanceof Unit))
-                .map(t -> ((Unit) t))
-                .collect(Collectors.toList());
     }
 
     public static void setDimensions(int top, int bottom, int left, int right) {
@@ -161,6 +177,7 @@ public class Battlefield {
         this.tiles = tiles;
         log.info("Map initialization completed successfully.");
         updateView();
+        isInitialized = true;
     }
 
 

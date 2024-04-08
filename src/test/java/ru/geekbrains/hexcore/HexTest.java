@@ -1,9 +1,10 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.Test;
-import ru.geekbrains.hexcore.utils.Hex;
+import ru.geekbrains.hexcore.model.Hex;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -75,7 +76,7 @@ class HexTest {
 
     @org.junit.jupiter.api.Test
     void getSurroundingHexes() {
-        List<Hex> area = testHex.getHexesInRange(1);
+        Set<Hex> area = testHex.getHexesInRange(1);
         for (Hex hex : area) {
             System.out.println(hex.toString());
         }
@@ -84,7 +85,7 @@ class HexTest {
 
     @org.junit.jupiter.api.Test
     void getSurroundingHexesTwo() {
-        List<Hex> area = testHex.getHexesInRange(2);
+        Set<Hex> area = testHex.getHexesInRange(2);
         for (Hex hex : area) {
             System.out.println(hex.toString());
         }
