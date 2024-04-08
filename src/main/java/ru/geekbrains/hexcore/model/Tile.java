@@ -6,14 +6,11 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.Battlefield;
 import ru.geekbrains.hexcore.Path;
-import ru.geekbrains.hexcore.model.interfaces.DrawableTile;
 import ru.geekbrains.hexcore.utils.HexMath;
 
 import java.awt.*;
 import java.util.List;
 import java.util.*;
-
-import static java.lang.Math.sqrt;
 
 
 /**
@@ -21,7 +18,7 @@ import static java.lang.Math.sqrt;
  */
 @NoArgsConstructor
 @Slf4j
-public abstract class Tile implements DrawableTile {
+public abstract class Tile {
 
     @Getter
     @Setter
@@ -189,7 +186,7 @@ public abstract class Tile implements DrawableTile {
      * Get Path to target tile. Obtained by linear interpolation
      *
      * @param to target Tile
-     * @return Path to target Tile
+     * @return Path (Set of HexDeltas) to target Tile
      */
     public Path getLineOfSight(Tile to) {
         int dist = hex.findDistance(to.getHex());
@@ -197,7 +194,6 @@ public abstract class Tile implements DrawableTile {
         Hex previousHex = this.getHex();
         for (int i = 1; i <= dist; i++) {
             Hex interpolatedHex = HexMath.hexLinearInterpolation(hex, to.hex, 1.0 / dist * i);
-            //Hex nextPoint = new Hex(HexMath.roundHex(interpolatedHex.getS(), interpolatedHex.getQ(), interpolatedHex.getR()));
             results.add(previousHex.getDelta(interpolatedHex));
             previousHex = interpolatedHex;
         }
@@ -234,13 +230,4 @@ public abstract class Tile implements DrawableTile {
         return String.format("%s@%s", this.getClass().getSimpleName(), hex);
     }
 
-    /**
-     * Method to draw Tile
-     */
-    @Override
-    public void draw(Graphics2D g2, int size, Point centerPoint) {
-        g2.drawString(
-                String.format(String.valueOf(
-                        this.getHex())), (int) (centerPoint.x - sqrt(3) * size / 2), centerPoint.y);
-    }
 }

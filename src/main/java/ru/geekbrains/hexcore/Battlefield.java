@@ -42,6 +42,12 @@ public class Battlefield {
         return abs(bottom - top);
     }
 
+    /**
+     * Base logic method to put Tile on a specific coordinate (hex)
+     *
+     * @param hex     target coordinate
+     * @param newTile Tile to put
+     */
     public void putTile(Hex hex, Tile newTile) {
         if (hex == null) {
             log.error("Error occurred.", new IllegalArgumentException("Coordinate can't be null"));
@@ -88,16 +94,26 @@ public class Battlefield {
         }
     }
 
-    public <T extends Tile & Movable> void moveTile(T tile, Hex delta) {
-        Hex hex = tile.getHex();
+    /**
+     * Move Tile by HexDelta
+     *
+     * @param movableTile Movable Tile to be moved
+     * @param delta       HexDelta to be moved by
+     * @param <T>         Movable implementing movable interface
+     */
+    public <T extends Tile & Movable> void moveTile(T movableTile, Hex delta) {
+        Hex hex = movableTile.getHex();
         getTerrainByCoordinate(hex).unsetAttachedTile();
-        getTerrainByCoordinate(hex.add(delta)).setAttachedTile(tile);
-        getTiles().get(hex).remove(tile);
-        putTile(hex.add(delta), tile);
-        log.info("Movable tile {} moved from {} to {}", tile, hex, hex.add(delta));
+        getTerrainByCoordinate(hex.add(delta)).setAttachedTile(movableTile);
+        getTiles().get(hex).remove(movableTile);
+        putTile(hex.add(delta), movableTile);
+        log.info("Movable tile {} moved from {} to {}", movableTile, hex, hex.add(delta));
         updateView();
     }
 
+    /**
+     * Remove specified tile from battlefield. In case of Unit linkage with Player removed by unit itself
+     */
     public void removeTile(Tile tile) {
         if (tile instanceof Terrain) {
             log.error("Terrain can't be removed in basic realization");
@@ -107,10 +123,21 @@ public class Battlefield {
         }
     }
 
+    /**
+     * Check if Hex coordinate is present on Battlefield. Method is used to check whether we are within the battlefield
+     *
+     * @param hex coordinate
+     */
     private boolean isContainsHex(Hex hex) {
         return tiles.containsKey(hex);
     }
 
+    /**
+     * Get Tiles (any, i.e. Units, Terrain and their inheritors) located at specified Hex coordinate
+     *
+     * @param hex coordinate
+     * @return List of tiles or empty List in case of request outside the Battlefield
+     */
     private List<Tile> getTilesByCoordinate(Hex hex) {
         if (isContainsHex(hex)) {
             return tiles.get(hex);
@@ -119,12 +146,18 @@ public class Battlefield {
         }
     }
 
+    /**
+     * Get Terrain at specified Hex coordinate.
+     *
+     * @param hex coordinate
+     * @return returns null in case of request for coordinate that outside Battlefield limits
+     */
     public Terrain getTerrainByCoordinate(Hex hex) {
         List<Tile> tiles1 = getTilesByCoordinate(hex);
         if (tiles1.isEmpty()) {
             return null;
         } else {
-            Tile terrain = tiles1.get(0);
+            Tile terrain = tiles1.get(0); //Current pu logic is that is Terrain is always first
             if (terrain instanceof Terrain) {
                 return (Terrain) terrain;
             } else {
@@ -134,6 +167,11 @@ public class Battlefield {
         }
     }
 
+    /**
+     * Get Units at specified Hex coordinate.
+     *
+     * @param hex coordinate
+     */
     public List<Unit> getUnitsByCoordinate(Hex hex) {
         return getTilesByCoordinate(hex)
                 .stream().filter(t -> (t instanceof Unit))
@@ -147,10 +185,9 @@ public class Battlefield {
      * @param hex coordinate of interest
      * @return bool
      */
-    public boolean isPassable(Hex hex, boolean passableOnly) {
+    public boolean isPassable(Hex hex, boolean inSingleTurn) {
         if (isContainsHex(hex)) {
-            return getTilesByCoordinate(hex).stream().allMatch(t -> t.isPassable(passableOnly));
-            //return getTerrainByCoordinate(hex).isPassable(passableOnly);
+            return getTilesByCoordinate(hex).stream().allMatch(t -> t.isPassable(inSingleTurn));
         }
         return false;
     }
@@ -159,6 +196,14 @@ public class Battlefield {
         return isPassable(hex, false);
     }
 
+    /**
+     * Set map size. Only rectangular maps are supported
+     *
+     * @param top    top row number
+     * @param bottom bottom row number
+     * @param left   left column number
+     * @param right  right column number
+     */
     public static void setDimensions(int top, int bottom, int left, int right) {
         Battlefield.top = top;
         Battlefield.bottom = bottom;
@@ -166,6 +211,9 @@ public class Battlefield {
         Battlefield.right = right;
     }
 
+    /**
+     * Proxy call MapInitializer, that is intended to add Hex coordinates to the map and place Plain Terrain
+     */
     public void initializeMap() {
         final Map<Hex, List<Tile>> tiles;
         if (mapInitializer == null) {
@@ -181,6 +229,9 @@ public class Battlefield {
     }
 
 
+    /**
+     * Supplementary internal class for Singleton template
+     */
     private static class BattlefieldHolder {
         protected static final Battlefield HOLDER_INSTANCE = new Battlefield();
     }
@@ -188,10 +239,16 @@ public class Battlefield {
     private Battlefield() {
     }
 
+    /**
+     * Get Singleton battlefield
+     */
     public static Battlefield getInstance() {
         return BattlefieldHolder.HOLDER_INSTANCE;
     }
 
+    /**
+     * Call for View update in BattlefieldPresenter
+     */
     public void updateView() {
         battlefieldPresenter.draw();
     }

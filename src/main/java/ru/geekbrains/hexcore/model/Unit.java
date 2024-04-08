@@ -9,8 +9,6 @@ import ru.geekbrains.hexcore.model.interfaces.Damageable;
 import ru.geekbrains.hexcore.model.interfaces.Destroyable;
 import ru.geekbrains.hexcore.model.interfaces.Movable;
 
-import java.awt.*;
-
 @Getter
 @Setter
 @Slf4j
@@ -34,13 +32,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         restoreMovementPoint();
     }
 
-
-    /**
-     * Method to move Unit. Touched Terrains effects triggered automatically.
-     * Unit attaches and detaches from Terrains while moving.
-     *
-     * @param hexDelta list of hexes
-     */
     @Override
     public void move(Hex hexDelta) {
         reduceMovementPoints(1);
@@ -48,18 +39,12 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         hex = hex.add(hexDelta);
     }
 
-    /**
-     * Restore movement points up to its maximum
-     */
+    @Override
     public void restoreMovementPoint() {
         movementPoints = movementRange;
     }
 
-    /**
-     * Spend movement when Unit is moved
-     *
-     * @param value how mn=any movement points been used
-     */
+    @Override
     public void reduceMovementPoints(int value) {
         movementPoints -= value;
     }
@@ -70,9 +55,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         return new Damage(attack.getType(), attack.getDamageAmount());
     }
 
-    /**
-     *
-     */
     @Override
     public void getDamage(Damage damage) {
         this.currentHealth -= damage.getDamage();
@@ -85,23 +67,9 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
         log.debug("{} dies", this);
     }
 
-    /**
-     *
-     */
     @Override
     public void stop() {
         reduceMovementPoints(getMovementPoints());
-    }
-
-
-    @Override
-    public void draw(Graphics2D g2, int size, Point centerPoint) {
-        g2.setColor(Color.BLACK);
-        String shortName = getClass().getSimpleName().chars().filter(Character::isUpperCase).map(c -> ((char) c))
-                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
-        g2.drawString(String.format(shortName + "(%s/%s)", currentHealth, maxHealth),
-                centerPoint.x, centerPoint.y);
     }
 
     @Override

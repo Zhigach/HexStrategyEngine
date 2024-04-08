@@ -19,6 +19,11 @@ public class Path {
         this.hexList = new ArrayList<>();
     }
 
+    /**
+     * List wrapper class. Designed to contain only enum form HexDeltas (single steps), not absolute coordinates
+     *
+     * @param hexList initial List object (can be empty). Method contains validation
+     */
     public Path(List<Hex> hexList) {
         if (!isValidDeltaList(hexList))
             throw new IllegalArgumentException("Provided path is invalid. Only deltas can be used");
@@ -26,7 +31,7 @@ public class Path {
     }
 
     /**
-     * Method to add hex delta
+     * Add step (Hex coordinate delta) to the existing Path. Passed parameter validated first.
      *
      * @param hexDelta single step delta in hex coordinates
      */
