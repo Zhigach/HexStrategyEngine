@@ -1,6 +1,6 @@
 package ru.geekbrains.hexcore.utils;
 
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.core.model.tiles.Hex;
 
 import java.util.ArrayList;
 import java.util.HashSet;

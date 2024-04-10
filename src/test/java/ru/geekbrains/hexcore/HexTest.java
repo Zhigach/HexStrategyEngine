@@ -1,7 +1,7 @@
 package ru.geekbrains.hexcore;
 
 import org.junit.jupiter.api.Test;
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.core.model.tiles.Hex;
 
 import java.util.List;
 import java.util.Set;

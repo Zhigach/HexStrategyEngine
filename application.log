@@ -1,0 +1,72 @@
+2024-04-08 18:54:23,335 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,338 DEBUG [main] r.g.h.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-08 18:54:23,341 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,342 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-08 18:54:23,345 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,345 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-08 18:54:23,347 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,348 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-08 18:54:23,349 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,350 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-08 18:54:23,353 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-08 18:54:23,353 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:29:39,337 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,340 DEBUG [main] r.g.h.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-10 08:29:39,341 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,343 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:29:39,345 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,345 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:29:39,347 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,347 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:29:39,348 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,349 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:29:39,350 INFO [main] r.g.h.m.Tile [Tile.java:38] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:29:39,351 DEBUG [main] r.g.h.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:33:20,553 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,557 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-10 08:33:20,560 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,561 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:33:20,563 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,563 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:33:20,565 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,565 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:33:20,566 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,567 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:33:20,568 INFO [main] r.g.h.m.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:33:20,569 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:46:03,321 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,324 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-10 08:46:03,325 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,327 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:46:03,328 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,328 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:46:03,329 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,330 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:46:03,331 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,331 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 08:46:03,333 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 08:46:03,333 DEBUG [main] r.g.h.c.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:03:33,687 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,691 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-10 10:03:33,693 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,695 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:03:33,697 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,697 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:03:33,700 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,701 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:03:33,704 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,704 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:03:33,707 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:03:33,708 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:33:06,482 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,485 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-10 10:33:06,487 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,488 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:33:06,489 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,490 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:33:06,491 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,491 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:33:06,492 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,492 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-10 10:33:06,494 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
+2024-04-10 10:33:06,494 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.

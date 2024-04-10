@@ -1,7 +1,7 @@
 package ru.geekbrains.hexcore.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.core.model.tiles.Hex;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.round;

@@ -1,6 +1,6 @@
 package ru.geekbrains.viewer.interfaces;
 
-import ru.geekbrains.hexcore.model.Hex;
+import ru.geekbrains.hexcore.core.model.tiles.Hex;
 
 import java.awt.*;
 
