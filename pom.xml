@@ -6,7 +6,7 @@
 
     <groupId>ru.geekbrains</groupId>
     <artifactId>HexStrategyEngine</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Hex strategy library</description>

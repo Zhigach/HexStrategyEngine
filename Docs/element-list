@@ -1,9 +1,0 @@
-ru.geekbrains.hexcore.core.model.attack
-ru.geekbrains.hexcore.core.model.game
-ru.geekbrains.hexcore.core.model.interfaces
-ru.geekbrains.hexcore.core.model.tiles
-ru.geekbrains.hexcore.core.model.tiles.terrain
-ru.geekbrains.hexcore.core.service
-ru.geekbrains.hexcore.utils
-ru.geekbrains.hexcore.utils.interfaces
-ru.geekbrains.viewer.interfaces
