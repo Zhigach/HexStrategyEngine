@@ -7,8 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.core.service.Battlefield;
 import ru.geekbrains.hexcore.utils.HexMath;
 
-import java.awt.*;
-import java.util.List;
 import java.util.*;
 
 
@@ -26,7 +24,6 @@ public abstract class Tile {
     protected boolean passable = true;
     protected boolean blockLOS;
     protected boolean enteringUnitMustStop = false;
-    protected Color FILL_COLOR = Color.WHITE;
 
 
     /**
@@ -96,7 +93,7 @@ public abstract class Tile {
             step++;
             rounds.add(new ArrayList<>());
             for (Hex hex : rounds.get(step - 1)) {
-                List<Hex> neighbours = hex.getContactingHexes();
+                Set<Hex> neighbours = hex.getContactingHexes();
                 for (Hex neighbour : neighbours) {
                     if (!visited.contains(neighbour) && battlefield.isPassable(neighbour)) {
                         visited.add(neighbour);
@@ -128,7 +125,7 @@ public abstract class Tile {
         reached.add(this.getHex());
         while (!frontier.isEmpty()) {
             Hex current = frontier.poll();
-            List<Hex> neighbours = current.getContactingHexes();
+            Set<Hex> neighbours = current.getContactingHexes();
             for (Hex neighbour : neighbours) {
                 if (battlefield.isPassable(neighbour) && !reached.contains(neighbour)) {
                     frontier.add(neighbour);

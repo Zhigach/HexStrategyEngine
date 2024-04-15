@@ -15,7 +15,7 @@ import ru.geekbrains.hexcore.core.model.interfaces.Movable;
 @Setter
 @Slf4j
 public abstract class Unit extends Tile implements Movable, Attacking, Damageable, Destroyable {
-    Player owner;
+    private Player owner;
     protected int maxHealth;
     protected int currentHealth = maxHealth;
     protected int movementRange;
@@ -61,7 +61,6 @@ public abstract class Unit extends Tile implements Movable, Attacking, Damageabl
     public void getDamage(Damage damage) {
         this.currentHealth -= damage.getDamage();
         log.info("{} received {} damage", this, damage);
-
     }
 
     @Override

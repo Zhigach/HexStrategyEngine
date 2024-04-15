@@ -25,11 +25,7 @@ public abstract class Player {
     /**
      * Override this in order to state how turns are taken
      */
-    public void takeTurn() {
-        for (Unit unit : units) {
-            unit.restoreMovementPoint();
-        }
-    }
+    public abstract void takeTurn();
 
     public void addUnit(Unit unit) {
         units.add(unit);
@@ -39,6 +35,7 @@ public abstract class Player {
      * When killed, unit must be removed from a list
      */
     public void destroyUnit(Unit unit) {
+        unit.destroy();
         units.remove(unit);
     }
 }

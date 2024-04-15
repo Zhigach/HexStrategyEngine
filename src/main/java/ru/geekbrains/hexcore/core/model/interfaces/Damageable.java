@@ -5,6 +5,6 @@ import ru.geekbrains.hexcore.core.model.attack.Damage;
 /**
  * Interface for classes that can be damaged
  */
-public interface Damageable extends Destroyable {
+public interface Damageable {
     void getDamage(Damage damage);
 }

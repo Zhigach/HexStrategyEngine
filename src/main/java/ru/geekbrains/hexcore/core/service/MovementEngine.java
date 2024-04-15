@@ -32,6 +32,6 @@ public class MovementEngine {
                 break;
             }
         }
-        log.debug("{} moved using path: {}. New coordinate is {}", this, path, unit.getHex());
+        log.debug("{} moved using path: {}. New coordinate is {}", unit, path, unit.getHex());
     }
 }

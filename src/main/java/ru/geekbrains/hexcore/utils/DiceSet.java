@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @Getter
 public class DiceSet {
-    Set<Dices> diceSet = new HashSet<>();
+    private Set<Dices> diceSet = new HashSet<>();
 
     public void addDices(Dices dices) {
         diceSet.add(dices);

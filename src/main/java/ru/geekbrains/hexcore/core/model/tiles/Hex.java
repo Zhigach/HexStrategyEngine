@@ -5,9 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import ru.geekbrains.hexcore.utils.HexDelta;
 import ru.geekbrains.hexcore.utils.HexMath;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static java.lang.Math.*;
@@ -55,12 +53,12 @@ public class Hex {
     }
 
     /**
-     * Returns a list of contacting hexes
+     * Returns a set of contacting hexes
      *
      * @return list of contacting hexes regardless of their properties
      */
-    public List<Hex> getContactingHexes() {
-        List<Hex> result = new ArrayList<>(6);
+    public final Set<Hex> getContactingHexes() {
+        Set<Hex> result = new HashSet<>(6);
         for (int i = 0; i < 6; i++) {
             result.add(this.add(HexDelta.HEX_DELTAS.get(i)));
         }
