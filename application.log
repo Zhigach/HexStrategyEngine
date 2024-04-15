@@ -70,3 +70,15 @@
 2024-04-10 10:33:06,492 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
 2024-04-10 10:33:06,494 INFO [main] r.g.h.c.m.t.Tile [Tile.java:37] -- New Tile  created. Putting it onto the Battlefield
 2024-04-10 10:33:06,494 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-15 16:35:40,774 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,778 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:93] -- New Tile (@<0,0,0>) is added to the battlefield at empty hex <0,0,0>.
+2024-04-15 16:35:40,780 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,781 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-15 16:35:40,782 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,783 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-15 16:35:40,784 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,784 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-15 16:35:40,786 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,786 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
+2024-04-15 16:35:40,789 INFO [main] r.g.h.c.m.t.Tile [Tile.java:34] -- New Tile  created. Putting it onto the Battlefield
+2024-04-15 16:35:40,789 DEBUG [main] r.g.h.c.s.Battlefield [Battlefield.java:88] -- New Tile (@<0,0,0>) is added to the battlefield at <0,0,0>.
