@@ -3,6 +3,7 @@ package ru.geekbrains.hexcore.utils;
 import lombok.AllArgsConstructor;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 /**
  * Supplementary class to roll specified set of dices
@@ -16,6 +17,14 @@ public class DiceRoller {
      */
     public static int getResult(DiceSet attackDiceSet) {
         random = new Random(System.currentTimeMillis());
-        return attackDiceSet.getDiceSet().stream().mapToInt(ds -> ds.n() * random.nextInt(1, ds.d() + 1)).sum();
+        return attackDiceSet.getDiceSet().stream()
+                .mapToInt(dices ->
+                        IntStream
+                                .range(0, dices.n())
+                                .map(d -> random.nextInt(1, dices.d() + 1))
+                                .sum())
+                .sum();
+        //.mapToInt(ds -> ds.n() * random.nextInt(1, ds.d() + 1))
+        //.sum();
     }
 }
