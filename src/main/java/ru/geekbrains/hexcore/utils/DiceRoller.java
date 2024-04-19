@@ -24,7 +24,5 @@ public class DiceRoller {
                                 .map(d -> random.nextInt(1, dices.d() + 1))
                                 .sum())
                 .sum();
-        //.mapToInt(ds -> ds.n() * random.nextInt(1, ds.d() + 1))
-        //.sum();
     }
 }
