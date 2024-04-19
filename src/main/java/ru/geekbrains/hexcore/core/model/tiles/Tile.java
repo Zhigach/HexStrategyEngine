@@ -137,7 +137,11 @@ public abstract class Tile {
                 }
                 if (neighbour.equals(destinationHex)) {
                     targetReached = true;
-                    destinationHex = current;
+                    if (battlefield.isPassable(neighbour)) {
+                        destinationHex = neighbour;
+                    } else {
+                        destinationHex = current;
+                    }
                     break;
                 }
             }
